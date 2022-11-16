@@ -1,5 +1,7 @@
+import LandingNav from './@components/@common/LandingNav';
+
 function App() {
-  return;
+  return <LandingNav></LandingNav>;
 }
 
 export default App;
