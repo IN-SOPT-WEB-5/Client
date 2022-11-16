@@ -15,6 +15,7 @@ const colors = {
 
 function FONT({ weight, size, lineHeight }) {
   return `
+      font-family: 'NanumBarunGothic';
       font-weight: ${weight};
       font-size: ${size}rem;
       line-height: ${lineHeight}%;
