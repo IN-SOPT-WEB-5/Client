@@ -1,5 +1,7 @@
+import Booking from './@components/Booking';
+
 function App() {
-  return;
+  return <Booking />;
 }
 
 export default App;
