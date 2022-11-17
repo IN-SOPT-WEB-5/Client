@@ -1,7 +1,12 @@
 import React from 'react';
+import CardPoster from './CardPoster';
 
 function MovieSelect() {
-  return <div>MovieSelect</div>;
+  return (
+    <div>
+      <CardPoster />
+    </div>
+  );
 }
 
 export default MovieSelect;

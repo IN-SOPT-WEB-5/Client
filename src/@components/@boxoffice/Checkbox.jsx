@@ -23,7 +23,7 @@ function Checkbox() {
 export default Checkbox;
 
 const SearchImg = styled.img`
-  width: 1.5rem;
+  width: 1.6rem;
 `;
 
 const LeftSection = styled.div`

@@ -25,10 +25,10 @@ const NavTitle = styled.p`
 `;
 
 const NavBtn = styled.button`
-  border: 1px solid #a7a7a7;
+  /* border: 1px solid #a7a7a7; */
   margin: 0%;
   /* width: 1110px; */
-  height: 39px;
+  /* height: 39px; */
   text-align: left;
 `;
 
