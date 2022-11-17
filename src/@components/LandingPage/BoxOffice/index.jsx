@@ -17,7 +17,7 @@ const MovieCategoryBox = styled.div`
 `;
 
 const MovieCategory = styled.article`
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme, isSelected }) => (isSelected ? theme.colors.white : theme.colors.gray3)};
   font: ${({ theme }) => theme.fonts.headline3};
 `;
 
@@ -54,7 +54,9 @@ const SearchBox = styled.article`
   margin: 0 6.6rem;
 `;
 
-const SearchImage = styled.img``;
+const SearchImage = styled.img`
+  margin-right: 2rem;
+`;
 
 const SearchLink = styled.strong`
   color: ${({ theme }) => theme.colors.white};
@@ -64,15 +66,15 @@ export default function BoxOffice() {
   return (
     <Root>
       <MovieCategoryBox>
-        <MovieCategory>박스오피스</MovieCategory>
+        <MovieCategory isSelected={true}>박스오피스</MovieCategory>
         <DivisionBar></DivisionBar>
-        <MovieCategory>상영예정작</MovieCategory>
+        <MovieCategory isSelected={false}>상영예정작</MovieCategory>
       </MovieCategoryBox>
       <MovieInfoWrapper>
-        <MovieInfo />
-        <MovieInfo />
-        <MovieInfo />
-        <MovieInfo />
+        <MovieInfo isRepresent={true} />
+        <MovieInfo isRepresent={false} />
+        <MovieInfo isRepresent={false} />
+        <MovieInfo isRepresent={false} />
       </MovieInfoWrapper>
       <SearchWrapper>
         <SearchBox>

@@ -3,6 +3,7 @@ import wacanda from '../../../assets/wacandaImg.png';
 import likeIcon from '../../../assets/likeIcon.svg';
 import mxIcon from '../../../assets/mxIcon.svg';
 import dolbyIcon from '../../../assets/dolbyIcon.svg';
+import starIcon from '../../../assets/starIcon.svg';
 
 const InfoContainer = styled.article`
   width: 24.5rem;
@@ -59,11 +60,26 @@ const Dday = styled.strong`
   font: ${({ theme }) => theme.fonts.body2};
 `;
 
+const StarBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const StarImg = styled.img`
+  margin-right: 1rem;
+  padding-bottom: 0.4rem;
+`;
+
+const StarScore = styled.strong`
+  font: ${({ theme }) => theme.fonts.body2};
+  color: ${({ theme }) => theme.colors.white};
+`;
+
 const TicketingPercent = styled.strong`
   font: ${({ theme }) => theme.fonts.body2};
 `;
 
-export default function MovieInfo() {
+export default function MovieInfo({ isRepresent }) {
   return (
     <InfoContainer>
       <MoviePoster src={wacanda} alt="movie-poster"></MoviePoster>
@@ -71,15 +87,28 @@ export default function MovieInfo() {
         <TicketingBtn>예매</TicketingBtn>
         <LikeBtn src={likeIcon} alt="like-icon" />
       </ButtonWrapper>
-      <InfoBox>
-        <Dday>D-6</Dday>
-        <DivisionBar />
-        <TicketingPercent>예매율 28.2%</TicketingPercent>
-        <DivisionBar />
-        <InfoIcon src={mxIcon} alt="info-icon" />
-        <DivisionBar />
-        <InfoIcon src={dolbyIcon} alt="info-icon" />
-      </InfoBox>
+      {isRepresent ? (
+        <InfoBox>
+          <Dday>D-6</Dday>
+          <DivisionBar />
+          <TicketingPercent>예매율 28.2%</TicketingPercent>
+          <DivisionBar />
+          <InfoIcon src={mxIcon} alt="info-icon" />
+          <DivisionBar />
+          <InfoIcon src={dolbyIcon} alt="info-icon" />
+        </InfoBox>
+      ) : (
+        <InfoBox>
+          <StarBox>
+            <StarImg src={starIcon} />
+            <StarScore>9.5</StarScore>
+          </StarBox>
+          <DivisionBar />
+          <TicketingPercent>예매율 28.2%</TicketingPercent>
+          <DivisionBar />
+          <InfoIcon src={mxIcon} alt="info-icon" />
+        </InfoBox>
+      )}
     </InfoContainer>
   );
 }
