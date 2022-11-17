@@ -5,6 +5,8 @@ const colors = {
   main_darken: '#351f66',
   sub_mint: '#73bcc7',
   sub_blue: '#344690',
+  blue2: '#0059DE',
+  red: '#BC0000',
   gray1: '#222222',
   gray2: '#444444',
   gray3: '#666666',

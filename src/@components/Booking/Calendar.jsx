@@ -76,6 +76,7 @@ const St = {
         : date === 13
         ? theme.colors.red
         : theme.colors.gray5};
+    background-color: ${({ theme, date }) => (date === 6 ? theme.colors.main_purple : '')};
   `,
   Date: styled.p`
     ${({ theme }) => theme.fonts.headline3}
