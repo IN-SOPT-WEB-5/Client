@@ -21,68 +21,62 @@ const Wrapper = styled.div`
   background-color: #222222;
 `;
 
-const TopMiniNav = styled.div`
-  display: flex;
-  background-color: #222222;
-  width: 1280px;
-`;
-
 const VipMenu = styled.p`
   font-family: 'NanumBarunGothicOTF';
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
-  width: 74px;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  width: 7.4rem;
   color: #aaaaaa;
-  margin: 14px 20px 0px 90px;
+  margin: 1.4rem 2rem 0rem 9rem;
 `;
 
 const MembershipMenu = styled.p`
   font-family: 'NanumBarunGothicOTF';
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
-  width: 35px;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  width: 3.5rem;
   color: #aaaaaa;
-  margin: 14px 20px 0px 0px;
+  margin: 1.4rem 2rem 0rem 0rem;
 `;
 
 const CustomerCenterMenu = styled.p`
   font-family: 'NanumBarunGothicOTF';
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
-  width: 47px;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  width: 4.7rem;
   color: #aaaaaa;
-  margin: 14px 0px 0px 0px;
+  margin: 1.4rem 0rem 0rem 0rem;
 `;
 
 const Login = styled.p`
   font-family: 'NanumBarunGothicOTF';
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
-  width: 35px;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  width: 3.5rem;
   color: #aaaaaa;
-  margin: 14px 20px 0px 0px;
+  margin: 1.4rem 2rem 0rem 0rem;
 `;
 
 const Signup = styled.p`
   font-family: 'NanumBarunGothicOTF';
   font-style: normal;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 20px;
-  width: 47px;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  width: 4.7rem;
   color: #aaaaaa;
-  margin: 14px 99px 0px 0px;
+  margin: 1.4rem 99px 0rem 0rem;
 `;
 
 const TopMiniNavBlank = styled.div`
-  width: 793px;
-  height: 24px;
+  width: 79.3rem;
+  height: 2.4rem;
 `;
