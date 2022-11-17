@@ -11,6 +11,7 @@ const colors = {
   gray4: '#888888',
   gray5: '#aaaaaa',
   white: '#ffffff',
+  footer: '#F8F8FA',
 };
 
 function FONT({ weight, size, lineHeight }) {

@@ -4,6 +4,8 @@ import Hamburger from '../../assets/header/ic_menu_black.svg';
 import SearchIcon from '../../assets/header/ic_search_black.svg';
 import Logo from '../../assets/header/purplelogo.svg';
 import MypageIcon from '../../assets/header/ic_my_black.svg';
+import HouseIcon from '../../assets/header/ic_home.svg';
+import GrayCramp from '../../assets/header/icn_cramp_gray.svg';
 
 export default function GeneralNav() {
   return (
@@ -34,6 +36,10 @@ export default function GeneralNav() {
         <MypageWrapper>
           <img src={MypageIcon} />
         </MypageWrapper>
+        <MiniNav>
+          <HouseIconWrapper></HouseIconWrapper>
+          <GrayCrampWrapper></GrayCrampWrapper>
+        </MiniNav>
       </Wrapper>
     </WrapperWrapper>
   );
@@ -51,7 +57,6 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   background-color: #fff;
   width: 128rem;
-  border-bottom: 0.1rem solid #351f66;
 `;
 
 const VipMenu = styled.p`
@@ -161,3 +166,42 @@ const Benefit = styled.p`
 `;
 
 const MypageWrapper = styled.div``;
+
+////////////////////////////////////// from here mini nav
+
+const MiniNav = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  top: 9rem;
+  width: 128rem;
+  height: 3.5rem;
+  background-color: ${({ theme }) => theme.colors.footer};
+  border-top: 0.1rem solid #351f66;
+`;
+
+//////////////////// 시간 남으면 하기
+const MiniMovie = styled.p`
+  color: ${({ theme }) => theme.colors.gray3};
+`;
+
+const MiniWholeMovie = styled.p`
+  color: ${({ theme }) => theme.colors.gray3};
+`;
+
+////////////////
+
+const HouseIconWrapper = styled.div`
+  margin: 1.3rem 1rem 1.25rem 9.6rem;
+  background-image: url(${HouseIcon});
+  background-size: cover;
+  width: 1.1rem;
+  height: 0.95rem;
+`;
+
+const GrayCrampWrapper = styled.div`
+  margin: 1.4rem 1rem 1.3rem 0rem;
+  background-image: url(${GrayCramp});
+  background-size: cover;
+  width: 0.4rem;
+  height: 0.8rem;
+`;
