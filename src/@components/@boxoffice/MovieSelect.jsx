@@ -1,10 +1,10 @@
 import React from 'react';
-import CardPoster from './CardPoster';
+import MovieCard from './MovieCard';
 
 function MovieSelect() {
   return (
     <div>
-      <CardPoster />
+      <MovieCard />
     </div>
   );
 }

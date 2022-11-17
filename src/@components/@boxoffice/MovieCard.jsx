@@ -2,7 +2,7 @@ import React from 'react';
 import Poster from '../../assets/ImgPoster.png';
 import styled from 'styled-components';
 
-function CardPoster() {
+function MovieCard() {
   return (
     <div>
       <PosterImg src={Poster} />
@@ -10,7 +10,7 @@ function CardPoster() {
   );
 }
 
-export default CardPoster;
+export default MovieCard;
 
 const PosterImg = styled.img`
   width: 23.5rem;
