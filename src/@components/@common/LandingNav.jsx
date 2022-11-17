@@ -73,7 +73,7 @@ const Signup = styled.p`
   line-height: 2rem;
   width: 4.7rem;
   color: #aaaaaa;
-  margin: 1.4rem 99px 0rem 0rem;
+  margin: 1.4rem 9.9rem 0rem 0rem;
 `;
 
 const TopMiniNavBlank = styled.div`
