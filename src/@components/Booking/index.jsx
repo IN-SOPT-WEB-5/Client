@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Calendar from './Calendar';
-import QuickReserveArea from './QuickReserveArea';
+import QuickReserve from './QuickReserve';
 
 export default function Booking() {
   return (
@@ -12,7 +12,7 @@ export default function Booking() {
         <St.Month>2022 11월</St.Month>
       </St.SubTitleWrapper>
       <Calendar />
-      <QuickReserveArea />
+      <QuickReserve />
     </St.Root>
   );
 }
