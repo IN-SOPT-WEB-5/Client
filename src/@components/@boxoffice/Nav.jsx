@@ -7,38 +7,40 @@ function Nav() {
     <div>
       <NavTitle>전체영화</NavTitle>
       <NavBtn>
-        <ChangeBtn1>박스오피스</ChangeBtn1>
-        <ChangeBtn2>상영예정작</ChangeBtn2>
-        <ChangeBtn3>특별상영</ChangeBtn3>
-        <ChangeBtn4>필름소사이어티</ChangeBtn4>
-        <ChangeBtn5>클래식소사이어티</ChangeBtn5>
+        <ChangeBtn>
+          <ChangeBtn1>박스오피스</ChangeBtn1>
+          <ChangeBtn2>상영예정작</ChangeBtn2>
+          <ChangeBtn3>특별상영</ChangeBtn3>
+          <ChangeBtn4>필름소사이어티</ChangeBtn4>
+          <ChangeBtn5>클래식소사이어티</ChangeBtn5>
+        </ChangeBtn>
         <Checkbox />
       </NavBtn>
     </div>
   );
 }
+const ChangeBtn = styled.div`
+  border-bottom: 0.1rem solid ${({ theme }) => theme.colors.gray3};
+`;
 
 const NavTitle = styled.p`
-  font-size: 20px;
-  font-weight: bold;
+  color: ${({ theme }) => theme.colors.gray3};
+  font: ${({ theme }) => theme.fonts.headline3};
   margin-bottom: 46px;
 `;
 
 const NavBtn = styled.button`
-  border: 1px solid #a7a7a7;
   margin: 0%;
   /* width: 1110px; */
-  height: 39px;
+  /* height: 39px; */
   text-align: left;
 `;
 
 const ChangeBtn1 = styled.button`
   font-size: 15px;
-  margin: 0.8rem 77px 8px 76px;
-
-  /* &:hover {
-    border: 1px solid #f15a22;
-  } */
+  padding: 0.8rem 7.7rem 0.8rem 7.6rem;
+  border: 0.1rem solid ${({ theme }) => theme.colors.gray3};
+  border-bottom: none;
 `;
 
 const ChangeBtn2 = styled.button`
