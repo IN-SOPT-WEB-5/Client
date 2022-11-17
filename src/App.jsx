@@ -1,5 +1,8 @@
+import React from 'react';
+import Index from './@components/@boxoffice/Index';
+
 function App() {
-  return;
+  return <Index />;
 }
 
 export default App;
