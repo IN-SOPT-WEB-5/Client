@@ -1,19 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import Search from '../../assets/ic_search_gray2.svg';
+import Check from '../../assets/movie_icn_checkbox_purple.svg';
 
 function Checkbox() {
   const placeholder = '영화명 검색';
+  const number = '165개';
 
   return (
     <Container>
       <LeftSection className="LeftSection">
-        <CheckInput type="checkbox" />
+        <CheckImg src={Check} />
+
         <CheckText>현재 상영작만 보기</CheckText>
-        <NumText>167개의 영화가 검색되었습니다.</NumText>
+        <NumText>
+          <ColorText>{number}</ColorText>의 영화가 검색되었습니다.
+        </NumText>
       </LeftSection>
       <InputBox className="RightSection">
-        <input type="text" placeholder={placeholder} />
+        <Placeholder type="text" placeholder={placeholder} />
         <SearchImg src={Search} />
       </InputBox>
     </Container>
@@ -21,6 +26,21 @@ function Checkbox() {
 }
 
 export default Checkbox;
+
+const CheckImg = styled.img`
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-right: 0.8rem;
+`;
+
+const Placeholder = styled.input`
+  font: ${({ theme }) => theme.fonts.body1};
+  color: ${({ theme }) => theme.colors.gray1};
+`;
+
+const ColorText = styled.span`
+  color: ${({ theme }) => theme.colors.main_purple};
+`;
 
 const SearchImg = styled.img`
   width: 1.5rem;
@@ -32,7 +52,9 @@ const LeftSection = styled.div`
 `;
 
 const CheckText = styled.span`
-  border-right: 1px solid black;
+  font: ${({ theme }) => theme.fonts.body1_bold};
+  color: ${({ theme }) => theme.colors.gray1};
+  border-right: 0.1rem solid ${({ theme }) => theme.colors.gray5};
   padding-right: 0.8rem;
 `;
 
@@ -43,14 +65,7 @@ const NumText = styled.span`
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 39px;
   margin-top: 3.5rem;
-`;
-
-const CheckInput = styled.input`
-  width: 1.7rem;
-  height: 1.7rem;
-  border: 1px solid black;
 `;
 
 const InputBox = styled.div`
@@ -58,5 +73,5 @@ const InputBox = styled.div`
   justify-content: center;
   width: 23rem;
   height: 3.6rem;
-  border: 1px solid black;
+  border: 0.2rem solid ${({ theme }) => theme.colors.gray5}; ;
 `;
