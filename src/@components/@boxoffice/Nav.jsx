@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Checkbox from './Checkbox';
 
 function Nav() {
   return (
@@ -11,6 +12,7 @@ function Nav() {
         <ChangeBtn3>특별상영</ChangeBtn3>
         <ChangeBtn4>필름소사이어티</ChangeBtn4>
         <ChangeBtn5>클래식소사이어티</ChangeBtn5>
+        <Checkbox />
       </NavBtn>
     </div>
   );
