@@ -55,57 +55,37 @@ const Wrapper = styled.div`
 `;
 
 const VipMenu = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  color: ${({ theme }) => theme.colors.gray5};
+  font: ${({ theme }) => theme.fonts.body2};
   width: 7.4rem;
-  color: #aaaaaa;
   margin: 1.4rem 2rem 0rem 9rem;
 `;
 
 const MembershipMenu = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  color: ${({ theme }) => theme.colors.gray5};
+  font: ${({ theme }) => theme.fonts.body2};
   width: 3.5rem;
-  color: #aaaaaa;
   margin: 1.4rem 2rem 0rem 0rem;
 `;
 
 const CustomerCenterMenu = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  color: ${({ theme }) => theme.colors.gray5};
+  font: ${({ theme }) => theme.fonts.body2};
   width: 4.7rem;
-  color: #aaaaaa;
   margin: 1.4rem 0rem 0rem 0rem;
 `;
 
 const Login = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  color: ${({ theme }) => theme.colors.gray5};
+  font: ${({ theme }) => theme.fonts.body2};
   width: 3.5rem;
-  color: #aaaaaa;
   margin: 1.4rem 2rem 0rem 0rem;
 `;
 
 const Signup = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  color: ${({ theme }) => theme.colors.gray5};
+  font: ${({ theme }) => theme.fonts.body2};
   width: 4.7rem;
-  color: #aaaaaa;
   margin: 1.4rem 9.9rem 0rem 0rem;
 `;
 
@@ -131,102 +111,53 @@ const SearchIconWrapper = styled.div`
 `;
 
 const Movie = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.headline3};
   width: 3.6rem;
-  /* identical to box height, or 110% */
-
-  /* MEGABOX/white */
   margin-left: 8.6rem;
   margin-top: 1.7rem;
-  color: #ffffff;
 `;
 
 const Ticketing = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.headline3};
   width: 3.6rem;
-
-  /* identical to box height, or 110% */
-
-  /* MEGABOX/white */
   margin-left: 5.4rem;
-
   margin-top: 1.7rem;
-  color: #ffffff;
 `;
 
 const Theater = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.headline3};
   width: 3.6rem;
-
-  /* identical to box height, or 110% */
-
-  /* MEGABOX/white */
   margin-left: 5.4rem;
   margin-right: 9.7rem;
   margin-top: 1.7rem;
-  color: #ffffff;
 `;
 
 const Event = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.headline3};
   width: 5.4rem;
-
-  /* identical to box height, or 110% */
-
-  /* MEGABOX/white */
   margin-left: 8.6rem;
   margin-top: 1.7rem;
-  color: #ffffff;
 `;
 
 const Store = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.headline3};
   width: 5.4rem;
-
-  /* identical to box height, or 110% */
-
-  /* MEGABOX/white */
   margin-left: 5.4rem;
-
   margin-top: 1.7rem;
-  color: #ffffff;
 `;
 
 const Benefit = styled.p`
-  font-family: 'NanumBarunGothicOTF';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.2rem;
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.headline3};
   width: 3.6rem;
-
-  /* identical to box height, or 110% */
-
-  /* MEGABOX/white */
   margin-left: 5.4rem;
   margin-right: 10.2rem;
   margin-top: 1.7rem;
-  color: #ffffff;
 `;
 
 const MypageWrapper = styled.div``;
