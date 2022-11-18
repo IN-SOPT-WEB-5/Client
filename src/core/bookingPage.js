@@ -1,10 +1,10 @@
-import AgeLimit12 from '../../assets/AgeLimit12.png';
-import AgeLimit15 from '../../assets/AgeLimit15.png';
-import AgeLimit18 from '../../assets/AgeLimit18.png';
+import AgeLimit12 from '../assets/AgeLimit12.png';
+import AgeLimit15 from '../assets/AgeLimit15.png';
+import AgeLimit18 from '../assets/AgeLimit18.png';
 
-import MorningTheaterSvg from '../../assets/MorningTheater.svg';
-import BrunchTheaterSvg from '../../assets/BrunchTheater.svg';
-import NightTheaterSvg from '../../assets/NightTheater.svg';
+import MorningTheaterSvg from '../assets/MorningTheater.svg';
+import BrunchTheaterSvg from '../assets/BrunchTheater.svg';
+import NightTheaterSvg from '../assets/NightTheater.svg';
 
 export const dateArr = [
   { date: 6, day: '오늘' },

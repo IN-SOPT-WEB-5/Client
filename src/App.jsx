@@ -1,7 +1,7 @@
-import Booking from './@components/Booking';
+import Router from './Router';
 
 function App() {
-  return <Booking />;
+  return <Router />;
 }
 
 export default App;
