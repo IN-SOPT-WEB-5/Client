@@ -4,6 +4,7 @@ import likeIcon from '../../../assets/likeIcon.svg';
 import mxIcon from '../../../assets/mxIcon.svg';
 import dolbyIcon from '../../../assets/dolbyIcon.svg';
 import starIcon from '../../../assets/starIcon.svg';
+import { movieInfos } from '../../../core/movieInfos';
 
 const InfoContainer = styled.article`
   width: 24.5rem;
@@ -83,19 +84,19 @@ const TicketingPercent = styled.strong`
   font: ${({ theme }) => theme.fonts.body2};
 `;
 
-export default function MovieInfo({ isRepresent }) {
-  return (
-    <InfoContainer>
-      <MoviePoster src={wacanda} alt="movie-poster"></MoviePoster>
+export default function MovieInfo() {
+  return movieInfos.map((item, index) => (
+    <InfoContainer key={index}>
+      <MoviePoster src={item.moviePoster} alt="movie-poster"></MoviePoster>
       <ButtonWrapper>
         <TicketingBtn>예매</TicketingBtn>
         <LikeBtn src={likeIcon} alt="like-icon" />
       </ButtonWrapper>
-      {isRepresent ? (
+      {item.isRepresent ? (
         <InfoBox>
-          <Dday>D-6</Dday>
+          <Dday>{item.Dday}</Dday>
           <DivisionBar />
-          <TicketingPercent>예매율 28.2%</TicketingPercent>
+          <TicketingPercent>예매율 {item.percent}</TicketingPercent>
           <DivisionBar />
           <InfoIcon src={mxIcon} alt="info-icon" />
           <DivisionBar />
@@ -105,14 +106,14 @@ export default function MovieInfo({ isRepresent }) {
         <InfoBox>
           <StarBox>
             <StarImg src={starIcon} />
-            <StarScore>9.5</StarScore>
+            <StarScore>{item.star}</StarScore>
           </StarBox>
           <DivisionBar />
-          <TicketingPercent>예매율 28.2%</TicketingPercent>
+          <TicketingPercent>예매율 {item.percent}</TicketingPercent>
           <DivisionBar />
           <InfoIcon src={mxIcon} alt="info-icon" />
         </InfoBox>
       )}
     </InfoContainer>
-  );
+  ));
 }

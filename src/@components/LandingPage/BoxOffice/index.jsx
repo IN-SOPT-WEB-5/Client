@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import allMovieIcon from '../../../assets/allMovieIcon.svg';
 import scheduleIcon from '../../../assets/scheduleIcon.svg';
 import fastTicketing from '../../../assets/fastTicketingIcon.svg';
+import { movieInfos } from '../../../core/movieInfos';
 
 const Root = styled.section`
   background-color: ${({ theme }) => theme.colors.gray1};
@@ -72,10 +73,7 @@ export default function BoxOffice() {
         <MovieCategory isSelected={false}>상영예정작</MovieCategory>
       </MovieCategoryBox>
       <MovieInfoWrapper>
-        <MovieInfo isRepresent={true} />
-        <MovieInfo isRepresent={false} />
-        <MovieInfo isRepresent={false} />
-        <MovieInfo isRepresent={false} />
+        <MovieInfo />
       </MovieInfoWrapper>
       <SearchWrapper>
         <SearchBox>
