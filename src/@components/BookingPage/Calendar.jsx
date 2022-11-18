@@ -1,21 +1,7 @@
 import styled from 'styled-components';
 import BeforeArrowSrc from '../../assets/BeforeDateArrow.svg';
 import AfterArrowSrc from '../../assets/AfterDateArrow.svg';
-
-const dateArr = [
-  { date: 6, day: '오늘' },
-  { date: 7, day: '월' },
-  { date: 8, day: '화' },
-  { date: 9, day: '수' },
-  { date: 10, day: '목' },
-  { date: 11, day: '금' },
-  { date: 12, day: '토' },
-  { date: 13, day: '일' },
-  { date: 14, day: '월' },
-  { date: 15, day: '화' },
-  { date: 16, day: '수' },
-  { date: 17, day: '목' },
-];
+import { dateArr } from '../../core/bookingPage';
 
 export default function Calendar() {
   return (

@@ -1,31 +1,5 @@
 import styled from 'styled-components';
-
-const areaArr = [
-  '서울(19)',
-  '경기(30)',
-  '인천(5)',
-  '대전/충청/세종(15)',
-  '부상/대구/경상(22)',
-  '광주/전라(9)',
-  '강원(5)',
-];
-
-const seoulAreaArr = [
-  '강남',
-  '강남대로(씨티)',
-  '강동',
-  '군자',
-  '동대문',
-  '마곡',
-  '목동',
-  '상봉',
-  '상암월드컵경기장',
-  '성수',
-  '센트럴',
-  '송파파크하비오',
-  '신촌',
-  '이수',
-];
+import { areaArr, seoulAreaArr } from '../../core/bookingPage';
 
 export default function TheaterSelection() {
   return (
@@ -111,7 +85,6 @@ const St = {
   `,
   AreaBox: styled.article`
     width: 100%;
-    height: ;
     display: flex;
     border-bottom: 0.5px solid ${({ theme }) => theme.colors.gray4};
     border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};

@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 
 import SpecialTheaterSvg from '../../assets/SpecialTheater.svg';
-import MorningTheaterSvg from '../../assets/MorningTheater.svg';
-import BrunchTheaterSvg from '../../assets/BrunchTheater.svg';
-import NightTheaterSvg from '../../assets/NightTheater.svg';
-
-const timeTypeArr = [
-  { icon: MorningTheaterSvg, name: '조조' },
-  { icon: BrunchTheaterSvg, name: '브런치' },
-  { icon: NightTheaterSvg, name: '심야' },
-];
+import { timeTypeArr } from '../../core/bookingPage';
 
 export default function SpecialType() {
   return (
