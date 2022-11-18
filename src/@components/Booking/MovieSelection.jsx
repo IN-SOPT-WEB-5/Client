@@ -28,7 +28,7 @@ export default function MovieSelection() {
       </St.SectionTitle>
       <St.MovieTypeWrapper>
         <St.MovieAll type="button">전체</St.MovieAll>
-        <St.Curation typr="button" disabled>
+        <St.Curation type="button" disabled>
           큐레이션
         </St.Curation>
       </St.MovieTypeWrapper>
@@ -67,6 +67,7 @@ const St = {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid ${({ theme }) => theme.colors.main_darken};
   `,
   MovieTypeWrapper: styled.nav`
     display: flex;
@@ -93,7 +94,7 @@ const St = {
   `,
   MovieBox: styled.article`
     background-color: ${({ theme }) => theme.colors.footer};
-    padding: 2.3rem;
+    padding: 0 2.3rem;
     border-bottom: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
   OrderWrapper: styled.div`
