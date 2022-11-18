@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import BeforeArrowSrc from '../../assets/BeforeDateArrow.svg';
 import AfterArrowSrc from '../../assets/AfterDateArrow.svg';
 
@@ -21,7 +20,7 @@ const dateArr = [
 export default function Calendar() {
   return (
     <St.Root>
-      <St.BeforeDateArrow src={BeforeArrowSrc} />
+      <St.BeforeDateArrow src={BeforeArrowSrc} alt="이전 날짜" />
       <St.DateArrWrapper>
         {dateArr.map((date) => {
           return (
@@ -32,7 +31,7 @@ export default function Calendar() {
           );
         })}
       </St.DateArrWrapper>
-      <St.AfterDateArrow src={AfterArrowSrc} />
+      <St.AfterDateArrow src={AfterArrowSrc} alt="이후 날짜" />
     </St.Root>
   );
 }

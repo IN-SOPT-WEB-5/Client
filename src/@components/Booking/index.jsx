@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import Calendar from './Calendar';
 import QuickReserve from './QuickReserve';
 

@@ -3,20 +3,6 @@ import MovieSelection from './MovieSelection';
 import TheaterSelection from './TheaterSelection';
 import TimeSelection from './TimeSelection';
 
-const movieArr = [
-  { ageLimit: 12, title: '블랙 팬서: 와칸다 포에버' },
-  { ageLimit: 12, title: '동감' },
-  { ageLimit: 12, title: '데시벨' },
-  { ageLimit: 18, title: '살인청부업자' },
-  { ageLimit: 15, title: '올빼미' },
-  { ageLimit: 15, title: '자백' },
-  { ageLimit: 15, title: '에브리씽 에브리웨어 올 앳 원스' },
-  { ageLimit: 12, title: '인생은 아름다워' },
-  { ageLimit: 15, title: '리멤버' },
-  { ageLimit: 15, title: '프로페어' },
-  { ageLimit: 12, title: '블랙 아담' },
-];
-
 const areaArr = [
   '서울(19)',
   '경기(30)',
@@ -47,7 +33,6 @@ const seoulAreaArr = [
 export default function QuickReserve() {
   return (
     <St.Root>
-      {/* 1. 블랙 팬서만 클릭 가능 2. 클릭 시 태그 생성 */}
       <MovieSelection />
       {/* 1. 서울(강남, 강남대로)만 클릭 가능 2. 클릭 시 태그 생성 */}
       <TheaterSelection />
@@ -58,5 +43,9 @@ export default function QuickReserve() {
 }
 
 const St = {
-  Root: styled.article``,
+  Root: styled.article`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 26rem 36rem auto;
+  `,
 };
