@@ -69,9 +69,6 @@ export default function TheaterSelection() {
 const St = {
   Root: styled.section`
     width: 100%;
-
-    border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
-    border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
   SectionTitle: styled.div`
     ${({ theme }) => theme.fonts.headline3};
@@ -91,6 +88,9 @@ const St = {
     justify-content: center;
     align-items: center;
     height: 5.2rem;
+
+    border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
+    border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
   TheaterAll: styled.button`
     width: 50%;
@@ -113,6 +113,8 @@ const St = {
     width: 100%;
     display: flex;
     border-bottom: 0.5px solid ${({ theme }) => theme.colors.gray4};
+    border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
+    border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
   AreaWrapper: styled.div`
     width: 50%;
@@ -156,5 +158,7 @@ const St = {
     ${({ theme }) => theme.fonts.body2}
     color: ${({ theme }) => theme.colors.gray3};
     height: 14.5rem;
+    border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
+    border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
 };
