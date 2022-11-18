@@ -94,14 +94,14 @@ const St = {
   `,
   MovieBox: styled.article`
     background-color: ${({ theme }) => theme.colors.footer};
-    padding: 0 2.3rem;
     border-bottom: 0.5px solid ${({ theme }) => theme.colors.gray4};
+    padding: 0.7rem 0;
   `,
   OrderWrapper: styled.div`
-    margin: 0.7rem 0;
     background-color: ${({ theme }) => theme.colors.white};
     border: 1px solid ${({ theme }) => theme.colors.gray5};
     height: 2.8rem;
+    margin: 0.7rem 2.3rem;
 
     display: flex;
     padding-left: 1.8rem;
@@ -118,7 +118,15 @@ const St = {
     display: flex;
     gap: 1.3rem;
     align-items: center;
+    width: 100%;
     height: 4.2rem;
+    padding: 0 2.3rem;
+    color: ${({ theme }) => theme.colors.gray1};
+
+    &:focus {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.gray2};
+    }
   `,
   AgeLimit: styled.img`
     width: 2rem;
@@ -126,7 +134,6 @@ const St = {
   `,
   MovieTitle: styled.p`
     ${({ theme }) => theme.fonts.body1};
-    color: ${({ theme }) => theme.colors.gray1};
 
     display: flex;
     white-space: nowrap;
