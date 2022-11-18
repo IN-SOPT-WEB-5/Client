@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Calendar from './Calendar';
 import QuickReserve from './QuickReserve';
 
-export default function Booking() {
+export default function BookingPage() {
   return (
     <St.Root>
       <St.Title>빠른 예매</St.Title>
