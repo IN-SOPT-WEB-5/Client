@@ -1,11 +1,12 @@
 import React from 'react';
 import Poster from '../../assets/ImgPoster.png';
 import Age from '../../assets/Age.svg';
-import TicketingBtn from '../../assets/TicketingBtn.svg';
+import TicketingBtn from '../../assets/TicketingBtnS.svg';
+import CinemaBtn from '../../assets/CinemaBtn.svg';
 import HeartBtn from '../../assets/HeartBtn.svg';
 import styled from 'styled-components';
 
-function MovieCard() {
+function MovieCard1st() {
   const title = '극장판 짱구는 못말려:···';
   const OpeningDate = '2022.09.28';
   const TicketingRate = '0.9';
@@ -25,20 +26,25 @@ function MovieCard() {
       </ContentsBody>
       <ContentsFooter>
         <BtnImg src={TicketingBtn} />
+        <CinemaBtnImg src={CinemaBtn} />
         <HeartBtnImg src={HeartBtn} />
       </ContentsFooter>
     </div>
   );
 }
 
-export default MovieCard;
+export default MovieCard1st;
 
 const ContentsFooter = styled.div`
   margin-top: 0.8rem;
 `;
 
+const CinemaBtnImg = styled.img`
+  margin-left: 1.1rem;
+`;
+
 const HeartBtnImg = styled.img`
-  margin-left: 0.9rem;
+  margin-left: 1.1rem;
 `;
 
 const BtnImg = styled.img``;
