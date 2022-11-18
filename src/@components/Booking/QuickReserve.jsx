@@ -47,5 +47,8 @@ const St = {
     width: 100%;
     display: grid;
     grid-template-columns: 26rem 36rem auto;
+    margin-top: 2.4rem;
+
+    border: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
 };

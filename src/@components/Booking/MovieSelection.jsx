@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AgeLimit12 from '../../assets/AgeLimit12.png';
 import AgeLimit15 from '../../assets/AgeLimit15.png';
 import AgeLimit18 from '../../assets/AgeLimit18.png';
+import DropDownSvg from '../../assets/OrderDropDown.svg';
 
 const movieArr = [
   { ageLimit: AgeLimit12, title: '블랙 팬서: 와칸다 포에버' },
@@ -22,7 +23,9 @@ const movieArr = [
 export default function MovieSelection() {
   return (
     <St.Root>
-      <St.SectionTitle>영화</St.SectionTitle>
+      <St.SectionTitle>
+        <h3>영화</h3>
+      </St.SectionTitle>
       <St.MovieTypeWrapper>
         <St.MovieAll type="button">전체</St.MovieAll>
         <St.Curation typr="button" disabled>
@@ -32,18 +35,20 @@ export default function MovieSelection() {
       <St.MovieBox>
         <St.OrderWrapper>
           <St.MovieOrder>예매수</St.MovieOrder>
-          <St.Dropdown src="" alt="정렬기준" />
+          <St.Dropdown src={DropDownSvg} alt="정렬기준" />
         </St.OrderWrapper>
         {movieArr.map((movie) => {
           return (
-            <St.MovieWrapper key={movie.title}>
+            <St.MovieWrapper key={movie.title} type="button">
               <St.AgeLimit src={movie.ageLimit} alt="나이 제한" />
               <St.MovieTitle>{movie.title}</St.MovieTitle>
             </St.MovieWrapper>
           );
         })}
       </St.MovieBox>
-      <St.MovieSelectWrapper></St.MovieSelectWrapper>
+      <St.MovieSelectWrapper>
+        <p>최대 3개의 영화를 선택할 수 있습니다.</p>
+      </St.MovieSelectWrapper>
     </St.Root>
   );
 }
@@ -52,16 +57,88 @@ const St = {
   Root: styled.section`
     width: 100%;
   `,
-  SectionTitle: styled.h3``,
-  MovieTypeWrapper: styled.nav``,
-  MovieAll: styled.p``,
-  Curation: styled.p``,
-  MovieBox: styled.article``,
-  OrderWrapper: styled.div``,
-  MovieOrder: styled.p``,
+  SectionTitle: styled.div`
+    ${({ theme }) => theme.fonts.headline3};
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.main_darken};
+    height: 5.8rem;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+  MovieTypeWrapper: styled.nav`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5.2rem;
+  `,
+  MovieAll: styled.button`
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+
+    ${({ theme }) => theme.fonts.body1};
+    color: ${({ theme }) => theme.colors.gray2};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.gray2};
+  `,
+  Curation: styled.button`
+    width: 50%;
+    height: 100%;
+
+    ${({ theme }) => theme.fonts.body1};
+    color: ${({ theme }) => theme.colors.gray4};
+    border-bottom: 0.5px solid ${({ theme }) => theme.colors.gray4};
+  `,
+  MovieBox: styled.article`
+    background-color: ${({ theme }) => theme.colors.footer};
+    padding: 2.3rem;
+    border-bottom: 0.5px solid ${({ theme }) => theme.colors.gray4};
+  `,
+  OrderWrapper: styled.div`
+    margin: 0.7rem 0;
+    background-color: ${({ theme }) => theme.colors.white};
+    border: 1px solid ${({ theme }) => theme.colors.gray5};
+    height: 2.8rem;
+
+    display: flex;
+    padding-left: 1.8rem;
+    padding-right: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  MovieOrder: styled.p`
+    ${({ theme }) => theme.fonts.body2}
+    color: ${({ theme }) => theme.colors.gray3};
+  `,
   Dropdown: styled.img``,
-  MovieWrapper: styled.div``,
-  AgeLimit: styled.img``,
-  MovieTitle: styled.p``,
-  MovieSelectWrapper: styled.div``,
+  MovieWrapper: styled.button`
+    display: flex;
+    gap: 1.3rem;
+    align-items: center;
+    height: 4.2rem;
+  `,
+  AgeLimit: styled.img`
+    width: 2rem;
+    height: 2rem;
+  `,
+  MovieTitle: styled.p`
+    ${({ theme }) => theme.fonts.body1};
+    color: ${({ theme }) => theme.colors.gray1};
+
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  `,
+  MovieSelectWrapper: styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ${({ theme }) => theme.fonts.body2}
+    color: ${({ theme }) => theme.colors.gray3};
+    height: 14.5rem;
+  `,
 };
