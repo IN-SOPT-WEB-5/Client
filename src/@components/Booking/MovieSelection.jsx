@@ -101,7 +101,7 @@ const St = {
     background-color: ${({ theme }) => theme.colors.white};
     border: 1px solid ${({ theme }) => theme.colors.gray5};
     height: 2.8rem;
-    margin: 0.7rem 2.3rem;
+    margin: 0.3rem 2.3rem;
 
     display: flex;
     padding-left: 1.8rem;

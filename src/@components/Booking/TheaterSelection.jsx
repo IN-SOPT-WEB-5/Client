@@ -111,6 +111,7 @@ const St = {
   `,
   AreaBox: styled.article`
     width: 100%;
+    height: ;
     display: flex;
     border-bottom: 0.5px solid ${({ theme }) => theme.colors.gray4};
     border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
@@ -118,19 +119,22 @@ const St = {
   `,
   AreaWrapper: styled.div`
     width: 50%;
-    height: 100%;
+    height: 51rem;
     display: flex;
     flex-direction: column;
-    padding-left: 2.4rem;
   `,
   Area: styled.button`
     width: 100%;
     height: 3.6rem;
     display: flex;
     align-items: center;
+    padding-left: 2.4rem;
 
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray1};
+    &:focus {
+      border: 1px solid ${({ theme }) => theme.colors.gray1};
+    }
   `,
   SeoulAreaWrapper: styled.div`
     width: 50%;
@@ -138,7 +142,7 @@ const St = {
     background-color: ${({ theme }) => theme.colors.footer};
     display: flex;
     flex-direction: column;
-    padding-left: 2.4rem;
+
     border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
   SeoulArea: styled.button`
@@ -146,9 +150,14 @@ const St = {
     height: 3.6rem;
     display: flex;
     align-items: center;
+    padding-left: 2.4rem;
 
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray1};
+    &:focus {
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.gray2};
+    }
   `,
   TheaterSelectWrapper: styled.div`
     display: flex;
@@ -158,6 +167,7 @@ const St = {
     ${({ theme }) => theme.fonts.body2}
     color: ${({ theme }) => theme.colors.gray3};
     height: 14.5rem;
+
     border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
     border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
   `,
