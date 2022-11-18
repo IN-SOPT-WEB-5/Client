@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import allMovieIcon from '../../../assets/allMovieIcon.svg';
 import scheduleIcon from '../../../assets/scheduleIcon.svg';
 import fastTicketing from '../../../assets/fastTicketingIcon.svg';
-import { movieInfos } from '../../../core/movieInfos';
 
 const Root = styled.section`
   background-color: ${({ theme }) => theme.colors.gray1};
