@@ -10,11 +10,15 @@ const InfoContainer = styled.article`
 
   background-color: ${({ theme }) => theme.colors.gray1};
   color: ${({ theme }) => theme.colors.white};
+
+  margin: 0 2rem;
 `;
 
 const MoviePoster = styled.img`
   height: 35.2rem;
   width: 100%;
+
+  margin-bottom: 1.7rem;
 `;
 
 const ButtonWrapper = styled.div`

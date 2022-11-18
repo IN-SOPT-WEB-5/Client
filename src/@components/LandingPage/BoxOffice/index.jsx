@@ -32,7 +32,8 @@ const DivisionBar = styled.span`
 
 const MovieInfoWrapper = styled.section`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  /* justify-content: space-around; */
 
   padding: 0 9rem;
   margin-top: 4.5rem;
