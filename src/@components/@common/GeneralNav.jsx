@@ -67,7 +67,6 @@ export default function GeneralNav() {
             </div>
           )}
         </MiniNav>
-        <ScrollHelp></ScrollHelp>
       </Wrapper>
     </WrapperWrapper>
   );
