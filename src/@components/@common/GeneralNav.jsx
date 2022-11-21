@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Hamburger from '../../assets/header/ic_menu_black.svg';
 import SearchIcon from '../../assets/header/ic_search_black.svg';
@@ -8,6 +8,22 @@ import HouseIcon from '../../assets/header/ic_home.svg';
 import GrayCramp from '../../assets/header/icn_cramp_gray.svg';
 
 export default function GeneralNav() {
+  const [hideElement, setHideElement] = useState(false); //true 이면 요소가 천장에 닿았다는 것.
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    window.addEventListener('scroll', yScrollEvent);
+    return () => {
+      window.removeEventListener('scroll', yScrollEvent);
+    };
+  }, [scrollRef.current]);
+
+  const yScrollEvent = () => {
+    const scroll = scrollRef.current.getBoundingClientRect();
+    console.log(scroll);
+    setHideElement(scroll.top <= 0);
+  };
   return (
     <WrapperWrapper>
       <Wrapper>
@@ -36,10 +52,22 @@ export default function GeneralNav() {
         <MypageWrapper>
           <img src={MypageIcon} />
         </MypageWrapper>
-        <MiniNav>
-          <HouseIconWrapper></HouseIconWrapper>
-          <GrayCrampWrapper></GrayCrampWrapper>
+        <MiniNav ref={scrollRef}>
+          {!hideElement ? (
+            <div style={{ display: 'flex' }}>
+              <HouseIconWrapper></HouseIconWrapper>
+              <GrayCrampWrapper></GrayCrampWrapper>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', background: '#444' }}>
+              <MiniNav style={{ background: '#444', position: 'fixed', top: '0rem' }}>
+                <HouseIconWrapper></HouseIconWrapper>
+                <GrayCrampWrapper></GrayCrampWrapper>
+              </MiniNav>
+            </div>
+          )}
         </MiniNav>
+        <ScrollHelp></ScrollHelp>
       </Wrapper>
     </WrapperWrapper>
   );
@@ -204,4 +232,8 @@ const GrayCrampWrapper = styled.div`
   background-size: cover;
   width: 0.4rem;
   height: 0.8rem;
+`;
+
+const ScrollHelp = styled.div`
+  height: 2000px;
 `;
