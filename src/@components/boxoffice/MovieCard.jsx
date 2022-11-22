@@ -37,8 +37,11 @@ export default MovieCard;
 
 const HoverEvent = styled.div`
   position: absolute;
-  top: 0px;
+  top: 2.1rem;
   z-index: 2;
+
+  width: 24.5rem;
+  height: 35.2rem;
 `;
 
 const Wrapper = styled.div`
@@ -88,7 +91,7 @@ const Title = styled.span`
 const AgeImg = styled.img``;
 
 const PosterImg = styled.img`
-  width: 23.5rem;
+  width: 24.5rem;
   height: 35.2rem;
   margin-top: 2.1rem;
 `;
