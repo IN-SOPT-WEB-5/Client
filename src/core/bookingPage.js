@@ -40,15 +40,7 @@ export const timeTypeArr = [
   { icon: NightTheaterSvg, name: '심야' },
 ];
 
-export const areaArr = [
-  '서울(19)',
-  '경기(30)',
-  '인천(5)',
-  '대전/충청/세종(15)',
-  '부상/대구/경상(22)',
-  '광주/전라(9)',
-  '강원(5)',
-];
+export const areaArr = ['경기(30)', '인천(5)', '대전/충청/세종(15)', '부상/대구/경상(22)', '광주/전라(9)', '강원(5)'];
 
 export const seoulAreaArr = [
   '강남',

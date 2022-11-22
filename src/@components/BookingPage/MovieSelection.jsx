@@ -8,9 +8,9 @@ import TagDeleteIcon from '../../assets/TagDelete.svg';
 
 /* 1. 블랙 팬서만 클릭 가능 2. 클릭 시 태그 생성 */
 export default function MovieSelection() {
-  const [toggle, setToggle] = useState(false);
-  const toggleBtn = () => {
-    setToggle((prev) => !prev);
+  const [movieSelect, setMovieSelect] = useState(false);
+  const toggleMovieSelect = () => {
+    setMovieSelect((prev) => !prev);
   };
 
   return (
@@ -29,7 +29,7 @@ export default function MovieSelection() {
           <St.MovieOrder>예매수</St.MovieOrder>
           <St.Dropdown src={DropDownSvg} alt="정렬기준" />
         </St.OrderWrapper>
-        <St.MovieWrapper type="button" onClick={toggleBtn} toggle={toggle}>
+        <St.MovieWrapper type="button" onClick={toggleMovieSelect} movieSelect={movieSelect}>
           <St.AgeLimit src={AgeLimit12} alt="나이 제한" />
           <St.MovieTitle>블랙 팬서: 와칸다 포에버</St.MovieTitle>
         </St.MovieWrapper>
@@ -42,8 +42,8 @@ export default function MovieSelection() {
           );
         })}
       </St.MovieBox>
-      <St.SelectMovieWrapper toggle={toggle}>
-        {toggle ? (
+      <St.SelectMovieWrapper movieSelect={movieSelect}>
+        {movieSelect ? (
           <St.SelectMovieTagWrapper>
             <St.SelectMovieTag>블랙 팬서: 와칸다 포에버</St.SelectMovieTag>
             <img src={TagDeleteIcon} alt="태그 삭제" />
@@ -124,8 +124,8 @@ const St = {
     width: 100%;
     height: 4.2rem;
     padding: 0 2.3rem;
-    color: ${({ theme, toggle }) => (toggle ? theme.colors.white : theme.colors.gray1)};
-    background-color: ${({ theme, toggle }) => (toggle ? theme.colors.gray2 : '')};
+    color: ${({ theme, movieSelect }) => (movieSelect ? theme.colors.white : theme.colors.gray1)};
+    background-color: ${({ theme, movieSelect }) => (movieSelect ? theme.colors.gray2 : '')};
   `,
   AgeLimit: styled.img`
     width: 2rem;
@@ -141,8 +141,8 @@ const St = {
   `,
   SelectMovieWrapper: styled.div`
     display: flex;
-    justify-content: ${({ toggle }) => (toggle ? '' : 'center')};
-    align-items: ${({ toggle }) => (toggle ? '' : 'center')};
+    justify-content: ${({ movieSelect }) => (movieSelect ? '' : 'center')};
+    align-items: ${({ movieSelect }) => (movieSelect ? '' : 'center')};
 
     ${({ theme }) => theme.fonts.body2}
     color: ${({ theme }) => theme.colors.gray3};

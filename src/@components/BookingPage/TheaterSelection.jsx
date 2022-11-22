@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { areaArr, seoulAreaArr } from '../../core/bookingPage';
 
 export default function TheaterSelection() {
+  const [seoulSelect, setSeoulSelect] = useState(false);
+  const toggleSeoulSelect = () => {
+    setSeoulSelect((prev) => !prev);
+  };
+
   return (
     <St.Root>
       <St.SectionTitle>
@@ -15,6 +21,9 @@ export default function TheaterSelection() {
       </St.MovieTypeWrapper>
       <St.AreaBox>
         <St.AreaWrapper>
+          <St.Area type="button" onClick={toggleSeoulSelect} seoulSelect={seoulSelect}>
+            서울(19)
+          </St.Area>
           {areaArr.map((area) => {
             return (
               <St.Area key={area} type="button">
@@ -105,9 +114,8 @@ const St = {
 
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray1};
-    &:focus {
-      border: 1px solid ${({ theme }) => theme.colors.gray1};
-    }
+
+    border: 1px solid ${({ theme, seoulSelect }) => (seoulSelect ? theme.colors.gray1 : 'none')};
   `,
   SeoulAreaWrapper: styled.div`
     width: 50%;
