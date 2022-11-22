@@ -1,5 +1,6 @@
 import { React } from 'react';
 import MovieCard from './MovieCard';
+import TopBtn from './TopBtn';
 import { movieData } from '../../constants/movieData';
 import styled from 'styled-components';
 import AddMovieBtn from '../../assets/AddMovieBtn.png';
@@ -19,6 +20,7 @@ function MovieSelect() {
         );
       })} */}
       <AddMovieBtnImg src={AddMovieBtn} />
+      <TopBtn />
     </ItemsRepeat>
   );
 }
@@ -26,7 +28,8 @@ function MovieSelect() {
 export default MovieSelect;
 
 const AddMovieBtnImg = styled.img`
-  padding-top: 3.2rem;
+  margin-top: 3.2rem;
+  margin-bottom: 6rem;
 `;
 
 // const HoverEvent = styled.div`
@@ -39,6 +42,6 @@ const ItemsRepeat = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 1100px;
+  width: 110rem;
   position: relative;
 `;
