@@ -1,0 +1,9 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="18" y1="25" x2="20" y2="25" stroke="#666666" stroke-width="2"/>
+<line x1="23" y1="25" x2="25" y2="25" stroke="#666666" stroke-width="2"/>
+<line x1="28" y1="25" x2="30" y2="25" stroke="#666666" stroke-width="2"/>
+<line x1="28" y1="29" x2="30" y2="29" stroke="#666666" stroke-width="2"/>
+<line x1="23" y1="29" x2="25" y2="29" stroke="#666666" stroke-width="2"/>
+<line x1="18" y1="29" x2="20" y2="29" stroke="#666666" stroke-width="2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M35 14H13L13 20H35V14ZM12 21V20V14V13H13H35H36V14V20V21V34V35H35H13H12V34V21ZM13 34L13 21H35L35 34H13Z" fill="#666666"/>
+</svg>
