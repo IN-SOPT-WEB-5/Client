@@ -1,5 +1,5 @@
 import React from 'react';
-import Index from './@components/@boxoffice/Index';
+import Index from './@components/boxoffice/Index';
 
 function App() {
   return <Index />;

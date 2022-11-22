@@ -1,9 +1,11 @@
-import Poster from '../../assets/ImgPoster.png';
-import Age from '../../assets/Age.svg';
-import TicketingBtn from '../../assets/TicketingBtn.svg';
-import HeartBtn from '../../assets/HeartBtn.svg';
+import Poster from '../assets/ImgPoster.png';
+import Age from '../assets/Age.svg';
+import TicketingBtn from '../assets/TicketingBtn.svg';
+import HeartBtn from '../assets/HeartBtn.svg';
+import TicketingBtn1st from '../assets/TicketingBtnS.svg';
+import CinemaBtn from '../assets/CinemaBtn.svg';
 
-export const MovieData = [
+export const movieData = [
   {
     id: 1,
     image: Poster,
@@ -13,6 +15,9 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    ticketingBtn1st: TicketingBtn1st,
+    cinemaBtn: CinemaBtn,
+    isFirst: true,
   },
   {
     id: 2,
@@ -23,6 +28,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 3,
@@ -33,6 +39,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 4,
@@ -43,6 +50,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 5,
@@ -53,6 +61,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 6,
@@ -63,6 +72,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 7,
@@ -73,6 +83,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 8,
@@ -83,6 +94,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 9,
@@ -93,6 +105,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 10,
@@ -103,6 +116,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 11,
@@ -113,6 +127,7 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
   {
     id: 12,
@@ -123,5 +138,6 @@ export const MovieData = [
     ageImage: Age,
     ticketingBtn: TicketingBtn,
     heartBtn: HeartBtn,
+    isFirst: false,
   },
 ];

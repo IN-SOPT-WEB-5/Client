@@ -1,33 +1,33 @@
 import React from 'react';
-import Poster from '../../assets/ImgPoster.png';
-import Age from '../../assets/Age.svg';
-import TicketingBtn from '../../assets/TicketingBtnS.svg';
-import CinemaBtn from '../../assets/CinemaBtn.svg';
-import HeartBtn from '../../assets/HeartBtn.svg';
+// import Poster from '../../assets/ImgPoster.png';
+// import Age from '../../assets/Age.svg';
+// import TicketingBtn from '../../assets/TicketingBtnS.svg';
+// import CinemaBtn from '../../assets/CinemaBtn.svg';
+// import HeartBtn from '../../assets/HeartBtn.svg';
 import styled from 'styled-components';
 
-function MovieCard1st() {
-  const title = '극장판 짱구는 못말려:···';
-  const OpeningDate = '2022.09.28';
-  const TicketingRate = '0.9';
+function MovieCard1st({ movieData }) {
+  // const title = '극장판 짱구는 못말려:···';
+  // const OpeningDate = '2022.09.28';
+  // const TicketingRate = '0.9';
 
   return (
     <div>
       <div>
-        <PosterImg src={Poster} />
+        <PosterImg src={movieData.image} />
       </div>
       <ContentsHead>
-        <AgeImg src={Age} />
-        <Title>{title}</Title>
+        <AgeImg src={movieData.ageImage} />
+        <Title>{movieData.title}</Title>
       </ContentsHead>
       <ContentsBody>
-        <Date>개봉일 {OpeningDate}</Date>
-        <Rate>예매율 {TicketingRate}%</Rate>
+        <Date>개봉일 {movieData.openingDate}</Date>
+        <Rate>예매율 {movieData.ticketingRate} %</Rate>
       </ContentsBody>
       <ContentsFooter>
-        <BtnImg src={TicketingBtn} />
-        <CinemaBtnImg src={CinemaBtn} />
-        <HeartBtnImg src={HeartBtn} />
+        <BtnImg src={movieData.ticketingBtn} />
+        <CinemaBtnImg src={movieData.CinemaBtn} />
+        <HeartBtnImg src={movieData.HeartBtn} />
       </ContentsFooter>
     </div>
   );
