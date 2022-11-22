@@ -1,18 +1,12 @@
 import React from 'react';
-// import Poster from '../../assets/ImgPoster.png';
-// import Age from '../../assets/Age.svg';
-// import TicketingBtn from '../../assets/TicketingBtn.svg';
-// import HeartBtn from '../../assets/HeartBtn.svg';
-// import { MovieData } from './MovieData';
+import { useState } from 'react';
 import styled from 'styled-components';
+import Hover from './Hover';
 
 function MovieCard({ movieData }) {
-  // const title = '극장판 짱구는 못말려:···';
-  // const OpeningDate = '2022.09.28';
-  // const TicketingRate = '0.9';
-
+  const [isHover, setIsHover] = useState(0);
   return (
-    <div>
+    <Wrapper onMouseOver={() => setIsHover(1)} onMouseOut={() => setIsHover(0)}>
       <div>
         <PosterImg src={movieData.image} />
       </div>
@@ -28,11 +22,28 @@ function MovieCard({ movieData }) {
         <BtnImg src={movieData.ticketingBtn} />
         <HeartBtnImg src={movieData.heartBtn} />
       </ContentsFooter>
-    </div>
+      {isHover ? (
+        <HoverEvent>
+          <Hover />
+        </HoverEvent>
+      ) : (
+        ''
+      )}
+    </Wrapper>
   );
 }
 
 export default MovieCard;
+
+const HoverEvent = styled.div`
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+`;
+
+const Wrapper = styled.div`
+  position: relative;
+`;
 
 const ContentsFooter = styled.div`
   margin-top: 0.8rem;
