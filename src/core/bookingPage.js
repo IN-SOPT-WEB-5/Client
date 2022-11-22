@@ -22,7 +22,6 @@ export const dateArr = [
 ];
 
 export const movieArr = [
-  { ageLimit: AgeLimit12, title: '블랙 팬서: 와칸다 포에버' },
   { ageLimit: AgeLimit12, title: '동감' },
   { ageLimit: AgeLimit12, title: '데시벨' },
   { ageLimit: AgeLimit18, title: '살인청부업자' },
