@@ -47,10 +47,16 @@ export default function TheaterSelection() {
           })}
         </St.AreaWrapper>
         <St.SeoulAreaWrapper>
-          <St.SeoulArea type="button" onClick={() => toggleSeoulAreaSelect('강남')}>
+          <St.SeoulArea
+            type="button"
+            onClick={() => toggleSeoulAreaSelect('강남')}
+            seoulAreaSelect={seoulAreaSelect.includes('강남')}>
             강남
           </St.SeoulArea>
-          <St.SeoulArea type="button" onClick={() => toggleSeoulAreaSelect('강남대로(씨티)')}>
+          <St.SeoulArea
+            type="button"
+            onClick={() => toggleSeoulAreaSelect('강남대로(씨티)')}
+            seoulAreaSelect={seoulAreaSelect.includes('강남대로(씨티)')}>
             강남대로(씨티)
           </St.SeoulArea>
           {seoulAreaArr.map((seoulArea) => {
@@ -165,11 +171,8 @@ const St = {
     padding-left: 2.4rem;
 
     ${({ theme }) => theme.fonts.body1};
-    color: ${({ theme }) => theme.colors.gray1};
-    &:focus {
-      color: ${({ theme }) => theme.colors.white};
-      background-color: ${({ theme }) => theme.colors.gray2};
-    }
+    color: ${({ theme, seoulAreaSelect }) => (seoulAreaSelect ? theme.colors.white : theme.colors.gray1)};
+    background-color: ${({ theme, seoulAreaSelect }) => (seoulAreaSelect ? theme.colors.gray2 : '')};
   `,
   TheaterSelectWrapper: styled.div`
     display: flex;
