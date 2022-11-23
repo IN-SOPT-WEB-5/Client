@@ -45,7 +45,7 @@ export default function MovieSelection() {
       <St.SelectMovieWrapper movieSelect={movieSelect}>
         {movieSelect ? (
           <St.SelectMovieTagWrapper>
-            <St.SelectMovieTag>블랙 팬서: 와칸다 포에버</St.SelectMovieTag>
+            <p>블랙 팬서: 와칸다 포에버</p>
             <img src={TagDeleteIcon} alt="태그 삭제" />
           </St.SelectMovieTagWrapper>
         ) : (
@@ -158,5 +158,4 @@ const St = {
     gap: 1rem;
     height: 2.8rem;
   `,
-  SelectMovieTag: styled.p``,
 };

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { areaArr, seoulAreaArr } from '../../core/bookingPage';
+import TagDeleteIcon from '../../assets/TagDelete.svg';
 
 export default function TheaterSelection() {
   const [areaSelect, setAreaSelect] = useState(false);
@@ -15,11 +16,8 @@ export default function TheaterSelection() {
       if (seoulAreaSelect.includes(seoul)) {
         const flitered = seoulAreaSelect.filter((el) => el !== seoul);
         setSeoulAreaSelect(flitered);
-        console.log(seoulAreaSelect);
       } else {
         setSeoulAreaSelect([...seoulAreaSelect, seoul]);
-
-        console.log(seoulAreaSelect);
       }
     } else return;
   };
@@ -65,7 +63,18 @@ export default function TheaterSelection() {
         </St.SeoulAreaWrapper>
       </St.AreaBox>
       <St.TheaterSelectWrapper>
-        <p>최대 3개의 극장은 선택할 수 있습니다.</p>
+        {seoulAreaSelect ? (
+          seoulAreaSelect.map((seoul, idx) => {
+            return (
+              <St.SelectSeoulAreaTagWrapper key={idx}>
+                <p>{seoul}</p>
+                <img src={TagDeleteIcon} alt="태그 삭제" />
+              </St.SelectSeoulAreaTagWrapper>
+            );
+          })
+        ) : (
+          <p>최대 3개의 극장을 선택할 수 있습니다.</p>
+        )}
       </St.TheaterSelectWrapper>
     </St.Root>
   );
@@ -173,5 +182,14 @@ const St = {
 
     border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
     border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
+  `,
+  SelectSeoulAreaTagWrapper: styled.span`
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
+    border-radius: 3.5rem;
+    border: 1px solid ${({ theme }) => theme.colors.gray5};
+    gap: 1rem;
+    height: 2.8rem;
   `,
 };
