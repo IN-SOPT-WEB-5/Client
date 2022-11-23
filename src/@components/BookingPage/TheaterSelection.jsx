@@ -62,8 +62,8 @@ export default function TheaterSelection() {
           })}
         </St.SeoulAreaWrapper>
       </St.AreaBox>
-      <St.TheaterSelectWrapper>
-        {seoulAreaSelect ? (
+      <St.TheaterSelectWrapper seoulAreaSelect={seoulAreaSelect.length}>
+        {seoulAreaSelect.length ? (
           seoulAreaSelect.map((seoul, idx) => {
             return (
               <St.SelectSeoulAreaTagWrapper key={idx}>
@@ -173,8 +173,8 @@ const St = {
   `,
   TheaterSelectWrapper: styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: ${({ seoulAreaSelect }) => (seoulAreaSelect ? '' : 'center')};
+    align-items: ${({ seoulAreaSelect }) => (seoulAreaSelect ? '' : 'center')};
 
     ${({ theme }) => theme.fonts.body2}
     color: ${({ theme }) => theme.colors.gray3};
@@ -182,6 +182,8 @@ const St = {
 
     border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
     border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
+    padding: 2rem;
+    gap: 1rem;
   `,
   SelectSeoulAreaTagWrapper: styled.span`
     display: flex;
