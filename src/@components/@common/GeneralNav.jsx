@@ -21,8 +21,9 @@ export default function GeneralNav() {
 
   const yScrollEvent = () => {
     const scroll = scrollRef.current.getBoundingClientRect();
-    console.log(scroll);
-    setHideElement(scroll.top <= 0);
+    //console.log(scroll);
+    //setHideElement(scroll.top <= 0);
+    scroll.top <= 0 ? setHideElement(true) : setHideElement(false); //코드리뷰 반영!
   };
   return (
     <WrapperWrapper>
@@ -54,17 +55,17 @@ export default function GeneralNav() {
         </MypageWrapper>
         <MiniNav ref={scrollRef}>
           {!hideElement ? (
-            <div style={{ display: 'flex' }}>
+            <WhiteMiniNav>
               <HouseIconWrapper></HouseIconWrapper>
               <GrayCrampWrapper></GrayCrampWrapper>
-            </div>
+            </WhiteMiniNav>
           ) : (
-            <div style={{ display: 'flex', background: '#444' }}>
-              <MiniNav style={{ background: '#444', position: 'fixed', top: '0rem' }}>
+            <BlackMiniNavWrapper>
+              <MiniNav background="#444" position="fixed" top="0rem">
                 <HouseIconWrapper></HouseIconWrapper>
                 <GrayCrampWrapper></GrayCrampWrapper>
               </MiniNav>
-            </div>
+            </BlackMiniNavWrapper>
           )}
         </MiniNav>
       </Wrapper>
@@ -234,5 +235,14 @@ const GrayCrampWrapper = styled.div`
 `;
 
 const ScrollHelp = styled.div`
-  height: 2000px;
+  height: 200rem;
+`;
+
+const WhiteMiniNav = styled.div`
+  display: flex;
+`;
+
+const BlackMiniNavWrapper = styled.div`
+  display: flex;
+  background: #444;
 `;
