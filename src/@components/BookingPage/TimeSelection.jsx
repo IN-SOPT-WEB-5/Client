@@ -142,9 +142,13 @@ const St = {
     align-items: center;
     justify-content: space-between;
     gap: 1.2rem;
+    margin-top: 0.2rem;
   `,
   NumWrapper: styled.span`
     display: flex;
+    align-items: center;
+    padding-top: 0.3rem;
+    height: 1.8rem;
   `,
   CurrentNum: styled.p`
     ${({ theme }) => theme.fonts.body3};
