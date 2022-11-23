@@ -3,9 +3,25 @@ import styled from 'styled-components';
 import { areaArr, seoulAreaArr } from '../../core/bookingPage';
 
 export default function TheaterSelection() {
-  const [seoulSelect, setSeoulSelect] = useState(false);
-  const toggleSeoulSelect = () => {
-    setSeoulSelect((prev) => !prev);
+  const [areaSelect, setAreaSelect] = useState(false);
+  const [seoulAreaSelect, setSeoulAreaSelect] = useState([]);
+
+  const toggleareaSelect = () => {
+    setAreaSelect((prev) => !prev);
+  };
+
+  const toggleSeoulAreaSelect = (seoul) => {
+    if (areaSelect) {
+      if (seoulAreaSelect.includes(seoul)) {
+        const flitered = seoulAreaSelect.filter((el) => el !== seoul);
+        setSeoulAreaSelect(flitered);
+        console.log(seoulAreaSelect);
+      } else {
+        setSeoulAreaSelect([...seoulAreaSelect, seoul]);
+
+        console.log(seoulAreaSelect);
+      }
+    } else return;
   };
 
   return (
@@ -21,7 +37,7 @@ export default function TheaterSelection() {
       </St.MovieTypeWrapper>
       <St.AreaBox>
         <St.AreaWrapper>
-          <St.Area type="button" onClick={toggleSeoulSelect} seoulSelect={seoulSelect}>
+          <St.Area type="button" onClick={toggleareaSelect} areaSelect={areaSelect}>
             서울(19)
           </St.Area>
           {areaArr.map((area) => {
@@ -33,6 +49,12 @@ export default function TheaterSelection() {
           })}
         </St.AreaWrapper>
         <St.SeoulAreaWrapper>
+          <St.SeoulArea type="button" onClick={() => toggleSeoulAreaSelect('강남')}>
+            강남
+          </St.SeoulArea>
+          <St.SeoulArea type="button" onClick={() => toggleSeoulAreaSelect('강남대로(씨티)')}>
+            강남대로(씨티)
+          </St.SeoulArea>
           {seoulAreaArr.map((seoulArea) => {
             return (
               <St.SeoulArea key={seoulArea} type="button">
@@ -115,7 +137,7 @@ const St = {
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray1};
 
-    border: 1px solid ${({ theme, seoulSelect }) => (seoulSelect ? theme.colors.gray1 : 'none')};
+    border: 1px solid ${({ theme, areaSelect }) => (areaSelect ? theme.colors.gray1 : 'none')};
   `,
   SeoulAreaWrapper: styled.div`
     width: 50%;
