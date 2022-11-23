@@ -62,7 +62,6 @@ const Date = styled.span`
 
 const ContentsBody = styled.div`
   display: flex;
-  display: flex;
   align-items: center;
   margin-top: 0.4rem;
 `;

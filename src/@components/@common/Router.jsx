@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import BoxOffice from '../src/@components/boxoffice/Index';
+import BoxOffice from '../boxoffice/Index';
 
-export default function Router() {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -10,4 +10,6 @@ export default function Router() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
+
+export default Router;

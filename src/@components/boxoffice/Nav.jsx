@@ -7,21 +7,23 @@ function Nav() {
     <div>
       <NavTitle>전체영화</NavTitle>
       <NavBtn>
-        <ChangeBtn1>박스오피스</ChangeBtn1>
-        <ChangeBtn2>상영예정작</ChangeBtn2>
-        <ChangeBtn3>특별상영</ChangeBtn3>
-        <ChangeBtn4>필름소사이어티</ChangeBtn4>
-        <ChangeBtn5>클래식소사이어티</ChangeBtn5>
+        <BoxOfficeBtn>박스오피스</BoxOfficeBtn>
+        <UpComingBtn>상영예정작</UpComingBtn>
+        <SpecialFilmBtn>특별상영</SpecialFilmBtn>
+        <FilmSocietyBtn>필름소사이어티</FilmSocietyBtn>
+        <ClassicSocietyBtn>클래식소사이어티</ClassicSocietyBtn>
         <Checkbox />
       </NavBtn>
     </div>
   );
 }
 
+export default Nav;
+
 const NavTitle = styled.p`
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 46px;
+  margin-bottom: 4.6rem;
 `;
 
 const NavBtn = styled.button`
@@ -32,49 +34,27 @@ const NavBtn = styled.button`
   text-align: left;
 `;
 
-const ChangeBtn1 = styled.button`
-  font-size: 15px;
-  margin: 0.8rem 77px 8px 76px;
-
-  /* &:hover {
-    border: 1px solid #f15a22;
-  } */
+const BoxOfficeBtn = styled.button`
+  font-size: 1.5rem;
+  margin: 0.8rem 7.7rem 0.8rem 7.6rem;
 `;
 
-const ChangeBtn2 = styled.button`
-  font-size: 15px;
-  margin: 8px 159px 8px 77px;
-
-  /* &:hover {
-    border: 1px solid #f15a22;
-  } */
+const UpComingBtn = styled.button`
+  font-size: 1.5rem;
+  margin: 0.8rem 15.9rem 0.8rem 7.7rem;
 `;
 
-const ChangeBtn3 = styled.button`
-  font-size: 15px;
-  margin: 8px 146px 8px 0px;
-
-  /* &:hover {
-    border: 1px solid #f15a22;
-  } */
+const SpecialFilmBtn = styled.button`
+  font-size: 1.5rem;
+  margin: 0.8rem 14.6rem 0.8rem 0;
 `;
 
-const ChangeBtn4 = styled.button`
-  font-size: 15px;
-  margin: 8px 153px 8px 0px;
-
-  /* &:hover {
-    border: 1px solid #f15a22;
-  } */
+const FilmSocietyBtn = styled.button`
+  font-size: 1.5rem;
+  margin: 0.8rem 15.3rem 0.8rem 0;
 `;
 
-const ChangeBtn5 = styled.button`
+const ClassicSocietyBtn = styled.button`
   font-size: 15px;
-  margin: 8px 120px 8px 0px;
-
-  /* &:hover {
-    border: 1px solid #f15a22;
-  } */
+  margin: 0.8rem 12rem 0.8rem 0;
 `;
-
-export default Nav;
