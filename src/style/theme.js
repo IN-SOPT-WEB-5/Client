@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { css, CSSProp } from 'styled-components';
 
 const colors = {
@@ -33,6 +34,7 @@ const fonts = {
   title: FONT({ weight: 400, size: 2.3, lineHeight: 110 }),
   subTitle: FONT({ weight: 400, size: 2, lineHeight: 110 }),
   body1_bold: FONT({ weight: 600, size: 1.5, lineHeight: 153 }),
+
   body1: FONT({ weight: 400, size: 1.5, lineHeight: 110 }),
   body2: FONT({ weight: 400, size: 1.3, lineHeight: 110 }),
 };
