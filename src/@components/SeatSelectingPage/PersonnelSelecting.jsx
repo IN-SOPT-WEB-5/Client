@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MoviePoster from '../../assets/seatSelectingPage/PersonnelSelecting/moviePoster.png';
 import MovieAge from '../../assets/seatSelectingPage/PersonnelSelecting/movieAge.svg';
@@ -13,6 +13,9 @@ import BlackSeats from '../../assets/seatSelectingPage/PersonnelSelecting/BlackS
 import Seats from '../../assets/seatSelectingPage/PersonnelSelecting/Seats.png';
 
 export default function PersonnelSelecting() {
+  const [adult, setAdult] = useState(0);
+  const [teenager, setTeenager] = useState(0);
+  const [briefs, setBriefs] = useState(0);
   return (
     <Wrapper>
       <div>
@@ -59,35 +62,64 @@ export default function PersonnelSelecting() {
           <PersonnelAdd>
             <SelectionButton>
               <SelectionText>성인</SelectionText>
-              <MinusButton></MinusButton>
-              <ButtonText>0</ButtonText>
-              <PlusButton></PlusButton>
+              <MinusButton
+                onClick={() => {
+                  if (adult > 0) {
+                    setAdult(adult - 1);
+                  }
+                }}></MinusButton>
+              <ButtonText>{adult}</ButtonText>
+              <PlusButton
+                onClick={() => {
+                  setAdult(adult + 1);
+                }}></PlusButton>
             </SelectionButton>
             <SelectionButton>
               <SelectionText>청소년</SelectionText>
-              <MinusButton></MinusButton>
-              <ButtonText>0</ButtonText>
-              <PlusButton></PlusButton>
+              <MinusButton
+                onClick={() => {
+                  if (teenager > 0) {
+                    setTeenager(teenager - 1);
+                  }
+                }}></MinusButton>
+              <ButtonText>{teenager}</ButtonText>
+              <PlusButton
+                onClick={() => {
+                  setTeenager(teenager + 1);
+                }}></PlusButton>
             </SelectionButton>
             <SelectionButton>
               <SelectionText>우대</SelectionText>
-              <MinusButton></MinusButton>
-              <ButtonText>0</ButtonText>
-              <PlusButton></PlusButton>
+              <MinusButton
+                onClick={() => {
+                  if (briefs > 0) {
+                    setBriefs(briefs - 1);
+                  }
+                }}></MinusButton>
+              <ButtonText>{briefs}</ButtonText>
+              <PlusButton
+                onClick={() => {
+                  setBriefs(briefs + 1);
+                }}></PlusButton>
             </SelectionButton>
           </PersonnelAdd>
         </PersonnelWrapper>
       </div>
       <SeatSelection>
         <SeatSelectionTitle>2. 좌석 선택</SeatSelectionTitle>
-        <SeatImg></SeatImg>
+        {adult > 0 || teenager > 0 || briefs > 0 ? <SeatImg></SeatImg> : <BlackSeatImg></BlackSeatImg>}
+
         <PaymentWrapper>
           <Payment>
             <PaymentText>예상 결제 금액</PaymentText>
-            <PaymentAmount>0</PaymentAmount>
+            <PaymentAmount>{16000 * adult + 13000 * teenager + 7000 * briefs}</PaymentAmount>
             <PaymentText>원</PaymentText>
           </Payment>
-          <NextButton>다음</NextButton>
+          {adult > 0 || teenager > 0 || briefs > 0 ? (
+            <MintNextButton>다음</MintNextButton>
+          ) : (
+            <NextButton>다음</NextButton>
+          )}
         </PaymentWrapper>
       </SeatSelection>
     </Wrapper>
@@ -261,6 +293,13 @@ const SeatSelectionTitle = styled.p`
 const SeatImg = styled.div`
   width: 75.8rem;
   height: 51.8rem;
+  background-image: url(${Seats});
+  background-size: cover;
+`;
+
+const BlackSeatImg = styled.div`
+  width: 75.8rem;
+  height: 51.8rem;
   background-image: url(${BlackSeats});
   background-size: cover;
 `;
@@ -282,6 +321,14 @@ const NextButton = styled.button`
   width: 13.2rem;
   height: 4.8rem;
   background-color: ${({ theme }) => theme.colors.gray4};
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.body1_bold};
+`;
+
+const MintNextButton = styled.button`
+  width: 13.2rem;
+  height: 4.8rem;
+  background-color: ${({ theme }) => theme.colors.sub_mint};
   color: ${({ theme }) => theme.colors.white};
   font: ${({ theme }) => theme.fonts.body1_bold};
 `;
