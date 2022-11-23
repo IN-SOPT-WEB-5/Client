@@ -18,7 +18,7 @@ export default function QuickReserve() {
         setSeoulAreaSelect={setSeoulAreaSelect}
       />
       {/* 1. theater에 따라 시간 보이게 하기* */}
-      <TimeSelection />
+      <TimeSelection seoulAreaSelect={seoulAreaSelect} />
     </St.Root>
   );
 }

@@ -1,20 +1,38 @@
 import styled from 'styled-components';
 import SpecialType from './SpecialType';
 import CalendarSvg from '../../assets/Calendar.svg';
+import AgeLimit12 from '../../assets/AgeLimit12.png';
+import { screenTimeArr } from '../../core/bookingPage';
 
-export default function TimeSelection() {
+export default function TimeSelection({ seoulAreaSelect }) {
   return (
     <St.Root>
       <St.SectionTitle>
         <h3>시간</h3>
       </St.SectionTitle>
       <SpecialType />
-      <St.TimeSelectArea>
-        <St.CalendarIcon src={CalendarSvg} alt="달력 아이콘" />
-        <St.TimeSelectExplain>
-          날짜, 영화, 극장을 선택하시면 <br />
-          상영시간표를 비교하여 볼 수 있습니다.
-        </St.TimeSelectExplain>
+      <St.TimeSelectArea seoulAreaSelect={seoulAreaSelect.length}>
+        {seoulAreaSelect.length ? (
+          <>
+            <St.MovieWrapper>
+              <St.AgeLimit src={AgeLimit12} alt="나이 제한" />
+              <St.MovieTitle>블랙 팬서: 와칸다 포에버</St.MovieTitle>
+            </St.MovieWrapper>
+            {seoulAreaSelect.map((seoul) => {
+              if (screenTimeArr.includes(seoul)) {
+                <St.TimeSelectWrapper key={seoul}></St.TimeSelectWrapper>;
+              }
+            })}
+          </>
+        ) : (
+          <>
+            <img src={CalendarSvg} alt="달력 아이콘" />
+            <St.TimeSelectExplain>
+              날짜, 영화, 극장을 선택하시면 <br />
+              상영시간표를 비교하여 볼 수 있습니다.
+            </St.TimeSelectExplain>
+          </>
+        )}
       </St.TimeSelectArea>
     </St.Root>
   );
@@ -43,10 +61,23 @@ const St = {
     height: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: ${({ seoulAreaSelect }) => (seoulAreaSelect ? '' : 'center')};
+    align-items: ${({ seoulAreaSelect }) => (seoulAreaSelect ? '' : 'center')};
+    padding: 2.2rem 2.6rem;
   `,
-  CalendarIcon: styled.img``,
+  MovieWrapper: styled.div`
+    display: flex;
+    gap: 1.3rem;
+    align-items: center;
+  `,
+  AgeLimit: styled.img`
+    width: 2rem;
+    height: 2rem;
+  `,
+  MovieTitle: styled.h3`
+    ${({ theme }) => theme.fonts.headline3};
+    color: ${({ theme }) => theme.colors.gray1};
+  `,
   TimeSelectExplain: styled.p`
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray3};

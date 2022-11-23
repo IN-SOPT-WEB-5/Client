@@ -56,3 +56,26 @@ export const seoulAreaArr = [
   '신촌',
   '이수',
 ];
+
+export const screenTimeArr = [
+  {
+    강남: [
+      { start: '10:00', finish: '12:51', currentNum: 109, totalNum: 113, special: true },
+      { start: '10:30', finish: '13:21', currentNum: 209, totalNum: 232, special: false },
+      { start: '11:00', finish: '13:41', currentNum: 103, totalNum: 203, special: true },
+      { start: '13:15', finish: '16:06', currentNum: 99, totalNum: 103, special: false },
+      { start: '14:15', finish: '17:06', currentNum: 101, totalNum: 120, special: true },
+      { start: '15:45', finish: '18:36', currentNum: 82, totalNum: 113, special: false },
+      { start: '17:20', finish: '20:11', currentNum: 100, totalNum: 103, special: false },
+      { start: '21:15', finish: '00:51', currentNum: 114, totalNum: 120, special: false },
+    ],
+    강남대로: [
+      { start: '10:15', finish: '13:06', currentNum: 149, totalNum: 200, special: false },
+      { start: '12:15', finish: '15:06', currentNum: 115, totalNum: 240, special: true },
+      { start: '15:25', finish: '18:16', currentNum: 99, totalNum: 230, special: false },
+      { start: '18:40', finish: '21:31', currentNum: 113, totalNum: 180, special: false },
+      { start: '19:00', finish: '21:51', currentNum: 159, totalNum: 240, special: true },
+      { start: '21:05', finish: '00:41', currentNum: 189, totalNum: 200, special: true },
+    ],
+  },
+];
