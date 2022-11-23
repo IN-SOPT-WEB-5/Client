@@ -2,9 +2,15 @@ import styled from 'styled-components';
 
 import DropDownSvg from '../../assets/OrderDropDown.svg';
 import { movieArr } from '../../core/bookingPage';
+import AgeLimit12 from '../../assets/AgeLimit12.png';
+import TagDeleteIcon from '../../assets/TagDelete.svg';
 
 /* 1. 블랙 팬서만 클릭 가능 2. 클릭 시 태그 생성 */
-export default function MovieSelection() {
+export default function MovieSelection({ movieSelect, setMovieSelect }) {
+  const toggleMovieSelect = () => {
+    setMovieSelect((prev) => !prev);
+  };
+
   return (
     <St.Root>
       <St.SectionTitle>
@@ -21,6 +27,10 @@ export default function MovieSelection() {
           <St.MovieOrder>예매수</St.MovieOrder>
           <St.Dropdown src={DropDownSvg} alt="정렬기준" />
         </St.OrderWrapper>
+        <St.MovieWrapper type="button" onClick={toggleMovieSelect} movieSelect={movieSelect}>
+          <St.AgeLimit src={AgeLimit12} alt="나이 제한" />
+          <St.MovieTitle>블랙 팬서: 와칸다 포에버</St.MovieTitle>
+        </St.MovieWrapper>
         {movieArr.map((movie) => {
           return (
             <St.MovieWrapper key={movie.title} type="button">
@@ -30,9 +40,16 @@ export default function MovieSelection() {
           );
         })}
       </St.MovieBox>
-      <St.MovieSelectWrapper>
-        <p>최대 3개의 영화를 선택할 수 있습니다.</p>
-      </St.MovieSelectWrapper>
+      <St.SelectMovieWrapper movieSelect={movieSelect}>
+        {movieSelect ? (
+          <St.SelectMovieTagWrapper>
+            <p>블랙 팬서: 와칸다 포에버</p>
+            <img src={TagDeleteIcon} alt="태그 삭제" />
+          </St.SelectMovieTagWrapper>
+        ) : (
+          <p>최대 3개의 영화를 선택할 수 있습니다.</p>
+        )}
+      </St.SelectMovieWrapper>
     </St.Root>
   );
 }
@@ -105,12 +122,8 @@ const St = {
     width: 100%;
     height: 4.2rem;
     padding: 0 2.3rem;
-    color: ${({ theme }) => theme.colors.gray1};
-
-    &:focus {
-      color: ${({ theme }) => theme.colors.white};
-      background-color: ${({ theme }) => theme.colors.gray2};
-    }
+    color: ${({ theme, movieSelect }) => (movieSelect ? theme.colors.white : theme.colors.gray1)};
+    background-color: ${({ theme, movieSelect }) => (movieSelect ? theme.colors.gray2 : '')};
   `,
   AgeLimit: styled.img`
     width: 2rem;
@@ -124,13 +137,23 @@ const St = {
     overflow: hidden;
     text-overflow: ellipsis;
   `,
-  MovieSelectWrapper: styled.div`
+  SelectMovieWrapper: styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: ${({ movieSelect }) => (movieSelect ? '' : 'center')};
+    align-items: ${({ movieSelect }) => (movieSelect ? '' : 'center')};
 
     ${({ theme }) => theme.fonts.body2}
     color: ${({ theme }) => theme.colors.gray3};
     height: 14.5rem;
+    padding: 2rem;
+  `,
+  SelectMovieTagWrapper: styled.span`
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
+    border-radius: 3.5rem;
+    border: 1px solid ${({ theme }) => theme.colors.gray5};
+    gap: 1rem;
+    height: 2.8rem;
   `,
 };

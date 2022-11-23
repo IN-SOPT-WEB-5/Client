@@ -1,7 +1,28 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { areaArr, seoulAreaArr } from '../../core/bookingPage';
+import TagDeleteIcon from '../../assets/TagDelete.svg';
 
-export default function TheaterSelection() {
+/* 1. 서울(강남, 강남대로)만 클릭 가능 2. 클릭 시 태그 생성 */
+export default function TheaterSelection({ movieSelect, seoulAreaSelect, setSeoulAreaSelect }) {
+  // 지역 고르기 - 서울
+  const [areaSelect, setAreaSelect] = useState(false);
+
+  const toggleareaSelect = () => {
+    if (movieSelect) setAreaSelect((prev) => !prev);
+  };
+
+  const toggleSeoulAreaSelect = (seoul) => {
+    if (areaSelect) {
+      if (seoulAreaSelect.includes(seoul)) {
+        const flitered = seoulAreaSelect.filter((el) => el !== seoul);
+        setSeoulAreaSelect(flitered);
+      } else {
+        setSeoulAreaSelect([...seoulAreaSelect, seoul]);
+      }
+    } else return;
+  };
+
   return (
     <St.Root>
       <St.SectionTitle>
@@ -15,6 +36,9 @@ export default function TheaterSelection() {
       </St.MovieTypeWrapper>
       <St.AreaBox>
         <St.AreaWrapper>
+          <St.Area type="button" onClick={toggleareaSelect} areaSelect={areaSelect}>
+            서울(19)
+          </St.Area>
           {areaArr.map((area) => {
             return (
               <St.Area key={area} type="button">
@@ -24,6 +48,18 @@ export default function TheaterSelection() {
           })}
         </St.AreaWrapper>
         <St.SeoulAreaWrapper>
+          <St.SeoulArea
+            type="button"
+            onClick={() => toggleSeoulAreaSelect('강남')}
+            seoulAreaSelect={seoulAreaSelect.includes('강남')}>
+            강남
+          </St.SeoulArea>
+          <St.SeoulArea
+            type="button"
+            onClick={() => toggleSeoulAreaSelect('강남대로(씨티)')}
+            seoulAreaSelect={seoulAreaSelect.includes('강남대로(씨티)')}>
+            강남대로(씨티)
+          </St.SeoulArea>
           {seoulAreaArr.map((seoulArea) => {
             return (
               <St.SeoulArea key={seoulArea} type="button">
@@ -33,8 +69,19 @@ export default function TheaterSelection() {
           })}
         </St.SeoulAreaWrapper>
       </St.AreaBox>
-      <St.TheaterSelectWrapper>
-        <p>최대 3개의 극장은 선택할 수 있습니다.</p>
+      <St.TheaterSelectWrapper seoulAreaSelect={seoulAreaSelect.length}>
+        {seoulAreaSelect.length ? (
+          seoulAreaSelect.map((seoul, idx) => {
+            return (
+              <St.SelectSeoulAreaTagWrapper key={idx}>
+                <p>{seoul}</p>
+                <img src={TagDeleteIcon} alt="태그 삭제" />
+              </St.SelectSeoulAreaTagWrapper>
+            );
+          })
+        ) : (
+          <p>최대 3개의 극장을 선택할 수 있습니다.</p>
+        )}
       </St.TheaterSelectWrapper>
     </St.Root>
   );
@@ -105,9 +152,8 @@ const St = {
 
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray1};
-    &:focus {
-      border: 1px solid ${({ theme }) => theme.colors.gray1};
-    }
+
+    border: 1px solid ${({ theme, areaSelect }) => (areaSelect ? theme.colors.gray1 : 'none')};
   `,
   SeoulAreaWrapper: styled.div`
     width: 50%;
@@ -126,16 +172,13 @@ const St = {
     padding-left: 2.4rem;
 
     ${({ theme }) => theme.fonts.body1};
-    color: ${({ theme }) => theme.colors.gray1};
-    &:focus {
-      color: ${({ theme }) => theme.colors.white};
-      background-color: ${({ theme }) => theme.colors.gray2};
-    }
+    color: ${({ theme, seoulAreaSelect }) => (seoulAreaSelect ? theme.colors.white : theme.colors.gray1)};
+    background-color: ${({ theme, seoulAreaSelect }) => (seoulAreaSelect ? theme.colors.gray2 : '')};
   `,
   TheaterSelectWrapper: styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: ${({ seoulAreaSelect }) => (seoulAreaSelect ? '' : 'center')};
+    align-items: ${({ seoulAreaSelect }) => (seoulAreaSelect ? '' : 'center')};
 
     ${({ theme }) => theme.fonts.body2}
     color: ${({ theme }) => theme.colors.gray3};
@@ -143,5 +186,16 @@ const St = {
 
     border-left: 0.5px solid ${({ theme }) => theme.colors.gray4};
     border-right: 0.5px solid ${({ theme }) => theme.colors.gray4};
+    padding: 2rem;
+    gap: 1rem;
+  `,
+  SelectSeoulAreaTagWrapper: styled.span`
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 1.2rem;
+    border-radius: 3.5rem;
+    border: 1px solid ${({ theme }) => theme.colors.gray5};
+    gap: 1rem;
+    height: 2.8rem;
   `,
 };

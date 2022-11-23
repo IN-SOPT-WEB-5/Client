@@ -1,16 +1,24 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import MovieSelection from './MovieSelection';
 import TheaterSelection from './TheaterSelection';
 import TimeSelection from './TimeSelection';
 
 export default function QuickReserve() {
+  // 영화 고르기 - 블랙팬서
+  const [movieSelect, setMovieSelect] = useState(false);
+  // 서울 지역 고르기 - 강남, 강남대로
+  const [seoulAreaSelect, setSeoulAreaSelect] = useState([]);
   return (
     <St.Root>
-      <MovieSelection />
-      {/* 1. 서울(강남, 강남대로)만 클릭 가능 2. 클릭 시 태그 생성 */}
-      <TheaterSelection />
+      <MovieSelection movieSelect={movieSelect} setMovieSelect={setMovieSelect} />
+      <TheaterSelection
+        movieSelect={movieSelect}
+        seoulAreaSelect={seoulAreaSelect}
+        setSeoulAreaSelect={setSeoulAreaSelect}
+      />
       {/* 1. theater에 따라 시간 보이게 하기* */}
-      <TimeSelection />
+      <TimeSelection seoulAreaSelect={seoulAreaSelect} />
     </St.Root>
   );
 }
