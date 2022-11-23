@@ -7,6 +7,8 @@ import Disabled from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon
 import Selected from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon/Selected.svg';
 import Impossible from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon/Impossible.svg';
 import Sold from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon/Sold.svg';
+import MinusBtn from '../../assets/seatSelectingPage/PersonnelSelecting/Buttons/MinusButton.svg';
+import PlusBtn from '../../assets/seatSelectingPage/PersonnelSelecting/Buttons/PlusButton.svg';
 
 export default function PersonnelSelecting() {
   return (
@@ -31,21 +33,46 @@ export default function PersonnelSelecting() {
       <PersonnelWrapper>
         <SeatOptions>
           <SeatOption>
-            <img src={General}></img>일반
+            <img src={General}></img>
+            <SeatOptionText>일반</SeatOptionText>
           </SeatOption>
           <SeatOption>
-            <img src={Disabled}></img>장애인
+            <img src={Disabled}></img>
+            <SeatOptionText>장애인</SeatOptionText>
           </SeatOption>
           <SeatOption>
-            <img src={Selected}></img>선택
+            <img src={Selected}></img>
+            <SeatOptionText>선택</SeatOptionText>
           </SeatOption>
           <SeatOption>
-            <img src={Impossible}></img>선택불가
+            <img src={Impossible}></img>
+            <SeatOptionText>선택불가</SeatOptionText>
           </SeatOption>
           <SeatOption>
-            <img src={Sold}></img>예매완료
+            <img src={Sold}></img>
+            <SeatOptionText>예매완료</SeatOptionText>
           </SeatOption>
         </SeatOptions>
+        <PersonnelAdd>
+          <SelectionButton>
+            <SelectionText>성인</SelectionText>
+            <MinusButton></MinusButton>
+            <ButtonText>0</ButtonText>
+            <PlusButton></PlusButton>
+          </SelectionButton>
+          <SelectionButton>
+            <SelectionText>청소년</SelectionText>
+            <MinusButton></MinusButton>
+            <ButtonText>0</ButtonText>
+            <PlusButton></PlusButton>
+          </SelectionButton>
+          <SelectionButton>
+            <SelectionText>우대</SelectionText>
+            <MinusButton></MinusButton>
+            <ButtonText>0</ButtonText>
+            <PlusButton></PlusButton>
+          </SelectionButton>
+        </PersonnelAdd>
       </PersonnelWrapper>
     </div>
   );
@@ -122,16 +149,79 @@ const Bolded = styled.span`
 
 const PersonnelWrapper = styled.div`
   display: flex;
+  border: 1px solid ${({ theme }) => theme.colors.gray5};
+  margin-top: 1.6rem;
 `;
 
 const SeatOptions = styled.div`
   width: 12rem;
   height: 24.8rem;
   background-color: ${({ theme }) => theme.colors.footer};
-  margin-top: 1.6rem;
   padding-top: 3.2rem;
   padding-left: 1.6rem;
   padding-bottom: 3.2rem;
+  padding-bottom: 1.6rem;
 `;
 
-const SeatOption = styled.div``;
+const SeatOption = styled.div`
+  width: 9.6rem;
+  height: 2.4rem;
+  font: ${({ theme }) => theme.fonts.body1};
+  color: ${({ theme }) => theme.colors.gray1};
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+`;
+
+const SeatOptionText = styled.p`
+  margin-top: 0.3rem;
+  margin-left: 0.8rem;
+`;
+
+const PersonnelAdd = styled.div`
+  width: 19.6rem;
+  height: 24.8rem;
+  padding-top: 5.2rem;
+  padding-left: 1.5rem;
+`;
+
+const MinusButton = styled.button`
+  background-image: url(${MinusBtn});
+  width: 3.2rem;
+  height: 3.2rem;
+`;
+
+const PlusButton = styled.button`
+  background-image: url(${PlusBtn});
+  width: 3.2rem;
+  height: 3.2rem;
+`;
+
+const SelectionButton = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.4rem;
+`;
+
+const ButtonText = styled.div`
+  border-top: 1px solid ${({ theme }) => theme.colors.gray5};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray5};
+  font: ${({ theme }) => theme.fonts.body1};
+  color: ${({ theme }) => theme.colors.gray1};
+  width: 4rem;
+  height: 3.2rem;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.65rem; // 글자랑 버튼 수평 안맞아서 일단 0.65 줬음
+`;
+
+const SelectionText = styled.p`
+  width: 4.8rem;
+  margin-right: 0.4rem;
+  font: ${({ theme }) => theme.fonts.body1};
+  color: ${({ theme }) => theme.colors.gray1};
+  align-items: center;
+  padding-top: 0.3rem; // 글자랑 버튼 수평 안맞아서 일단 0.3 줬음
+`;
