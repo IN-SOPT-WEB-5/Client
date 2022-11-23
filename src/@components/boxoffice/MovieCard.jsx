@@ -8,6 +8,7 @@ function MovieCard({ movieData }) {
   return (
     <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
       <div>
+        <PosterNum src={movieData.posterNum} />
         <PosterImg src={movieData.image} />
       </div>
       <ContentsHead>
@@ -15,7 +16,7 @@ function MovieCard({ movieData }) {
         <Title>{movieData.title}</Title>
       </ContentsHead>
       <ContentsBody>
-        <Date>개봉일 {movieData.openingDate}</Date>
+        <Date>개봉일 {movieData.opingDate}</Date>
         <Rate>예매율 {movieData.ticketingRate}%</Rate>
       </ContentsBody>
       <ContentsFooter>
@@ -34,6 +35,12 @@ function MovieCard({ movieData }) {
 }
 
 export default MovieCard;
+
+const PosterNum = styled.img`
+  position: absolute;
+
+  margin: 31.4rem 21.435rem 1.57rem 1.1rem;
+`;
 
 const HoverEvent = styled.div`
   position: absolute;
