@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import SpecialType from './SpecialType';
 import CalendarSvg from '../../assets/Calendar.svg';
 import AgeLimit12 from '../../assets/AgeLimit12.png';
-import { screenTimeArr } from '../../core/bookingPage';
+import { screenTimeArr, timeTypeArr } from '../../core/bookingPage';
 
 export default function TimeSelection({ seoulAreaSelect }) {
   return (
@@ -19,28 +19,32 @@ export default function TimeSelection({ seoulAreaSelect }) {
               <St.MovieTitle>블랙 팬서: 와칸다 포에버</St.MovieTitle>
             </St.MovieWrapper>
             {seoulAreaSelect.map((seoul) => {
-              if (screenTimeArr.includes(seoul)) {
+              return (
                 <St.TimeSelectWrapper key={seoul}>
                   <St.Seoul>{seoul}</St.Seoul>
-                  {screenTimeArr.seoul.map((el) => {
-                    <St.TimeSelect type="button">
-                      {el.timeType && <St.TimeTypeIcon src={el.timeTypeIcon} alt={el.timeTypeName} />}
-                      <St.TimeWrapper>
-                        <St.StartTime>{el.start}</St.StartTime>
-                        <St.FinishTime>~{el.finish}</St.FinishTime>
-                      </St.TimeWrapper>
-                      <St.TimeEtc>
-                        <St.NumWrapper>
-                          <St.CurrentNum>{el.currentNum}</St.CurrentNum>
-                          <St.TotalNum>/{el.totalNum}</St.TotalNum>
-                        </St.NumWrapper>
-                        <St.MovieEtc>2D(자막)</St.MovieEtc>
-                      </St.TimeEtc>
-                      {el.special && <St.Special src={el.timeTypeIcon} alt={el.timeTypeName} />}
-                    </St.TimeSelect>;
-                  })}
-                </St.TimeSelectWrapper>;
-              }
+                  <St.ScreenTimeWrapper>
+                    {screenTimeArr.강남.map((el, idx) => {
+                      return (
+                        <St.TimeSelect type="button" key={idx}>
+                          <St.TimeWrapper>
+                            {el.timeType && <St.TimeTypeIcon src={el.timeTypeIcon} alt={el.timeTypeName} />}
+                            <St.StartTime>{el.start}</St.StartTime>
+                            <St.FinishTime>~{el.finish}</St.FinishTime>
+                          </St.TimeWrapper>
+                          <St.TimeEtc>
+                            <St.NumWrapper>
+                              <St.CurrentNum>{el.currentNum}</St.CurrentNum>
+                              <St.TotalNum>/{el.totalNum}</St.TotalNum>
+                            </St.NumWrapper>
+                            <St.MovieEtc>2D(자막)</St.MovieEtc>
+                          </St.TimeEtc>
+                          {el.special && <St.Special src={el.timeTypeIcon} alt={el.timeTypeName} />}
+                        </St.TimeSelect>
+                      );
+                    })}
+                  </St.ScreenTimeWrapper>
+                </St.TimeSelectWrapper>
+              );
             })}
           </>
         ) : (
@@ -93,10 +97,69 @@ const St = {
     width: 2rem;
     height: 2rem;
   `,
-  MovieTitle: styled.h3`
+  MovieTitle: styled.h2`
     ${({ theme }) => theme.fonts.headline3};
     color: ${({ theme }) => theme.colors.gray1};
   `,
+  TimeSelectWrapper: styled.div`
+    width: 100%;
+  `,
+  ScreenTimeWrapper: styled.div`
+    width: 100%;
+    /* display: flex; */
+  `,
+  Seoul: styled.h3`
+    ${({ theme }) => theme.fonts.body1};
+    color: ${({ theme }) => theme.colors.gray3};
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+  `,
+  TimeSelect: styled.button`
+    border: 1px solid ${({ theme }) => theme.colors.gray5};
+    padding: 0.6rem;
+    width: 13rem;
+    height: 6rem;
+    margin-right: 1.3rem;
+    margin-bottom: 1.3rem;
+  `,
+  TimeTypeIcon: styled.img`
+    width: 1.2rem;
+  `,
+  TimeWrapper: styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+  `,
+  StartTime: styled.p`
+    ${({ theme }) => theme.fonts.headline3_bold};
+    color: ${({ theme }) => theme.colors.gray1};
+  `,
+  FinishTime: styled.p`
+    ${({ theme }) => theme.fonts.body3};
+    color: ${({ theme }) => theme.colors.gray3};
+  `,
+  TimeEtc: styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  `,
+  NumWrapper: styled.span`
+    display: flex;
+  `,
+  CurrentNum: styled.p`
+    ${({ theme }) => theme.fonts.body3};
+
+    color: ${({ theme }) => theme.colors.sub_mint};
+  `,
+  TotalNum: styled.p`
+    ${({ theme }) => theme.fonts.body3};
+    color: ${({ theme }) => theme.colors.gray3};
+  `,
+  MovieEtc: styled.p`
+    ${({ theme }) => theme.fonts.body3};
+    color: ${({ theme }) => theme.colors.gray3};
+  `,
+  Special: styled.img``,
   TimeSelectExplain: styled.p`
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray3};
