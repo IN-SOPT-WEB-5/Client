@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 import DropDownSvg from '../../assets/OrderDropDown.svg';
@@ -7,8 +6,7 @@ import AgeLimit12 from '../../assets/AgeLimit12.png';
 import TagDeleteIcon from '../../assets/TagDelete.svg';
 
 /* 1. 블랙 팬서만 클릭 가능 2. 클릭 시 태그 생성 */
-export default function MovieSelection() {
-  const [movieSelect, setMovieSelect] = useState(false);
+export default function MovieSelection({ movieSelect, setMovieSelect }) {
   const toggleMovieSelect = () => {
     setMovieSelect((prev) => !prev);
   };

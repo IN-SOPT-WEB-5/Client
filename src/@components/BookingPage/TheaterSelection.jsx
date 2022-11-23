@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { areaArr, seoulAreaArr } from '../../core/bookingPage';
 import TagDeleteIcon from '../../assets/TagDelete.svg';
 
-export default function TheaterSelection() {
+/* 1. 서울(강남, 강남대로)만 클릭 가능 2. 클릭 시 태그 생성 */
+export default function TheaterSelection({ movieSelect, seoulAreaSelect, setSeoulAreaSelect }) {
+  // 지역 고르기 - 서울
   const [areaSelect, setAreaSelect] = useState(false);
-  const [seoulAreaSelect, setSeoulAreaSelect] = useState([]);
 
   const toggleareaSelect = () => {
-    setAreaSelect((prev) => !prev);
+    if (movieSelect) setAreaSelect((prev) => !prev);
   };
 
   const toggleSeoulAreaSelect = (seoul) => {
