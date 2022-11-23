@@ -20,7 +20,26 @@ export default function TimeSelection({ seoulAreaSelect }) {
             </St.MovieWrapper>
             {seoulAreaSelect.map((seoul) => {
               if (screenTimeArr.includes(seoul)) {
-                <St.TimeSelectWrapper key={seoul}></St.TimeSelectWrapper>;
+                <St.TimeSelectWrapper key={seoul}>
+                  <St.Seoul>{seoul}</St.Seoul>
+                  {screenTimeArr.seoul.map((el) => {
+                    <St.TimeSelect type="button">
+                      {el.timeType && <St.TimeTypeIcon src={el.timeTypeIcon} alt={el.timeTypeName} />}
+                      <St.TimeWrapper>
+                        <St.StartTime>{el.start}</St.StartTime>
+                        <St.FinishTime>~{el.finish}</St.FinishTime>
+                      </St.TimeWrapper>
+                      <St.TimeEtc>
+                        <St.NumWrapper>
+                          <St.CurrentNum>{el.currentNum}</St.CurrentNum>
+                          <St.TotalNum>/{el.totalNum}</St.TotalNum>
+                        </St.NumWrapper>
+                        <St.MovieEtc>2D(자막)</St.MovieEtc>
+                      </St.TimeEtc>
+                      {el.special && <St.Special src={el.timeTypeIcon} alt={el.timeTypeName} />}
+                    </St.TimeSelect>;
+                  })}
+                </St.TimeSelectWrapper>;
               }
             })}
           </>
