@@ -6,17 +6,39 @@ import styled from 'styled-components';
 
 export default function SeatSelectingPage() {
   return (
-    <div>
+    <>
       <GeneralNav></GeneralNav>
-      <Hello>hi</Hello>
-      <PersonnelSelecting></PersonnelSelecting>
-      <SeatSelecting></SeatSelecting>
-    </div>
+      <WrapperWrapper>
+        <Wrapper>
+          <FastTicketing>빠른예매</FastTicketing>
+          <PersonnelSelecting></PersonnelSelecting>
+        </Wrapper>
+      </WrapperWrapper>
+    </>
   );
 }
 
-const Hello = styled.div`
-  height: 10rem;
-  width: 10rem;
-  background-color: red;
+const FastTicketing = styled.div`
+  margin: 3.6rem 111.2rem 2.8rem 9.6rem;
+  color: ${({ theme }) => theme.colors.gray1};
+  font: ${({ theme }) => theme.fonts.headline3};
+  height: 2.2rem;
+`;
+
+const ScrollHelp = styled.div`
+  height: 2000px;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+  width: 128rem;
+`;
+
+const WrapperWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
 `;
