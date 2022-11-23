@@ -22,27 +22,25 @@ export default function TimeSelection({ seoulAreaSelect }) {
               return (
                 <St.TimeSelectWrapper key={seoul}>
                   <St.Seoul>{seoul}</St.Seoul>
-                  <St.ScreenTimeWrapper>
-                    {screenTimeArr.강남.map((el, idx) => {
-                      return (
-                        <St.TimeSelect type="button" key={idx}>
-                          <St.TimeWrapper>
-                            {el.timeType && <St.TimeTypeIcon src={el.timeTypeIcon} alt={el.timeTypeName} />}
-                            <St.StartTime>{el.start}</St.StartTime>
-                            <St.FinishTime>~{el.finish}</St.FinishTime>
-                          </St.TimeWrapper>
-                          <St.TimeEtc>
-                            <St.NumWrapper>
-                              <St.CurrentNum>{el.currentNum}</St.CurrentNum>
-                              <St.TotalNum>/{el.totalNum}</St.TotalNum>
-                            </St.NumWrapper>
-                            <St.MovieEtc>2D(자막)</St.MovieEtc>
-                          </St.TimeEtc>
-                          {el.special && <St.Special src={el.timeTypeIcon} alt={el.timeTypeName} />}
-                        </St.TimeSelect>
-                      );
-                    })}
-                  </St.ScreenTimeWrapper>
+                  {screenTimeArr.강남.map((el, idx) => {
+                    return (
+                      <St.TimeSelect type="button" key={idx}>
+                        <St.TimeWrapper>
+                          {el.timeTypeIcon && <St.TimeTypeIcon src={el.timeTypeIcon} alt={el.timeTypeName} />}
+                          <St.StartTime>{el.start}</St.StartTime>
+                          <St.FinishTime>~{el.finish}</St.FinishTime>
+                        </St.TimeWrapper>
+                        <St.TimeEtc>
+                          <St.NumWrapper>
+                            <St.CurrentNum>{el.currentNum}</St.CurrentNum>
+                            <St.TotalNum>/{el.totalNum}</St.TotalNum>
+                          </St.NumWrapper>
+                          <St.MovieEtc>2D(자막)</St.MovieEtc>
+                        </St.TimeEtc>
+                        {el.specialIcon && <St.Special src={el.specialIcon} alt="특별관" />}
+                      </St.TimeSelect>
+                    );
+                  })}
                 </St.TimeSelectWrapper>
               );
             })}
@@ -104,10 +102,6 @@ const St = {
   TimeSelectWrapper: styled.div`
     width: 100%;
   `,
-  ScreenTimeWrapper: styled.div`
-    width: 100%;
-    /* display: flex; */
-  `,
   Seoul: styled.h3`
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray3};
@@ -116,19 +110,24 @@ const St = {
   `,
   TimeSelect: styled.button`
     border: 1px solid ${({ theme }) => theme.colors.gray5};
-    padding: 0.6rem;
+    padding: 0.6rem 0.7rem;
     width: 13rem;
     height: 6rem;
     margin-right: 1.3rem;
     margin-bottom: 1.3rem;
-  `,
-  TimeTypeIcon: styled.img`
-    width: 1.2rem;
+    position: relative;
   `,
   TimeWrapper: styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.1rem;
+    position: relative;
+  `,
+  TimeTypeIcon: styled.img`
+    width: 1.2rem;
+    position: absolute;
+    left: 0;
   `,
   StartTime: styled.p`
     ${({ theme }) => theme.fonts.headline3_bold};
@@ -141,6 +140,7 @@ const St = {
   TimeEtc: styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1.2rem;
   `,
   NumWrapper: styled.span`
@@ -148,7 +148,6 @@ const St = {
   `,
   CurrentNum: styled.p`
     ${({ theme }) => theme.fonts.body3};
-
     color: ${({ theme }) => theme.colors.sub_mint};
   `,
   TotalNum: styled.p`
@@ -159,7 +158,12 @@ const St = {
     ${({ theme }) => theme.fonts.body3};
     color: ${({ theme }) => theme.colors.gray3};
   `,
-  Special: styled.img``,
+  Special: styled.img`
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 0.6rem;
+  `,
   TimeSelectExplain: styled.p`
     ${({ theme }) => theme.fonts.body1};
     color: ${({ theme }) => theme.colors.gray3};
