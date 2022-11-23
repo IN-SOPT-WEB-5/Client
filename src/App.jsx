@@ -1,8 +1,12 @@
 import React from 'react';
-import Index from './@components/boxoffice/Index';
+import Router from '../src/Router';
 
 function App() {
-  return <Index />;
+  return (
+    <div>
+      <Router />
+    </div>
+  );
 }
 
 export default App;

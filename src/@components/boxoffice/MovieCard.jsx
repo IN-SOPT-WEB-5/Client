@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import Hover from './Hover';
 
 function MovieCard({ movieData }) {
-  const [isHover, setIsHover] = useState(0);
+  const [isHover, setIsHover] = useState(false);
   return (
-    <Wrapper onMouseOver={() => setIsHover(1)} onMouseOut={() => setIsHover(0)}>
+    <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
       <div>
         <PosterImg src={movieData.image} />
       </div>
@@ -70,7 +70,6 @@ const Date = styled.span`
 `;
 
 const ContentsBody = styled.div`
-  display: flex;
   display: flex;
   align-items: center;
   margin-top: 0.4rem;
