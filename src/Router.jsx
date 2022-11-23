@@ -10,13 +10,11 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path="/boxoffice" element={<BoxOffice />} />
 
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/" element={<Landingpage />} />
         <Route path="/select" element={<SeatSelectingPage />} />
-
       </Routes>
     </BrowserRouter>
   );
