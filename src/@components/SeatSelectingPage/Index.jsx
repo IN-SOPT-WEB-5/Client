@@ -1,6 +1,5 @@
 import React from 'react';
 import PersonnelSelecting from './PersonnelSelecting';
-import SeatSelecting from './SeatSelecting';
 import GeneralNav from '../@common/GeneralNav';
 import styled from 'styled-components';
 

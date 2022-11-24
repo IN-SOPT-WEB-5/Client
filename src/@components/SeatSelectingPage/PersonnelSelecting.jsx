@@ -201,7 +201,7 @@ const Bolded = styled.span`
 
 const PersonnelWrapper = styled.div`
   display: flex;
-  border: 1px solid ${({ theme }) => theme.colors.gray5};
+  border: 0.1rem solid ${({ theme }) => theme.colors.gray5};
   margin-top: 1.6rem;
 `;
 
