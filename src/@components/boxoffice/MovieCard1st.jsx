@@ -1,19 +1,20 @@
 import React from 'react';
+import { useState } from 'react';
 // import Poster from '../../assets/ImgPoster.png';
 // import Age from '../../assets/Age.svg';
 // import TicketingBtn from '../../assets/TicketingBtnS.svg';
 // import CinemaBtn from '../../assets/CinemaBtn.svg';
 // import HeartBtn from '../../assets/HeartBtn.svg';
 import styled from 'styled-components';
+import Hover from './Hover';
 
 function MovieCard1st({ movieData }) {
-  // const title = '극장판 짱구는 못말려:···';
-  // const OpeningDate = '2022.09.28';
-  // const TicketingRate = '0.9';
-
+  const [isHover, setIsHover] = useState(false);
+  console.log(movieData);
   return (
-    <div>
+    <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
       <div>
+        <PosterNum src={movieData.posterNum} />
         <PosterImg src={movieData.image} />
       </div>
       <ContentsHead>
@@ -25,15 +26,41 @@ function MovieCard1st({ movieData }) {
         <Rate>예매율 {movieData.ticketingRate} %</Rate>
       </ContentsBody>
       <ContentsFooter>
-        <BtnImg src={movieData.ticketingBtn} />
-        <CinemaBtnImg src={movieData.CinemaBtn} />
-        <HeartBtnImg src={movieData.HeartBtn} />
+        <BtnImg src={movieData.ticketingBtn1st} />
+        <CinemaBtnImg src={movieData.cinemaBtn} />
+        <HeartBtnImg src={movieData.heartBtn} />
       </ContentsFooter>
-    </div>
+      {isHover ? (
+        <HoverEvent>
+          <Hover />
+        </HoverEvent>
+      ) : (
+        ''
+      )}
+    </Wrapper>
   );
 }
 
 export default MovieCard1st;
+
+const PosterNum = styled.img`
+  position: absolute;
+
+  margin: 31.4rem 21.435rem 1.57rem 1.1rem;
+`;
+
+const HoverEvent = styled.div`
+  position: absolute;
+  top: 2.1rem;
+  z-index: 2;
+
+  width: 24.5rem;
+  height: 35.2rem;
+`;
+
+const Wrapper = styled.div`
+  position: relative;
+`;
 
 const ContentsFooter = styled.div`
   margin-top: 0.8rem;
@@ -81,7 +108,5 @@ const Title = styled.span`
 const AgeImg = styled.img``;
 
 const PosterImg = styled.img`
-  width: 23.5rem;
-  height: 35.2rem;
   margin-top: 2.1rem;
 `;

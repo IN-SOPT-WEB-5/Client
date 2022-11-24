@@ -12,8 +12,8 @@ function Nav() {
         <SpecialFilmBtn>특별상영</SpecialFilmBtn>
         <FilmSocietyBtn>필름소사이어티</FilmSocietyBtn>
         <ClassicSocietyBtn>클래식소사이어티</ClassicSocietyBtn>
-        <Checkbox />
       </NavBtn>
+      <Checkbox />
     </div>
   );
 }
@@ -29,32 +29,39 @@ const NavTitle = styled.p`
 const NavBtn = styled.button`
   /* border: 1px solid #a7a7a7; */
   margin: 0%;
-  /* width: 1110px; */
+  width: 111rem;
   /* height: 39px; */
   text-align: left;
+  display: flex;
+  justify-content: space-around;
 `;
 
 const BoxOfficeBtn = styled.button`
   font-size: 1.5rem;
-  margin: 0.8rem 7.7rem 0.8rem 7.6rem;
+  /* margin: 0.8rem 7.7rem 0.8rem 7.6rem; */
+  width: 22rem;
 `;
 
 const UpComingBtn = styled.button`
   font-size: 1.5rem;
-  margin: 0.8rem 15.9rem 0.8rem 7.7rem;
+  width: 22rem;
+  /* margin: 0.8rem 15.9rem 0.8rem 7.7rem; */
 `;
 
 const SpecialFilmBtn = styled.button`
   font-size: 1.5rem;
-  margin: 0.8rem 14.6rem 0.8rem 0;
+  width: 22rem;
+  /* margin: 0.8rem 14.6rem 0.8rem 0; */
 `;
 
 const FilmSocietyBtn = styled.button`
   font-size: 1.5rem;
-  margin: 0.8rem 15.3rem 0.8rem 0;
+  width: 22rem;
+  /* margin: 0.8rem 15.3rem 0.8rem 0; */
 `;
 
 const ClassicSocietyBtn = styled.button`
   font-size: 15px;
-  margin: 0.8rem 12rem 0.8rem 0;
+  width: 22rem;
+  /* margin: 0.8rem 12rem 0.8rem 0; */
 `;

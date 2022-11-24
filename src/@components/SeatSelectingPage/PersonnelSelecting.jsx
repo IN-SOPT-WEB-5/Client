@@ -40,6 +40,7 @@ export default function PersonnelSelecting() {
           <MoviePlace>
             <Bolded>관람장소</Bolded>
             {seoulAera} 4관 (11층 4관)
+
           </MoviePlace>
         </MovieTimePlace>
         <PersonnelWrapper>
@@ -107,6 +108,7 @@ export default function PersonnelSelecting() {
                 onClick={() => {
                   setBriefs(briefs + 1);
                 }}></PlusButton>
+
             </SelectionButton>
           </PersonnelAdd>
         </PersonnelWrapper>
@@ -126,6 +128,7 @@ export default function PersonnelSelecting() {
           ) : (
             <NextButton>다음</NextButton>
           )}
+
         </PaymentWrapper>
       </SeatSelection>
     </Wrapper>
