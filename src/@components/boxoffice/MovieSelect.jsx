@@ -32,12 +32,6 @@ const AddMovieBtnImg = styled.img`
   margin-bottom: 6rem;
 `;
 
-// const HoverEvent = styled.div`
-//   position: absolute;
-//   top: 0px;
-//   z-index: 2;
-// `;
-
 const ItemsRepeat = styled.div`
   display: flex;
   flex-wrap: wrap;

@@ -43,6 +43,7 @@ const NumText = styled.span`
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 110rem;
   height: 39px;
   margin-top: 3.5rem;
 `;
