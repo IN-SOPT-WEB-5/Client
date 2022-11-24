@@ -7,9 +7,11 @@ import MypageIcon from '../../assets/header/ic_my_black.svg';
 import HouseIcon from '../../assets/header/ic_home.svg';
 import GrayCramp from '../../assets/header/icn_cramp_gray.svg';
 
-export default function GeneralNav() {
+export default function GeneralNav({ footprint1, footprint2 }) {
   const [hideElement, setHideElement] = useState(false); //true 이면 요소가 천장에 닿았다는 것.
   const scrollRef = useRef(null);
+  const fprint1 = footprint1;
+  const fprint2 = footprint2;
 
   useEffect(() => {
     if (!scrollRef.current) return;
@@ -25,6 +27,7 @@ export default function GeneralNav() {
     //setHideElement(scroll.top <= 0);
     scroll.top <= 0 ? setHideElement(true) : setHideElement(false); //코드리뷰 반영!
   };
+
   return (
     <WrapperWrapper>
       <Wrapper>
@@ -58,6 +61,9 @@ export default function GeneralNav() {
             <WhiteMiniNav>
               <HouseIconWrapper></HouseIconWrapper>
               <GrayCrampWrapper></GrayCrampWrapper>
+              {fprint1}
+              <GrayCrampWrapper></GrayCrampWrapper>
+              {fprint2}
             </WhiteMiniNav>
           ) : (
             <BlackMiniNavWrapper>

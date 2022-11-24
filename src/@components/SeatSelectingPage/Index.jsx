@@ -8,7 +8,7 @@ import { findByLabelText } from '@testing-library/react';
 export default function SeatSelectingPage() {
   return (
     <>
-      <GeneralNav></GeneralNav>
+      <GeneralNav footprint1="예매" footprint2="빠른예매"></GeneralNav>
       <WrapperWrapper>
         <Wrapper>
           <FastTicketing>빠른예매</FastTicketing>
