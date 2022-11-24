@@ -16,6 +16,59 @@ export default function PersonnelSelecting() {
   const [adult, setAdult] = useState(0);
   const [teenager, setTeenager] = useState(0);
   const [briefs, setBriefs] = useState(0);
+
+  function decreasePersonnel(index) {
+    if (index === 0) {
+      if (adult > 0) {
+        setAdult(adult - 1);
+      }
+    } else if (index === 1) {
+      if (teenager > 0) {
+        setTeenager(teenager - 1);
+      }
+    } else if (index === 2) {
+      if (briefs > 0) {
+        setBriefs(briefs - 1);
+      }
+    }
+  } // state 를 인자로 넣을려고 했으나 fail.. index 를 인자로 넘겨서 마무리했으요..ㅠㅠ
+
+  function increasePersonnel(index) {
+    if (index === 0) {
+      setAdult(adult + 1);
+    } else if (index === 1) {
+      setTeenager(teenager + 1);
+    } else if (index === 2) {
+      setBriefs(briefs + 1);
+    }
+  }
+
+  const seatOptions = ['일반', '장애인', '선택', '선택불가', '예매완료'];
+  const seatImages = [General, Disabled, Selected, Impossible, Sold];
+  const seatOptionList = seatOptions.map((seatOption, index) => (
+    <SeatOption key={index}>
+      <img src={seatImages[index]}></img>
+      <SeatOptionText>{seatOption}</SeatOptionText>
+    </SeatOption>
+  ));
+
+  const seatAges = ['성인', '청소년', '우대'];
+  const seatAgeNum = [adult, teenager, briefs];
+  const selectionButtonList = seatAges.map((seatAge, index) => (
+    <SelectionButton key={index}>
+      <SelectionText>{seatAge}</SelectionText>
+      <MinusButton
+        onClick={() => {
+          decreasePersonnel(index);
+        }}></MinusButton>
+      <ButtonText>{seatAgeNum[index]}</ButtonText>
+      <PlusButton
+        onClick={() => {
+          increasePersonnel(index);
+        }}></PlusButton>
+    </SelectionButton>
+  ));
+
   return (
     <Wrapper>
       <div>
@@ -23,7 +76,7 @@ export default function PersonnelSelecting() {
         <MovieInfo>
           <MovieOption>2D, 자막</MovieOption>
           <MovieTitle>
-            <img src={MovieAge} style={{ marginRight: '0.6rem', height: '2rem' }}></img>블랙 팬서: 와칸다 포에버
+            <MovieImg src={MovieAge}></MovieImg>블랙 팬서: 와칸다 포에버
           </MovieTitle>
         </MovieInfo>
         <MovieTimePlace>
@@ -37,72 +90,8 @@ export default function PersonnelSelecting() {
           </MoviePlace>
         </MovieTimePlace>
         <PersonnelWrapper>
-          <SeatOptions>
-            <SeatOption>
-              <img src={General}></img>
-              <SeatOptionText>일반</SeatOptionText>
-            </SeatOption>
-            <SeatOption>
-              <img src={Disabled}></img>
-              <SeatOptionText>장애인</SeatOptionText>
-            </SeatOption>
-            <SeatOption>
-              <img src={Selected}></img>
-              <SeatOptionText>선택</SeatOptionText>
-            </SeatOption>
-            <SeatOption>
-              <img src={Impossible}></img>
-              <SeatOptionText>선택불가</SeatOptionText>
-            </SeatOption>
-            <SeatOption>
-              <img src={Sold}></img>
-              <SeatOptionText>예매완료</SeatOptionText>
-            </SeatOption>
-          </SeatOptions>
-          <PersonnelAdd>
-            <SelectionButton>
-              <SelectionText>성인</SelectionText>
-              <MinusButton
-                onClick={() => {
-                  if (adult > 0) {
-                    setAdult(adult - 1);
-                  }
-                }}></MinusButton>
-              <ButtonText>{adult}</ButtonText>
-              <PlusButton
-                onClick={() => {
-                  setAdult(adult + 1);
-                }}></PlusButton>
-            </SelectionButton>
-            <SelectionButton>
-              <SelectionText>청소년</SelectionText>
-              <MinusButton
-                onClick={() => {
-                  if (teenager > 0) {
-                    setTeenager(teenager - 1);
-                  }
-                }}></MinusButton>
-              <ButtonText>{teenager}</ButtonText>
-              <PlusButton
-                onClick={() => {
-                  setTeenager(teenager + 1);
-                }}></PlusButton>
-            </SelectionButton>
-            <SelectionButton>
-              <SelectionText>우대</SelectionText>
-              <MinusButton
-                onClick={() => {
-                  if (briefs > 0) {
-                    setBriefs(briefs - 1);
-                  }
-                }}></MinusButton>
-              <ButtonText>{briefs}</ButtonText>
-              <PlusButton
-                onClick={() => {
-                  setBriefs(briefs + 1);
-                }}></PlusButton>
-            </SelectionButton>
-          </PersonnelAdd>
+          <SeatOptions>{seatOptionList}</SeatOptions>
+          <PersonnelAdd>{selectionButtonList}</PersonnelAdd>
         </PersonnelWrapper>
       </div>
       <SeatSelection>
@@ -163,6 +152,11 @@ const MovieTitle = styled.div`
   top: 12.7rem;
   left: 2rem;
   //height: 2.4rem;
+`;
+
+const MovieImg = styled.img`
+  margin-right: 0.6rem;
+  height: 2rem;
 `;
 
 const MovieTimePlace = styled.div`
