@@ -19,5 +19,5 @@ const TopBtnImg = styled.img`
   z-index: 5;
   position: fixed;
   bottom: 0;
-  left: 102.8rem;
+  left: 117.2rem;
 `;
