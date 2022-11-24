@@ -2,9 +2,21 @@ import styled from 'styled-components';
 import SpecialType from './SpecialType';
 import CalendarSvg from '../../assets/Calendar.svg';
 import AgeLimit12 from '../../assets/AgeLimit12.png';
-import { screenTimeArr, timeTypeArr } from '../../core/bookingPage';
+import { screenTimeArr } from '../../core/bookingPage';
+import { useNavigate } from 'react-router-dom';
 
 export default function TimeSelection({ seoulAreaSelect }) {
+  const navigate = useNavigate();
+
+  const handleClick = (el) => {
+    navigate('/select', {
+      state: {
+        seoulArea: seoulAreaSelect[0],
+        time: `${el.start}~${el.finish}`,
+      },
+    });
+  };
+
   return (
     <St.Root>
       <St.SectionTitle>
@@ -24,7 +36,7 @@ export default function TimeSelection({ seoulAreaSelect }) {
                   <St.Seoul>{seoul}</St.Seoul>
                   {screenTimeArr.강남.map((el, idx) => {
                     return (
-                      <St.TimeSelect type="button" key={idx}>
+                      <St.TimeSelect type="button" key={idx} onClick={() => handleClick(el)}>
                         <St.TimeWrapper>
                           {el.timeTypeIcon && <St.TimeTypeIcon src={el.timeTypeIcon} alt={el.timeTypeName} />}
                           <St.StartTime>{el.start}</St.StartTime>
