@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -123,4 +125,27 @@ export const GlobalStyle = createGlobalStyle`
       outline: none;
     }
   }
+   .slick-slide {
+	  display: inline-block;
+    margin: 0 2.2rem;
+
+    width: 16.6rem;
+    height: 22.2rem;
+
+
+  }
+
+  .slick-slider {
+	  display: inline-block;
+
+	  width: 110rem;
+    padding: 0;
+    margin-left: 5rem;
+  }
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+  
 `;

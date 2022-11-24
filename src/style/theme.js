@@ -4,6 +4,7 @@ import { css, CSSProp } from 'styled-components';
 const colors = {
   main_purple: '#503396',
   main_darken: '#351f66',
+  purple_dark: '#252451',
   sub_mint: '#73bcc7',
   sub_blue: '#344690',
   blue2: '#0059DE',
