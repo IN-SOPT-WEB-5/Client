@@ -7,49 +7,96 @@ import Disabled from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon
 import Selected from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon/Selected.svg';
 import Impossible from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon/Impossible.svg';
 import Sold from '../../assets/seatSelectingPage/PersonnelSelecting/SeatIcon/Sold.svg';
+import MinusBtn from '../../assets/seatSelectingPage/PersonnelSelecting/Buttons/MinusButton.svg';
+import PlusBtn from '../../assets/seatSelectingPage/PersonnelSelecting/Buttons/PlusButton.svg';
+import BlackSeats from '../../assets/seatSelectingPage/PersonnelSelecting/BlackSeats.png';
+import Seats from '../../assets/seatSelectingPage/PersonnelSelecting/Seats.png';
 
 export default function PersonnelSelecting() {
   return (
-    <div>
-      <PersonnelSelect>1. 관람인원 선택</PersonnelSelect>
-      <MovieInfo>
-        <MovieOption>2D, 자막</MovieOption>
-        <MovieTitle>
-          <img src={MovieAge} style={{ marginRight: '0.6rem', height: '2rem' }}></img>블랙 팬서: 와칸다 포에버
-        </MovieTitle>
-      </MovieInfo>
-      <MovieTimePlace>
-        <MovieTime>
-          <Bolded>관람일시</Bolded>
-          2022. 11. 06 (수) 17:20~20:11
-        </MovieTime>
-        <MoviePlace>
-          <Bolded>관람장소</Bolded>
-          강남 4관 (11층 4관)
-        </MoviePlace>
-      </MovieTimePlace>
-      <PersonnelWrapper>
-        <SeatOptions>
-          <SeatOption>
-            <img src={General}></img>일반
-          </SeatOption>
-          <SeatOption>
-            <img src={Disabled}></img>장애인
-          </SeatOption>
-          <SeatOption>
-            <img src={Selected}></img>선택
-          </SeatOption>
-          <SeatOption>
-            <img src={Impossible}></img>선택불가
-          </SeatOption>
-          <SeatOption>
-            <img src={Sold}></img>예매완료
-          </SeatOption>
-        </SeatOptions>
-      </PersonnelWrapper>
-    </div>
+    <Wrapper>
+      <div>
+        <PersonnelSelect>1. 관람인원 선택</PersonnelSelect>
+        <MovieInfo>
+          <MovieOption>2D, 자막</MovieOption>
+          <MovieTitle>
+            <img src={MovieAge} style={{ marginRight: '0.6rem', height: '2rem' }}></img>블랙 팬서: 와칸다 포에버
+          </MovieTitle>
+        </MovieInfo>
+        <MovieTimePlace>
+          <MovieTime>
+            <Bolded>관람일시</Bolded>
+            2022. 11. 06 (수) 17:20~20:11
+          </MovieTime>
+          <MoviePlace>
+            <Bolded>관람장소</Bolded>
+            강남 4관 (11층 4관)
+          </MoviePlace>
+        </MovieTimePlace>
+        <PersonnelWrapper>
+          <SeatOptions>
+            <SeatOption>
+              <img src={General}></img>
+              <SeatOptionText>일반</SeatOptionText>
+            </SeatOption>
+            <SeatOption>
+              <img src={Disabled}></img>
+              <SeatOptionText>장애인</SeatOptionText>
+            </SeatOption>
+            <SeatOption>
+              <img src={Selected}></img>
+              <SeatOptionText>선택</SeatOptionText>
+            </SeatOption>
+            <SeatOption>
+              <img src={Impossible}></img>
+              <SeatOptionText>선택불가</SeatOptionText>
+            </SeatOption>
+            <SeatOption>
+              <img src={Sold}></img>
+              <SeatOptionText>예매완료</SeatOptionText>
+            </SeatOption>
+          </SeatOptions>
+          <PersonnelAdd>
+            <SelectionButton>
+              <SelectionText>성인</SelectionText>
+              <MinusButton></MinusButton>
+              <ButtonText>0</ButtonText>
+              <PlusButton></PlusButton>
+            </SelectionButton>
+            <SelectionButton>
+              <SelectionText>청소년</SelectionText>
+              <MinusButton></MinusButton>
+              <ButtonText>0</ButtonText>
+              <PlusButton></PlusButton>
+            </SelectionButton>
+            <SelectionButton>
+              <SelectionText>우대</SelectionText>
+              <MinusButton></MinusButton>
+              <ButtonText>0</ButtonText>
+              <PlusButton></PlusButton>
+            </SelectionButton>
+          </PersonnelAdd>
+        </PersonnelWrapper>
+      </div>
+      <SeatSelection>
+        <SeatSelectionTitle>2. 좌석 선택</SeatSelectionTitle>
+        <SeatImg></SeatImg>
+        <PaymentWrapper>
+          <Payment>
+            <PaymentText>예상 결제 금액</PaymentText>
+            <PaymentAmount>0</PaymentAmount>
+            <PaymentText>원</PaymentText>
+          </Payment>
+          <NextButton>다음</NextButton>
+        </PaymentWrapper>
+      </SeatSelection>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+`;
 
 const PersonnelSelect = styled.div`
   margin: 0rem 17.6rem 1.6rem 0.6rem;
@@ -122,16 +169,135 @@ const Bolded = styled.span`
 
 const PersonnelWrapper = styled.div`
   display: flex;
+  border: 1px solid ${({ theme }) => theme.colors.gray5};
+  margin-top: 1.6rem;
 `;
 
 const SeatOptions = styled.div`
   width: 12rem;
   height: 24.8rem;
   background-color: ${({ theme }) => theme.colors.footer};
-  margin-top: 1.6rem;
   padding-top: 3.2rem;
   padding-left: 1.6rem;
   padding-bottom: 3.2rem;
+  padding-bottom: 1.6rem;
 `;
 
-const SeatOption = styled.div``;
+const SeatOption = styled.div`
+  width: 9.6rem;
+  height: 2.4rem;
+  font: ${({ theme }) => theme.fonts.body1};
+  color: ${({ theme }) => theme.colors.gray1};
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+`;
+
+const SeatOptionText = styled.p`
+  margin-top: 0.3rem;
+  margin-left: 0.8rem;
+`;
+
+const PersonnelAdd = styled.div`
+  width: 19.6rem;
+  height: 24.8rem;
+  padding-top: 5.2rem;
+  padding-left: 1.5rem;
+`;
+
+const MinusButton = styled.button`
+  background-image: url(${MinusBtn});
+  width: 3.2rem;
+  height: 3.2rem;
+`;
+
+const PlusButton = styled.button`
+  background-image: url(${PlusBtn});
+  width: 3.2rem;
+  height: 3.2rem;
+`;
+
+const SelectionButton = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.4rem;
+`;
+
+const ButtonText = styled.div`
+  border-top: 1px solid ${({ theme }) => theme.colors.gray5};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray5};
+  font: ${({ theme }) => theme.fonts.body1};
+  color: ${({ theme }) => theme.colors.gray1};
+  width: 4rem;
+  height: 3.2rem;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.65rem; // 글자랑 버튼 수평 안맞아서 일단 0.65 줬음
+`;
+
+const SelectionText = styled.p`
+  width: 4.8rem;
+  margin-right: 0.4rem;
+  font: ${({ theme }) => theme.fonts.body1};
+  color: ${({ theme }) => theme.colors.gray1};
+  align-items: center;
+  padding-top: 0.3rem; // 글자랑 버튼 수평 안맞아서 일단 0.3 줬음
+`;
+
+const SeatSelection = styled.div`
+  width: 75.8rem;
+  height: 70rem;
+  margin-left: 2rem;
+`;
+
+const SeatSelectionTitle = styled.p`
+  color: ${({ theme }) => theme.colors.gray1};
+  font: ${({ theme }) => theme.fonts.headline3};
+  margin-bottom: 1.6rem;
+`;
+
+const SeatImg = styled.div`
+  width: 75.8rem;
+  height: 51.8rem;
+  background-image: url(${BlackSeats});
+  background-size: cover;
+`;
+
+const PaymentWrapper = styled.div`
+  display: flex;
+`;
+
+const Payment = styled.div`
+  width: 62.6rem;
+  height: 4.8rem;
+  background-color: ${({ theme }) => theme.colors.gray1};
+  display: flex;
+  padding-top: 1.3rem;
+  padding-left: 2.1rem;
+`;
+
+const NextButton = styled.button`
+  width: 13.2rem;
+  height: 4.8rem;
+  background-color: ${({ theme }) => theme.colors.gray4};
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.body1_bold};
+`;
+
+const PaymentText = styled.p`
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.body1};
+  margin-top: 0.5rem; // 높이 안맞아서 임의로 수정함
+`;
+
+const PaymentAmount = styled.p`
+  color: ${({ theme }) => theme.colors.sub_mint};
+  font: ${({ theme }) => theme.fonts.headline3};
+  margin-left: 1.6rem;
+  margin-top: 0.2rem; // 높이 안맞아서 임의로 수정함
+  margin-right: 0.4rem;
+  width: 8rem;
+  text-align: right;
+`;
