@@ -248,6 +248,7 @@ const BlackMiniNavWrapper = styled.div`
   height: 3.5rem;
   position: fixed;
   top: 0rem;
+  z-index: 1;
 `;
 
 const BlackMiniNav = styled.div`
@@ -255,4 +256,5 @@ const BlackMiniNav = styled.div`
   background-color: #444;
   position: fixed;
   top: 0rem;
+  z-index: 1;
 `;

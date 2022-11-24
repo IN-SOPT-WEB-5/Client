@@ -1,19 +1,7 @@
-//import Router from './Router';
-import GeneralNav from './@components/@common/GeneralNav';
-import styled from 'styled-components';
+import Router from './Router';
 
 function App() {
-  return (
-    <div>
-      <GeneralNav></GeneralNav>
-      <ScrollHelp></ScrollHelp>
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
-
-const ScrollHelp = styled.div`
-  width: 300rem;
-  height: 300rem;
-`;
