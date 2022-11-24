@@ -4,7 +4,7 @@ import BoxOffice from '../src/@components/boxoffice/Index';
 
 import BookingPage from './@components/BookingPage';
 import Landingpage from './@components/LandingPage';
-import SeatSelectingPage from './@components/SeatSelectingPage/SeatSelectingPage.jsx';
+import SeatSelectingPage from './@components/SeatSelectingPage/Index.jsx';
 
 export default function Router() {
   return (
