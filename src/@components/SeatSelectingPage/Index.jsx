@@ -25,7 +25,7 @@ const FastTicketing = styled.div`
 `;
 
 const ScrollHelp = styled.div`
-  height: 2000px;
+  height: 200rem;
 `;
 
 const Wrapper = styled.div`

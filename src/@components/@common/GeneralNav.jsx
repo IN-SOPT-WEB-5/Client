@@ -21,7 +21,7 @@ export default function GeneralNav() {
 
   const yScrollEvent = () => {
     const scroll = scrollRef.current.getBoundingClientRect();
-    //console.log(scroll);
+    console.log(scroll);
     //setHideElement(scroll.top <= 0);
     scroll.top <= 0 ? setHideElement(true) : setHideElement(false); //코드리뷰 반영!
   };
@@ -61,10 +61,10 @@ export default function GeneralNav() {
             </WhiteMiniNav>
           ) : (
             <BlackMiniNavWrapper>
-              <MiniNav background="#444" position="fixed" top="0rem">
+              <BlackMiniNav>
                 <HouseIconWrapper></HouseIconWrapper>
                 <GrayCrampWrapper></GrayCrampWrapper>
-              </MiniNav>
+              </BlackMiniNav>
             </BlackMiniNavWrapper>
           )}
         </MiniNav>
@@ -243,6 +243,16 @@ const WhiteMiniNav = styled.div`
 `;
 
 const BlackMiniNavWrapper = styled.div`
-  display: flex;
   background: #444;
+  width: 128rem;
+  height: 3.5rem;
+  position: fixed;
+  top: 0rem;
+`;
+
+const BlackMiniNav = styled.div`
+  display: flex;
+  background-color: #444;
+  position: fixed;
+  top: 0rem;
 `;
