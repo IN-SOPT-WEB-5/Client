@@ -1,10 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import Hover from './Hover';
+import axios from 'axios';
 
 function MovieCard({ movieData }) {
   const [isHover, setIsHover] = useState(false);
+
+  useEffect(() => {
+    getMovieData();
+  }, []);
+
+  const getMovieData = async () => {
+    const data = await axios.get('http://44.194.150.174:3000/movie');
+    //   .then((response) => {
+    //   console.log(response.data);
+    //   setMovieInforData({
+    //     title: response.data.title,
+    //   });
+    // }
+    // );
+    console.log(data);
+  };
   return (
     <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
       <div>
@@ -16,7 +34,7 @@ function MovieCard({ movieData }) {
         <Title>{movieData.title}</Title>
       </ContentsHead>
       <ContentsBody>
-        <Date>개봉일 {movieData.opingDate}</Date>
+        <Date>개봉일 {movieData.openingDate}</Date>
         <Rate>예매율 {movieData.ticketingRate}%</Rate>
       </ContentsBody>
       <ContentsFooter>
