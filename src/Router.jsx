@@ -9,7 +9,6 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/boxoffice" element={<BoxOffice />} />
 
         <Route path="/boxoffice" element={<BoxOffice />} />
 
