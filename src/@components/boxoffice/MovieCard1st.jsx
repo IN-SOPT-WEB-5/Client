@@ -10,7 +10,7 @@ function MovieCard1st({ movieData }) {
   // const title = '극장판 짱구는 못말려:···';
   // const OpeningDate = '2022.09.28';
   // const TicketingRate = '0.9';
-
+  console.log(movieData);
   return (
     <div>
       <div>
@@ -25,9 +25,9 @@ function MovieCard1st({ movieData }) {
         <Rate>예매율 {movieData.ticketingRate} %</Rate>
       </ContentsBody>
       <ContentsFooter>
-        <BtnImg src={movieData.ticketingBtn} />
-        <CinemaBtnImg src={movieData.CinemaBtn} />
-        <HeartBtnImg src={movieData.HeartBtn} />
+        <BtnImg src={movieData.ticketingBtn1st} />
+        <CinemaBtnImg src={movieData.cinemaBtn} />
+        <HeartBtnImg src={movieData.heartBtn} />
       </ContentsFooter>
     </div>
   );
