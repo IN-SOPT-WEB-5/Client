@@ -35,11 +35,11 @@ export default function PersonnelSelecting() {
         <MovieTimePlace>
           <MovieTime>
             <Bolded>관람일시</Bolded>
-            2022. 11. 06 (수) 17:20~20:11
+            2022. 11. 06 (수) {time}
           </MovieTime>
           <MoviePlace>
             <Bolded>관람장소</Bolded>
-            강남 4관 (11층 4관)
+            {seoulAera} 4관 (11층 4관)
           </MoviePlace>
         </MovieTimePlace>
         <PersonnelWrapper>
