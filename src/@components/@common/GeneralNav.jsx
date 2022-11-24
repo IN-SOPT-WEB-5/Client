@@ -61,15 +61,26 @@ export default function GeneralNav({ footprint1, footprint2 }) {
             <WhiteMiniNav>
               <HouseIconWrapper></HouseIconWrapper>
               <GrayCrampWrapper></GrayCrampWrapper>
-              {fprint1}
+              <FootprintTextWrapper>
+                <FootprintText>{fprint1}</FootprintText>
+              </FootprintTextWrapper>
               <GrayCrampWrapper></GrayCrampWrapper>
-              {fprint2}
+              <FootprintTextWrapper>
+                <FootprintText>{fprint2}</FootprintText>
+              </FootprintTextWrapper>
             </WhiteMiniNav>
           ) : (
             <BlackMiniNavWrapper>
               <BlackMiniNav>
                 <HouseIconWrapper></HouseIconWrapper>
                 <GrayCrampWrapper></GrayCrampWrapper>
+                <FootprintTextWrapper>
+                  <WhiteFootprintText>{fprint1}</WhiteFootprintText>
+                </FootprintTextWrapper>
+                <GrayCrampWrapper></GrayCrampWrapper>
+                <FootprintTextWrapper>
+                  <WhiteFootprintText>{fprint2}</WhiteFootprintText>
+                </FootprintTextWrapper>
               </BlackMiniNav>
             </BlackMiniNavWrapper>
           )}
@@ -263,4 +274,21 @@ const BlackMiniNav = styled.div`
   position: fixed;
   top: 0rem;
   z-index: 1;
+`;
+
+const FootprintTextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FootprintText = styled.p`
+  color: ${({ theme }) => theme.colors.gray3};
+  font: ${({ theme }) => theme.fonts.body2};
+  margin-right: 1rem;
+`;
+
+const WhiteFootprintText = styled.p`
+  color: ${({ theme }) => theme.colors.white};
+  font: ${({ theme }) => theme.fonts.body2};
+  margin-right: 1rem;
 `;
