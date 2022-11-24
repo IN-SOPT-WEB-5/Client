@@ -1,19 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import footer from '../../assets/footer/footer.png';
 
 function Footer() {
-  return (
-    <Wrapper>
-      <Menu></Menu>
-      <Info></Info>
-    </Wrapper>
-  );
+  return <Wrapper src={footer}></Wrapper>;
 }
 
 export default Footer;
 
-const Wrapper = styled.div``;
-
-const Menu = styled.div``;
-
-const Info = styled.div``;
+const Wrapper = styled.img`
+  width: 128rem;
+  height: 20rem;
+`;

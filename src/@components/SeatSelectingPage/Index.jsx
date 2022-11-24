@@ -1,7 +1,9 @@
 import React from 'react';
 import PersonnelSelecting from './PersonnelSelecting';
-import GeneralNav from '../@common/GeneralNav';
+import GeneralNav from '../@common/GeneralNav.jsx';
 import styled from 'styled-components';
+import Footer from '../@common/Footer.jsx';
+import { findByLabelText } from '@testing-library/react';
 
 export default function SeatSelectingPage() {
   return (
@@ -13,6 +15,9 @@ export default function SeatSelectingPage() {
           <PersonnelSelecting></PersonnelSelecting>
         </Wrapper>
       </WrapperWrapper>
+      <FooterWrapper>
+        <Footer></Footer>
+      </FooterWrapper>
     </>
   );
 }
@@ -41,4 +46,8 @@ const WrapperWrapper = styled.div`
   justify-content: center;
   background-color: #fff;
 `;
-//
+
+const FooterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
