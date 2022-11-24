@@ -11,11 +11,17 @@ import MinusBtn from '../../assets/seatSelectingPage/PersonnelSelecting/Buttons/
 import PlusBtn from '../../assets/seatSelectingPage/PersonnelSelecting/Buttons/PlusButton.svg';
 import BlackSeats from '../../assets/seatSelectingPage/PersonnelSelecting/BlackSeats.png';
 import Seats from '../../assets/seatSelectingPage/PersonnelSelecting/Seats.png';
+import { useLocation } from 'react-router-dom';
 
 export default function PersonnelSelecting() {
   const [adult, setAdult] = useState(0);
   const [teenager, setTeenager] = useState(0);
   const [briefs, setBriefs] = useState(0);
+
+  const location = useLocation();
+  const { seoulAera } = location.state;
+  const { time } = location.state;
+
   return (
     <Wrapper>
       <div>
