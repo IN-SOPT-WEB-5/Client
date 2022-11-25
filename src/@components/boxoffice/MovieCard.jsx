@@ -1,54 +1,40 @@
 import React from 'react';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import Hover from './Hover';
-import axios from 'axios';
 
-function MovieCard({ movieData }) {
+function MovieCard({ movieData, movie }) {
   const [isHover, setIsHover] = useState(false);
 
-  useEffect(() => {
-    getMovieData();
-  }, []);
-
-  const getMovieData = async () => {
-    const data = await axios.get('http://44.194.150.174:3000/movie');
-    //   .then((response) => {
-    //   console.log(response.data);
-    //   setMovieInforData({
-    //     title: response.data.title,
-    //   });
-    // }
-    // );
-    console.log(data);
-  };
   return (
-    <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
-      <div>
-        <PosterNum src={movieData.posterNum} />
-        <PosterImg src={movieData.image} />
-      </div>
-      <ContentsHead>
-        <AgeImg src={movieData.ageImage} />
-        <Title>{movieData.title}</Title>
-      </ContentsHead>
-      <ContentsBody>
-        <Date>개봉일 {movieData.openingDate}</Date>
-        <Rate>예매율 {movieData.ticketingRate}%</Rate>
-      </ContentsBody>
-      <ContentsFooter>
-        <BtnImg src={movieData.ticketingBtn} />
-        <HeartBtnImg src={movieData.heartBtn} />
-      </ContentsFooter>
-      {isHover ? (
-        <HoverEvent>
-          <Hover />
-        </HoverEvent>
-      ) : (
-        ''
-      )}
-    </Wrapper>
+    movie && (
+      <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
+        <div>
+          <PosterNum src={movieData.posterNum} />
+          <PosterImg src={movie.image} />
+        </div>
+        <ContentsHead>
+          {movie.ageLimit === 12 && <AgeImg src={movieData.ageImage} />}
+          {movie.ageLimit === 15 && <AgeImg src={movieData.ageImage} />}
+          <Title>{movie.movieTitle.slice(0, 10)}</Title>
+        </ContentsHead>
+        <ContentsBody>
+          <Date>개봉일 {movieData.openingDate}</Date>
+          <Rate>예매율 {movie.advanceRate}%</Rate>
+        </ContentsBody>
+        <ContentsFooter>
+          <BtnImg src={movieData.ticketingBtn} />
+          <HeartBtnImg src={movieData.heartBtn} />
+        </ContentsFooter>
+        {isHover ? (
+          <HoverEvent>
+            <Hover movie={movie} />
+          </HoverEvent>
+        ) : (
+          ''
+        )}
+      </Wrapper>
+    )
   );
 }
 

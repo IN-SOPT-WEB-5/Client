@@ -8,22 +8,22 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Hover from './Hover';
 
-function MovieCard1st({ movieData }) {
+function MovieCard1st({ movieData, movie }) {
   const [isHover, setIsHover] = useState(false);
-  console.log(movieData);
   return (
     <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
       <div>
         <PosterNum src={movieData.posterNum} />
-        <PosterImg src={movieData.image} />
+        <PosterImg src={movie.image} />
       </div>
       <ContentsHead>
-        <AgeImg src={movieData.ageImage} />
-        <Title>{movieData.title}</Title>
+        {movie.ageLimit === 12 && <AgeImg src={movieData.ageImage} />}
+        {movie.ageLimit === 15 && <AgeImg src={movieData.ageImage} />}
+        <Title>{movie.movieTitle.slice(0, 10)}</Title>
       </ContentsHead>
       <ContentsBody>
         <Date>개봉일 {movieData.openingDate}</Date>
-        <Rate>예매율 {movieData.ticketingRate} %</Rate>
+        <Rate>예매율 {movie.advanceRate} %</Rate>
       </ContentsBody>
       <ContentsFooter>
         <BtnImg src={movieData.ticketingBtn1st} />
@@ -32,7 +32,7 @@ function MovieCard1st({ movieData }) {
       </ContentsFooter>
       {isHover ? (
         <HoverEvent>
-          <Hover />
+          <Hover movie={movie} />
         </HoverEvent>
       ) : (
         ''
@@ -108,5 +108,7 @@ const Title = styled.span`
 const AgeImg = styled.img``;
 
 const PosterImg = styled.img`
+  width: 24.5rem;
+  height: 35.2rem;
   margin-top: 2.1rem;
 `;
