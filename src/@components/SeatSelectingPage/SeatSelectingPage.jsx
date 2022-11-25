@@ -1,6 +1,5 @@
 import React from 'react';
 import PersonnelSelecting from './PersonnelSelecting';
-import SeatSelecting from './SeatSelecting';
 import GeneralNav from '../@common/GeneralNav';
 import styled from 'styled-components';
 
@@ -23,10 +22,6 @@ const FastTicketing = styled.div`
   color: ${({ theme }) => theme.colors.gray1};
   font: ${({ theme }) => theme.fonts.headline3};
   height: 2.2rem;
-`;
-
-const ScrollHelp = styled.div`
-  height: 2000px;
 `;
 
 const Wrapper = styled.div`

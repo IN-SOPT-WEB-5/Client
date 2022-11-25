@@ -142,10 +142,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin-left: 5rem;
   }
-  .slick-prev::before,
-  .slick-next::before {
-    opacity: 0;
-    display: none;
-  }
+
   
 `;

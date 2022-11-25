@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Footer from '../@common/Footer';
+import GeneralNav from '../@common/GeneralNav';
 import Header from '../@common/Header';
 import Calendar from './Calendar';
 import QuickReserve from './QuickReserve';
@@ -7,7 +8,7 @@ import QuickReserve from './QuickReserve';
 export default function BookingPage() {
   return (
     <St.Root>
-      <Header />
+      <GeneralNav />
       <St.Title>빠른 예매</St.Title>
       <St.SubTitleWrapper>
         <St.SubTitle>날짜</St.SubTitle>

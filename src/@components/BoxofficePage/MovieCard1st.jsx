@@ -1,10 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-// import Poster from '../../assets/ImgPoster.png';
-// import Age from '../../assets/Age.svg';
-// import TicketingBtn from '../../assets/TicketingBtnS.svg';
-// import CinemaBtn from '../../assets/CinemaBtn.svg';
-// import HeartBtn from '../../assets/HeartBtn.svg';
 import styled from 'styled-components';
 import Hover from './Hover';
 

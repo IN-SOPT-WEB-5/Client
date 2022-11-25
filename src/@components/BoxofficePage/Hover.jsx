@@ -1,11 +1,8 @@
 import React from 'react';
-// import MovieCard from './MovieCard';
-// import { hoverData } from '../../constants/hoverData';
 import styled from 'styled-components';
 import OpacityBg from '../../assets/Opacity.png';
 
 function Hover({ movie }) {
-  // const HoverInfo = '“와칸다를 지켜라!”거대한 두 세계의 충돌, 운명을 건 최후의 전투가 시작된다!';
   return (
     <div>
       <HoverText>
@@ -19,7 +16,6 @@ function Hover({ movie }) {
         </HoverFooter>
       </HoverText>
 
-      {/* <MovieCard /> */}
       <Img src={OpacityBg} />
     </div>
   );

@@ -6,10 +6,16 @@ import Logo from '../../assets/header/purplelogo.svg';
 import MypageIcon from '../../assets/header/ic_my_black.svg';
 import HouseIcon from '../../assets/header/ic_home.svg';
 import GrayCramp from '../../assets/header/icn_cramp_gray.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function GeneralNav() {
   const [hideElement, setHideElement] = useState(false); //true 이면 요소가 천장에 닿았다는 것.
   const scrollRef = useRef(null);
+  const navigate = useNavigate();
+
+  function goMain() {
+    navigate('/');
+  }
 
   useEffect(() => {
     if (!scrollRef.current) return;
@@ -21,14 +27,12 @@ export default function GeneralNav() {
 
   const yScrollEvent = () => {
     const scroll = scrollRef.current.getBoundingClientRect();
-    //console.log(scroll);
-    //setHideElement(scroll.top <= 0);
+
     scroll.top <= 0 ? setHideElement(true) : setHideElement(false); //코드리뷰 반영!
   };
   return (
     <WrapperWrapper>
       <Wrapper>
-        {/*로그인 회원가입 있는 nav*/}
         <VipMenu>VIP LOUNGE</VipMenu>
         <MembershipMenu>멤버십</MembershipMenu>
         <CustomerCenterMenu>고객센터</CustomerCenterMenu>
@@ -45,7 +49,7 @@ export default function GeneralNav() {
         <Ticketing>예매</Ticketing>
         <Theater>극장</Theater>
         <LogoWrapper>
-          <img src={Logo} />
+          <img src={Logo} onClick={goMain} />
         </LogoWrapper>
         <Event>이벤트</Event>
         <Store>스토어</Store>
@@ -127,8 +131,6 @@ const TopMiniNavBlank = styled.div`
   height: 2.4rem;
 `;
 
-////////////////// from here nav
-
 const LogoWrapper = styled.div`
   position: relative;
   bottom: 1rem;
@@ -195,8 +197,6 @@ const Benefit = styled.p`
 
 const MypageWrapper = styled.div``;
 
-////////////////////////////////////// from here mini nav
-
 const MiniNav = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -206,17 +206,6 @@ const MiniNav = styled.div`
   background-color: ${({ theme }) => theme.colors.footer};
   border-top: 0.1rem solid #351f66;
 `;
-
-//////////////////// 시간 남으면 하기
-const MiniMovie = styled.p`
-  color: ${({ theme }) => theme.colors.gray3};
-`;
-
-const MiniWholeMovie = styled.p`
-  color: ${({ theme }) => theme.colors.gray3};
-`;
-
-////////////////
 
 const HouseIconWrapper = styled.div`
   margin: 1.3rem 1rem 1.25rem 9.6rem;
@@ -232,10 +221,6 @@ const GrayCrampWrapper = styled.div`
   background-size: cover;
   width: 0.4rem;
   height: 0.8rem;
-`;
-
-const ScrollHelp = styled.div`
-  height: 200rem;
 `;
 
 const WhiteMiniNav = styled.div`
