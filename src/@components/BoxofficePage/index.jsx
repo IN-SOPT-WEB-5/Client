@@ -8,7 +8,7 @@ import Footer from '../@common/Footer';
 function Index() {
   return (
     <Wrapper>
-      <GeneralNav />
+      <GeneralNav footprint1="영화" footprint2="전체영화" />
       <Nav />
       <MovieSelect />
       <Footer />
