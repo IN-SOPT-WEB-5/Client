@@ -2,6 +2,7 @@ import React from 'react';
 import PersonnelSelecting from './PersonnelSelecting';
 import GeneralNav from '../@common/GeneralNav';
 import styled from 'styled-components';
+import Footer from '../@common/Footer';
 
 export default function SeatSelectingPage() {
   return (
@@ -12,6 +13,7 @@ export default function SeatSelectingPage() {
           <FastTicketing>빠른예매</FastTicketing>
           <PersonnelSelecting></PersonnelSelecting>
         </Wrapper>
+        <Footer />
       </WrapperWrapper>
     </>
   );
@@ -34,7 +36,9 @@ const Wrapper = styled.div`
 
 const WrapperWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #fff;
 `;
 //

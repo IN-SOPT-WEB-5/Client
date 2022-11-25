@@ -203,6 +203,7 @@ export default function Curation() {
       try {
         const response = await axios.get('http://107.21.205.44:3000/curation');
         setCurations(response.data.data);
+        console.log(curations);
       } catch (e) {
         console.log(e);
       }
@@ -225,28 +226,32 @@ export default function Curation() {
           <MoreBtn>더보기+</MoreBtn>
         </TitleContianer>
         <MainSection>
-          {curations.length > 0 && <MainPoster src={curations[mainImage].image} alt="poster" />}
-          <MainDiscriptionBox>
-            <CategoryWrapper>
-              <CategoryIcon src={classicIcon} alt="classic" />
-              <CategoryTitle>메가박스가 엄선한 클래식 시리즈</CategoryTitle>
-            </CategoryWrapper>
-            <DiscriptionTitle>로열 오페라 하우스 ‘22~23 시즌</DiscriptionTitle>
-            <DiscriptionText>
-              메가박스 클래식 소사이어티의 새로운 프로그램을 소개합니다. <br /> 역대 가장 화려한 시즌을 맞이한 로열
-              오페라 하우스 2022/23 시즌!
-            </DiscriptionText>
-            <PeriodWrapper>
-              <PeriodTitle>상영 기간</PeriodTitle>
-              <PeriodText>
-                2022년 10월 31일 ~ 2023년 8월 14일 <br /> * 발레: 매주 월요일/일요일 상영
-              </PeriodText>
-            </PeriodWrapper>
-            <BtnWrapper>
-              <DetailBtn>상세보기</DetailBtn>
-              <TicketingBtn>예매하기</TicketingBtn>
-            </BtnWrapper>
-          </MainDiscriptionBox>
+          {curations.length > 0 && (
+            <>
+              <MainPoster src={curations[mainImage].image} alt="poster" />
+              <MainDiscriptionBox>
+                <CategoryWrapper>
+                  <CategoryIcon src={classicIcon} alt="classic" />
+                  <CategoryTitle>{curations[mainImage].description}</CategoryTitle>
+                </CategoryWrapper>
+                <DiscriptionTitle>{curations[mainImage].title}</DiscriptionTitle>
+                <DiscriptionText>
+                  메가박스 클래식 소사이어티의 새로운 프로그램을 소개합니다. <br /> 역대 가장 화려한 시즌을 맞이한 로열
+                  오페라 하우스 2022/23 시즌!
+                </DiscriptionText>
+                <PeriodWrapper>
+                  <PeriodTitle>상영 기간</PeriodTitle>
+                  <PeriodText>
+                    {curations[mainImage].screeningPeriod} <br /> * 발레: 매주 월요일/일요일 상영
+                  </PeriodText>
+                </PeriodWrapper>
+                <BtnWrapper>
+                  <DetailBtn>상세보기</DetailBtn>
+                  <TicketingBtn>예매하기</TicketingBtn>
+                </BtnWrapper>
+              </MainDiscriptionBox>
+            </>
+          )}
         </MainSection>
         <SliderContainer>
           <StyledSlider {...settings}>

@@ -1,7 +1,12 @@
 import React from 'react';
+import footer from '../../assets/footer.png';
 
 function Footer() {
-  return <div>Footer</div>;
+  return (
+    <>
+      <img src={footer} alt="footer" />
+    </>
+  );
 }
 
 export default Footer;

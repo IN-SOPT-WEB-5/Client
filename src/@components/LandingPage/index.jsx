@@ -3,6 +3,7 @@ import Benefits from './Benefits';
 import Curation from './Curation';
 import Guide from './Guide';
 import LandingNav from '../@common/LandingNav';
+import Footer from '../@common/Footer';
 
 export default function Landingpage() {
   return (
@@ -12,6 +13,7 @@ export default function Landingpage() {
       <Benefits />
       <Curation />
       <Guide />
+      <Footer />
     </>
   );
 }
