@@ -4,10 +4,13 @@ import { useState } from 'react';
 import Hover from './Hover';
 import twelveAge from '../../assets/AgeLimit12.png';
 import fiftinAge from '../../assets/AgeLimit15.png';
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function MovieCard(props) {
   const { movieData, movie } = props;
   const [isHover, setIsHover] = useState(false);
+  const navigate = useNavigate();
 
   return (
     movie && (
