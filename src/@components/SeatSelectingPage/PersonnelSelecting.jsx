@@ -19,11 +19,12 @@ export default function PersonnelSelecting() {
   const [briefs, setBriefs] = useState(0);
 
   const location = useLocation();
-  const { seoulAera } = location.state;
-  const { time } = location.state;
+  const { seoulArea } = location.state.seoulArea;
+  const { time } = location.state.time;
 
   return (
     <Wrapper>
+      {console.log('state', location.state.seoulArea)}
       <div>
         <PersonnelSelect>1. 관람인원 선택</PersonnelSelect>
         <MovieInfo>
@@ -35,11 +36,11 @@ export default function PersonnelSelecting() {
         <MovieTimePlace>
           <MovieTime>
             <Bolded>관람일시</Bolded>
-            2022. 11. 06 (수) {time}
+            2022. 11. 06 (수) {location.state.time}
           </MovieTime>
           <MoviePlace>
             <Bolded>관람장소</Bolded>
-            {seoulAera} 4관 (11층 4관)
+            {location.state.seoulArea} 4관 (11층 4관)
           </MoviePlace>
         </MovieTimePlace>
         <PersonnelWrapper>

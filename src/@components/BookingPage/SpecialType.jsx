@@ -10,12 +10,13 @@ export default function SpecialType() {
         <SpecialTypeIcon src={SpecialTheaterSvg} alt="특별관" />
         <Special>특별관</Special>
       </SpecialTypeWrapper>
+
       <TimeTypeBox>
         {timeTypeArr.map((timeType) => {
           return (
             <SpecialTypeWrapper key={timeType.name}>
               <SpecialTypeIcon src={timeType.icon} alt={timeType.name} />
-              <SpecialType>{timeType.name}</SpecialType>
+              <Special>{timeType.name}</Special>
             </SpecialTypeWrapper>
           );
         })}
