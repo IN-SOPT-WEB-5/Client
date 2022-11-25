@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import BoxOffice from './@components/BoxofficePage/index';
 import BookingPage from '../src/@components/BookingPage/index';
 import Landingpage from '../src/@components/LandingPage/index';
-import SeatSelectingPage from '../src/@components/SeatSelectingPage/SeatSelectingPage';
+import SeatSelectingPage from './@components/SeatSelectingPage/index';
 
 export default function Router() {
   return (
