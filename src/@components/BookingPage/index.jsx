@@ -7,7 +7,8 @@ import QuickReserve from './QuickReserve';
 export default function BookingPage() {
   return (
     <Root>
-      <GeneralNav />
+      <GeneralNav footprint1="예매" footprint2="빠른 예매" />
+      <Blank></Blank>
       <Title>빠른 예매</Title>
       <SubTitleWrapper>
         <SubTitle>날짜</SubTitle>
@@ -49,4 +50,9 @@ const SubTitle = styled.h2`
 const Month = styled.h3`
   ${({ theme }) => theme.fonts.body1}
   color: ${({ theme }) => theme.colors.gray1}
+`;
+
+const Blank = styled.div`
+  height: 3.6rem;
+  width: 128rem;
 `;
