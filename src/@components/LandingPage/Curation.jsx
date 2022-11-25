@@ -4,10 +4,11 @@ import poster from '../../assets/wacandaImg.png';
 import left from '../../assets/landingPage/leftBtn.svg';
 import right from '../../assets/landingPage/rightBtn.svg';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import api from '../../core/api/api';
 
 const Root = styled.section`
   height: 100rem;
@@ -167,12 +168,13 @@ const TicketingBtn = styled.button`
 const SliderContainer = styled.section`
   display: flex;
   justify-content: center;
+  flex-wrap: nowrap;
   /* align-items: center; */
 
   margin-top: 9.6rem;
 
   height: 22rem;
-  width: 100%;
+  /* width: 100%; */
 
   overflow: hidden;
 `;
@@ -203,24 +205,28 @@ const StyledSlider = styled(Slider)`
 
 export default function Curation() {
   const settings = {
-    dots: true,
+    rows: 1,
     infinite: true,
     speed: 500,
-    slidesToShow: 7,
+    slidesToShow: 6,
     slidesToScroll: 1,
-    arrows: true,
-    centerMode: false,
     arrow: true,
     nextArrow: <MoveBtn src={left} alt="left-btn" />,
     prevArrow: <MoveBtn src={right} alt="right-btn" />,
   };
 
-  async function test() {
-    const data = await axios.get('http://107.21.205.44:3000/rank');
-    console.log(data);
+  const [curations, setCurations] = useState([]);
+
+  async function getdata() {
+    const response = await api.getData('/curation');
+    setCurations(response);
+    console.log(response);
   }
 
-  test();
+  useEffect(() => {
+    getdata();
+  }, []);
+
   return (
     <Root>
       <TitleContianer>
@@ -259,13 +265,8 @@ export default function Curation() {
         {/* <div> */}
         <StyledSlider {...settings}>
           {/* <PosterContainer> */}
-          <PosterImage src={poster} alt="poster-img" />
-          <PosterImage src={poster} alt="poster-img" />
-          <PosterImage src={poster} alt="poster-img" />
-          <PosterImage src={poster} alt="poster-img" />
-          <PosterImage src={poster} alt="poster-img" />
-          <PosterImage src={poster} alt="poster-img" />
-          <PosterImage src={poster} alt="poster-img" />
+          {curations && curations.map((data) => <PosterImage src={data.image} alt="poster-img" key={data.id} />)}
+
           {/* </PosterContainer> */}
         </StyledSlider>
         {/* </div> */}

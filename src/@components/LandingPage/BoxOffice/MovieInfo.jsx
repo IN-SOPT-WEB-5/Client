@@ -5,6 +5,8 @@ import mxIcon from '../../../assets/mxIcon.svg';
 import dolbyIcon from '../../../assets/dolbyIcon.svg';
 import starIcon from '../../../assets/starIcon.svg';
 import { movieInfos } from '../../../core/movieInfos';
+import api from '../../../core/api/api';
+import { useEffect, useState } from 'react';
 
 const InfoContainer = styled.article`
   width: 24.5rem;
@@ -85,35 +87,48 @@ const TicketingPercent = styled.strong`
 `;
 
 export default function MovieInfo() {
-  return movieInfos.map((item, index) => (
-    <InfoContainer key={index}>
-      <MoviePoster src={item.moviePoster} alt="movie-poster"></MoviePoster>
-      <ButtonWrapper>
-        <TicketingBtn>예매</TicketingBtn>
-        <LikeBtn src={likeIcon} alt="like-icon" />
-      </ButtonWrapper>
-      {item.isRepresent ? (
-        <InfoBox>
-          <Dday>{item.Dday}</Dday>
-          <DivisionBar />
-          <TicketingPercent>예매율 {item.percent}</TicketingPercent>
-          <DivisionBar />
-          <InfoIcon src={mxIcon} alt="info-icon" />
-          <DivisionBar />
-          <InfoIcon src={dolbyIcon} alt="info-icon" />
-        </InfoBox>
-      ) : (
-        <InfoBox>
-          <StarBox>
-            <StarImg src={starIcon} />
-            <StarScore>{item.star}</StarScore>
-          </StarBox>
-          <DivisionBar />
-          <TicketingPercent>예매율 {item.percent}</TicketingPercent>
-          <DivisionBar />
-          <InfoIcon src={mxIcon} alt="info-icon" />
-        </InfoBox>
-      )}
-    </InfoContainer>
-  ));
+  const [movieData, setMovieData] = useState([]);
+  async function getdata() {
+    const response = await api.getData('/rank');
+    setMovieData(response);
+    console.log(response);
+  }
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  return (
+    movieData &&
+    movieData.map((item, index) => (
+      <InfoContainer key={index}>
+        <MoviePoster src={item.image} alt="movie-poster"></MoviePoster>
+        <ButtonWrapper>
+          <TicketingBtn>예매</TicketingBtn>
+          <LikeBtn src={likeIcon} alt="like-icon" />
+        </ButtonWrapper>
+        {item.rank === 1 ? (
+          <InfoBox>
+            <Dday>D-6</Dday>
+            <DivisionBar />
+            <TicketingPercent>예매율 {item.advanceRate}%</TicketingPercent>
+            <DivisionBar />
+            <InfoIcon src={mxIcon} alt="info-icon" />
+            <DivisionBar />
+            <InfoIcon src={dolbyIcon} alt="info-icon" />
+          </InfoBox>
+        ) : (
+          <InfoBox>
+            <StarBox>
+              <StarImg src={starIcon} />
+              <StarScore>{item.movieRating}</StarScore>
+            </StarBox>
+            <DivisionBar />
+            <TicketingPercent>예매율 {item.advanceRate} %</TicketingPercent>
+            <DivisionBar />
+            <InfoIcon src={mxIcon} alt="info-icon" />
+          </InfoBox>
+        )}
+      </InfoContainer>
+    ))
+  );
 }

@@ -4,6 +4,8 @@ import allMovieIcon from '../../../assets/allMovieIcon.svg';
 import scheduleIcon from '../../../assets/scheduleIcon.svg';
 import fastTicketing from '../../../assets/fastTicketingIcon.svg';
 import { movieInfos } from '../../../core/movieInfos';
+import api from '../../../core/api/api';
+import { useEffect, useState } from 'react';
 
 const Root = styled.section`
   background-color: ${({ theme }) => theme.colors.gray1};
