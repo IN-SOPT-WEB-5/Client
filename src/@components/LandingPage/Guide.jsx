@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import boutique from '../../assets/landingPage/guide_boutique.png';
 import comfort from '../../assets/landingPage/guide_comfort.png';
 import dolby from '../../assets/landingPage/guide_dolby.png';
@@ -11,7 +12,34 @@ import place from '../../assets/landingPage/btn_place.png';
 import rent from '../../assets/landingPage/btn_rent.png';
 import qa from '../../assets/landingPage/btn_qa.png';
 
-import styled from 'styled-components';
+export default function Guide() {
+  return (
+    <Root>
+      <TitleContainer>
+        <GuideTitle>메가박스 안내</GuideTitle>
+      </TitleContainer>
+      <GuideImageContainer>
+        <GuideImage src={dolby} alt="dolby" />
+        <GuideImage src={boutique} alt="boutique" />
+        <GuideImage src={mx} alt="mx" />
+        <GuideImage src={comfort} alt="comfort" />
+        <GuideImage src={puppy} alt="puppy" />
+        <GuideImage src={kids} alt="kids" />
+      </GuideImageContainer>
+      <TitleContainer>
+        <HelpTitle>도움이 필요하신가요?</HelpTitle>
+      </TitleContainer>
+      <HelpImageContainer>
+        <HelpImage src={call} alt="call" />
+        <HelpImage src={qa} alt="qa" />
+        <HelpImage src={help} alt="help" />
+        <HelpImage src={rent} alt="rent" />
+        <HelpImage src={lost} alt="lost" />
+        <HelpImage src={place} alt="place" />
+      </HelpImageContainer>
+    </Root>
+  );
+}
 
 const Root = styled.section`
   height: 90rem;
@@ -52,32 +80,3 @@ const HelpImageContainer = styled.section`
 `;
 
 const HelpImage = styled.img``;
-
-export default function Guide() {
-  return (
-    <Root>
-      <TitleContainer>
-        <GuideTitle>메가박스 안내</GuideTitle>
-      </TitleContainer>
-      <GuideImageContainer>
-        <GuideImage src={dolby} alt="dolby" />
-        <GuideImage src={boutique} alt="boutique" />
-        <GuideImage src={mx} alt="mx" />
-        <GuideImage src={comfort} alt="comfort" />
-        <GuideImage src={puppy} alt="puppy" />
-        <GuideImage src={kids} alt="kids" />
-      </GuideImageContainer>
-      <TitleContainer>
-        <HelpTitle>도움이 필요하신가요?</HelpTitle>
-      </TitleContainer>
-      <HelpImageContainer>
-        <HelpImage src={call} alt="call" />
-        <HelpImage src={qa} alt="qa" />
-        <HelpImage src={help} alt="help" />
-        <HelpImage src={rent} alt="rent" />
-        <HelpImage src={lost} alt="lost" />
-        <HelpImage src={place} alt="place" />
-      </HelpImageContainer>
-    </Root>
-  );
-}

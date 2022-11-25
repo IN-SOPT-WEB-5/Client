@@ -1,13 +1,62 @@
 import styled from 'styled-components';
-import wacanda from '../../../assets/wacandaImg.png';
 import likeIcon from '../../../assets/likeIcon.svg';
 import mxIcon from '../../../assets/mxIcon.svg';
 import dolbyIcon from '../../../assets/dolbyIcon.svg';
 import starIcon from '../../../assets/starIcon.svg';
-import { movieInfos } from '../../../core/movieInfos';
 import api from '../../../core/api/api';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+export default function MovieInfo() {
+  const [movieData, setMovieData] = useState([]);
+
+  useEffect(() => {
+    const getInfoData = async () => {
+      try {
+        const response = await axios.get(`http://107.21.205.44:3000/rank`);
+        setMovieData(response.data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getInfoData();
+  }, []);
+
+  return (
+    movieData &&
+    movieData.map((item, index) => (
+      <InfoContainer key={index}>
+        <MoviePoster src={item.image} alt="movie-poster"></MoviePoster>
+        <ButtonWrapper>
+          <TicketingBtn>예매</TicketingBtn>
+          <LikeBtn src={likeIcon} alt="like-icon" />
+        </ButtonWrapper>
+        {item.rank === 1 ? (
+          <InfoBox>
+            <Dday>D-6</Dday>
+            <DivisionBar />
+            <TicketingPercent>예매율 {item.advanceRate}%</TicketingPercent>
+            <DivisionBar />
+            <InfoIcon src={mxIcon} alt="info-icon" />
+            <DivisionBar />
+            <InfoIcon src={dolbyIcon} alt="info-icon" />
+          </InfoBox>
+        ) : (
+          <InfoBox>
+            <StarBox>
+              <StarImg src={starIcon} />
+              <StarScore>{item.movieRating}</StarScore>
+            </StarBox>
+            <DivisionBar />
+            <TicketingPercent>예매율 {item.advanceRate} %</TicketingPercent>
+            <DivisionBar />
+            <InfoIcon src={mxIcon} alt="info-icon" />
+          </InfoBox>
+        )}
+      </InfoContainer>
+    ))
+  );
+}
 
 const InfoContainer = styled.article`
   width: 24.5rem;
@@ -86,63 +135,3 @@ const StarScore = styled.strong`
 const TicketingPercent = styled.strong`
   font: ${({ theme }) => theme.fonts.body2};
 `;
-
-export default function MovieInfo() {
-  const [movieData, setMovieData] = useState([]);
-  async function getdata() {
-    const response = await api.getData('/rank');
-    setMovieData(response);
-    console.log(response);
-  }
-  useEffect(() => {
-    getdata();
-  }, []);
-
-  useEffect(() => {
-    const fetchMovieData = async () => {
-      try {
-        const response = await axios.get(`http://107.21.205.44:3000/rank`);
-        setMovieData(response.data.data);
-        console.log(response.data.data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchMovieData();
-  }, []);
-
-  return (
-    movieData &&
-    movieData.map((item, index) => (
-      <InfoContainer key={index}>
-        <MoviePoster src={item.image} alt="movie-poster"></MoviePoster>
-        <ButtonWrapper>
-          <TicketingBtn>예매</TicketingBtn>
-          <LikeBtn src={likeIcon} alt="like-icon" />
-        </ButtonWrapper>
-        {item.rank === 1 ? (
-          <InfoBox>
-            <Dday>D-6</Dday>
-            <DivisionBar />
-            <TicketingPercent>예매율 {item.advanceRate}%</TicketingPercent>
-            <DivisionBar />
-            <InfoIcon src={mxIcon} alt="info-icon" />
-            <DivisionBar />
-            <InfoIcon src={dolbyIcon} alt="info-icon" />
-          </InfoBox>
-        ) : (
-          <InfoBox>
-            <StarBox>
-              <StarImg src={starIcon} />
-              <StarScore>{item.movieRating}</StarScore>
-            </StarBox>
-            <DivisionBar />
-            <TicketingPercent>예매율 {item.advanceRate} %</TicketingPercent>
-            <DivisionBar />
-            <InfoIcon src={mxIcon} alt="info-icon" />
-          </InfoBox>
-        )}
-      </InfoContainer>
-    ))
-  );
-}

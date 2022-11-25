@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import OpacityBg from '../../assets/Opacity.png';
 
-function Hover({ movie }) {
+function Hover(props) {
+  const { movie } = props;
+
   return (
     <div>
       <HoverText>
@@ -24,7 +26,7 @@ function Hover({ movie }) {
 export default Hover;
 
 const HoverTopItems = styled.div`
-  height: 240px;
+  height: 24rem;
 `;
 
 const RatingCount = styled.p`

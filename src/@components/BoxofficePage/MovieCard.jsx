@@ -1,11 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
 import styled from 'styled-components';
+import { useState } from 'react';
 import Hover from './Hover';
 import twelveAge from '../../assets/AgeLimit12.png';
 import fiftinAge from '../../assets/AgeLimit15.png';
 
-function MovieCard({ movieData, movie }) {
+function MovieCard(props) {
+  const { movieData, movie } = props;
   const [isHover, setIsHover] = useState(false);
 
   return (

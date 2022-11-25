@@ -3,8 +3,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Hover from './Hover';
 
-function MovieCard1st({ movieData, movie }) {
+function MovieCard1st(props) {
+  const { movieData, movie } = props;
   const [isHover, setIsHover] = useState(false);
+
   return (
     <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
       <div>

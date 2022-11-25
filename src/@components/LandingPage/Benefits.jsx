@@ -8,6 +8,42 @@ import card from '../../assets/landingPage/cardIcon.png';
 import gift from '../../assets/landingPage/giftIcon.png';
 import store from '../../assets/landingPage/storeIcon.png';
 
+export default function Benefits() {
+  return (
+    <Root>
+      <TitleContainer>
+        <BenefitTitle>혜택</BenefitTitle>
+        <MoreBtn>더보기 +</MoreBtn>
+      </TitleContainer>
+      <MainBanner src={mainBanner} alt="main-banner" />
+      <SubBannerContainer>
+        <SubBanner src={payBanner} alt="pay-banner" />
+        <SubBanner src={carBanner} alt="car-banner" />
+        <SubBanner src={movieBanner} alt="movie-banner" />
+      </SubBannerContainer>
+      <CategoryBackground>
+        <CategoryContainer>
+          <BenefitsCategory>
+            <img src={membership} alt="membership" />
+            <CategoryText>멤버십</CategoryText>
+          </BenefitsCategory>
+          <BenefitsCategory>
+            <img src={card} alt="card" />
+            <CategoryText>할인카드안내</CategoryText>
+          </BenefitsCategory>
+          <BenefitsCategory>
+            <img src={gift} alt="gift" />
+            <CategoryText>이벤트</CategoryText>
+          </BenefitsCategory>
+          <BenefitsCategory>
+            <img src={store} alt="store" />
+            <CategoryText>스토어</CategoryText>
+          </BenefitsCategory>
+        </CategoryContainer>
+      </CategoryBackground>
+    </Root>
+  );
+}
 const Root = styled.section`
   height: 83.2rem;
 
@@ -83,40 +119,3 @@ const CategoryText = styled.strong`
   font: ${({ theme }) => theme.fonts.body1};
   color: ${({ theme }) => theme.colors.white};
 `;
-
-export default function Benefits() {
-  return (
-    <Root>
-      <TitleContainer>
-        <BenefitTitle>혜택</BenefitTitle>
-        <MoreBtn>더보기 +</MoreBtn>
-      </TitleContainer>
-      <MainBanner src={mainBanner} alt="main-banner" />
-      <SubBannerContainer>
-        <SubBanner src={payBanner} alt="pay-banner" />
-        <SubBanner src={carBanner} alt="car-banner" />
-        <SubBanner src={movieBanner} alt="movie-banner" />
-      </SubBannerContainer>
-      <CategoryBackground>
-        <CategoryContainer>
-          <BenefitsCategory>
-            <img src={membership} alt="membership" />
-            <CategoryText>멤버십</CategoryText>
-          </BenefitsCategory>
-          <BenefitsCategory>
-            <img src={card} alt="card" />
-            <CategoryText>할인카드안내</CategoryText>
-          </BenefitsCategory>
-          <BenefitsCategory>
-            <img src={gift} alt="gift" />
-            <CategoryText>이벤트</CategoryText>
-          </BenefitsCategory>
-          <BenefitsCategory>
-            <img src={store} alt="store" />
-            <CategoryText>스토어</CategoryText>
-          </BenefitsCategory>
-        </CategoryContainer>
-      </CategoryBackground>
-    </Root>
-  );
-}

@@ -1,12 +1,46 @@
-import MovieInfo from './MovieInfo';
 import styled from 'styled-components';
+import MovieInfo from './MovieInfo';
 import allMovieIcon from '../../../assets/allMovieIcon.svg';
 import scheduleIcon from '../../../assets/scheduleIcon.svg';
 import fastTicketing from '../../../assets/fastTicketingIcon.svg';
-import { movieInfos } from '../../../core/movieInfos';
-import api from '../../../core/api/api';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+export default function BoxOffice() {
+  const navigate = useNavigate();
+
+  function goBoxofficePage() {
+    navigate('/boxoffice');
+  }
+
+  return (
+    <Root>
+      <MovieCategoryBox>
+        <MovieCategory isSelected={true}>박스오피스</MovieCategory>
+        <DivisionBar></DivisionBar>
+        <MovieCategory isSelected={false}>상영예정작</MovieCategory>
+      </MovieCategoryBox>
+      <MovieInfoWrapper>
+        <MovieInfo />
+      </MovieInfoWrapper>
+      <SearchWrapper>
+        <SearchBox>
+          <SearchImage src={allMovieIcon} alt="search-link" />
+          <SearchLink>상영시간표</SearchLink>
+        </SearchBox>
+        <DivisionBar />
+        <SearchBox>
+          <SearchImage src={scheduleIcon} alt="search-link" />
+          <SearchLink>빠른예매</SearchLink>
+        </SearchBox>
+        <DivisionBar />
+        <SearchBox>
+          <SearchImage src={fastTicketing} alt="search-link" />
+          <SearchLink onClick={goBoxofficePage}>영화전체보기</SearchLink>
+        </SearchBox>
+      </SearchWrapper>
+    </Root>
+  );
+}
 
 const Root = styled.section`
   background-color: ${({ theme }) => theme.colors.gray1};
@@ -68,40 +102,3 @@ const SearchLink = styled.strong`
 
   cursor: pointer;
 `;
-
-export default function BoxOffice() {
-  const navigate = useNavigate();
-
-  function goBoxofficePage() {
-    navigate('/boxoffice');
-  }
-
-  return (
-    <Root>
-      <MovieCategoryBox>
-        <MovieCategory isSelected={true}>박스오피스</MovieCategory>
-        <DivisionBar></DivisionBar>
-        <MovieCategory isSelected={false}>상영예정작</MovieCategory>
-      </MovieCategoryBox>
-      <MovieInfoWrapper>
-        <MovieInfo />
-      </MovieInfoWrapper>
-      <SearchWrapper>
-        <SearchBox>
-          <SearchImage src={allMovieIcon} alt="search-link" />
-          <SearchLink>상영시간표</SearchLink>
-        </SearchBox>
-        <DivisionBar />
-        <SearchBox>
-          <SearchImage src={scheduleIcon} alt="search-link" />
-          <SearchLink>빠른예매</SearchLink>
-        </SearchBox>
-        <DivisionBar />
-        <SearchBox>
-          <SearchImage src={fastTicketing} alt="search-link" />
-          <SearchLink onClick={goBoxofficePage}>영화전체보기</SearchLink>
-        </SearchBox>
-      </SearchWrapper>
-    </Root>
-  );
-}

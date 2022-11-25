@@ -1,8 +1,8 @@
+import styled from 'styled-components';
 import { React, useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import TopBtn from './TopBtn';
 import { movieData } from '../../core/movieData';
-import styled from 'styled-components';
 import AddMovieBtn from '../../assets/AddMovieBtn.png';
 import MovieCard1st from './MovieCard1st';
 import axios from 'axios';
@@ -12,23 +12,16 @@ function MovieSelect() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchMovieData = async () => {
-      setLoading(true);
+    const getMovieData = async () => {
       try {
         const response = await axios.get(`http://107.21.205.44:3000/movie`);
         setData(response.data.data);
-        console.log(response.data.data);
       } catch (e) {
         console.log(e);
       }
-      setLoading(false);
     };
-    fetchMovieData();
+    getMovieData();
   }, []);
-
-  if (loading) {
-    return <div>로딩중</div>;
-  }
 
   if (!data) {
     return null;

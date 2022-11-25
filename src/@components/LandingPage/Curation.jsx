@@ -1,11 +1,86 @@
 import styled from 'styled-components';
 import classicIcon from '../../assets/landingPage/classicIcon.svg';
-import poster from '../../assets/wacandaImg.png';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
 import Slider from 'react-slick';
 
+export default function Curation() {
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    arrows: true,
+  };
+  const [curations, setCurations] = useState([]);
+  const [mainImage, setMainImage] = useState(0);
+
+  useEffect(() => {
+    async function getCurationData() {
+      try {
+        const response = await axios.get('http://107.21.205.44:3000/curation');
+        setCurations(response.data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    getCurationData();
+  }, []);
+
+  function changeMainImage(id) {
+    setMainImage(id);
+  }
+
+  return (
+    curations && (
+      <Root>
+        <TitleContianer>
+          <TextWrapper>
+            <CurationTitle>큐레이션</CurationTitle>
+            <TitleDiscription>멤버십 회원을 위한 특별한 추천!</TitleDiscription>
+          </TextWrapper>
+          <MoreBtn>더보기+</MoreBtn>
+        </TitleContianer>
+        <MainSection>
+          {curations.length > 0 && (
+            <>
+              <MainPoster src={curations[mainImage].image} alt="poster" />
+              <MainDiscriptionBox>
+                <CategoryWrapper>
+                  <CategoryIcon src={classicIcon} alt="classic" />
+                  <CategoryTitle>{curations[mainImage].description}</CategoryTitle>
+                </CategoryWrapper>
+                <DiscriptionTitle>{curations[mainImage].title}</DiscriptionTitle>
+                <DiscriptionText>
+                  메가박스 클래식 소사이어티의 새로운 프로그램을 소개합니다. <br /> 역대 가장 화려한 시즌을 맞이한 로열
+                  오페라 하우스 2022/23 시즌!
+                </DiscriptionText>
+                <PeriodWrapper>
+                  <PeriodTitle>상영 기간</PeriodTitle>
+                  <PeriodText>
+                    {curations[mainImage].screeningPeriod} <br /> * 발레: 매주 월요일/일요일 상영
+                  </PeriodText>
+                </PeriodWrapper>
+                <BtnWrapper>
+                  <DetailBtn>상세보기</DetailBtn>
+                  <TicketingBtn>예매하기</TicketingBtn>
+                </BtnWrapper>
+              </MainDiscriptionBox>
+            </>
+          )}
+        </MainSection>
+        <SliderContainer>
+          <StyledSlider {...settings}>
+            {curations &&
+              curations.map((data, index) => (
+                <PosterImage src={data.image} alt="poster-img" key={data.id} onClick={() => changeMainImage(index)} />
+              ))}
+          </StyledSlider>
+        </SliderContainer>
+      </Root>
+    )
+  );
+}
 const Root = styled.section`
   height: 100rem;
 
@@ -185,83 +260,3 @@ const PosterImage = styled.img`
 const StyledSlider = styled(Slider)`
   overflow: hidden;
 `;
-
-export default function Curation() {
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    arrows: true,
-  };
-
-  const [curations, setCurations] = useState([]);
-  const [mainImage, setMainImage] = useState(0);
-
-  useEffect(() => {
-    async function getCurationData() {
-      try {
-        const response = await axios.get('http://107.21.205.44:3000/curation');
-        setCurations(response.data.data);
-        console.log(curations);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    getCurationData();
-  }, []);
-
-  function changeMainImage(id) {
-    setMainImage(id);
-  }
-
-  return (
-    curations && (
-      <Root>
-        <TitleContianer>
-          <TextWrapper>
-            <CurationTitle>큐레이션</CurationTitle>
-            <TitleDiscription>멤버십 회원을 위한 특별한 추천!</TitleDiscription>
-          </TextWrapper>
-          <MoreBtn>더보기+</MoreBtn>
-        </TitleContianer>
-        <MainSection>
-          {curations.length > 0 && (
-            <>
-              <MainPoster src={curations[mainImage].image} alt="poster" />
-              <MainDiscriptionBox>
-                <CategoryWrapper>
-                  <CategoryIcon src={classicIcon} alt="classic" />
-                  <CategoryTitle>{curations[mainImage].description}</CategoryTitle>
-                </CategoryWrapper>
-                <DiscriptionTitle>{curations[mainImage].title}</DiscriptionTitle>
-                <DiscriptionText>
-                  메가박스 클래식 소사이어티의 새로운 프로그램을 소개합니다. <br /> 역대 가장 화려한 시즌을 맞이한 로열
-                  오페라 하우스 2022/23 시즌!
-                </DiscriptionText>
-                <PeriodWrapper>
-                  <PeriodTitle>상영 기간</PeriodTitle>
-                  <PeriodText>
-                    {curations[mainImage].screeningPeriod} <br /> * 발레: 매주 월요일/일요일 상영
-                  </PeriodText>
-                </PeriodWrapper>
-                <BtnWrapper>
-                  <DetailBtn>상세보기</DetailBtn>
-                  <TicketingBtn>예매하기</TicketingBtn>
-                </BtnWrapper>
-              </MainDiscriptionBox>
-            </>
-          )}
-        </MainSection>
-        <SliderContainer>
-          <StyledSlider {...settings}>
-            {curations &&
-              curations.map((data, index) => (
-                <PosterImage src={data.image} alt="poster-img" key={data.id} onClick={() => changeMainImage(index)} />
-              ))}
-          </StyledSlider>
-        </SliderContainer>
-      </Root>
-    )
-  );
-}

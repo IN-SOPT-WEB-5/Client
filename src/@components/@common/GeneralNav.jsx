@@ -9,12 +9,18 @@ import GrayCramp from '../../assets/header/icn_cramp_gray.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function GeneralNav() {
-  const [hideElement, setHideElement] = useState(false); //true 이면 요소가 천장에 닿았다는 것.
+  const [hideElement, setHideElement] = useState(false);
   const scrollRef = useRef(null);
   const navigate = useNavigate();
 
   function goMain() {
     navigate('/');
+  }
+
+  function yScrollEvent() {
+    const scroll = scrollRef.current.getBoundingClientRect();
+
+    scroll.top <= 0 ? setHideElement(true) : setHideElement(false); //코드리뷰 반영!
   }
 
   useEffect(() => {
@@ -25,11 +31,6 @@ export default function GeneralNav() {
     };
   }, [scrollRef.current]);
 
-  const yScrollEvent = () => {
-    const scroll = scrollRef.current.getBoundingClientRect();
-
-    scroll.top <= 0 ? setHideElement(true) : setHideElement(false); //코드리뷰 반영!
-  };
   return (
     <WrapperWrapper>
       <Wrapper>

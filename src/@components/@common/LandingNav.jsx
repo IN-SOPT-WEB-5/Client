@@ -8,9 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LandingNav() {
   const navigate = useNavigate();
+
   function goMain() {
     navigate('/');
   }
+
   return (
     <WrapperWrapper>
       <Wrapper>

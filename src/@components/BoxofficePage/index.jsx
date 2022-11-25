@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import React from 'react';
 import MovieSelect from './MovieSelect';
 import Nav from './Nav';
-import styled from 'styled-components';
 import GeneralNav from '../@common/GeneralNav';
 import Footer from '../@common/Footer';
 
