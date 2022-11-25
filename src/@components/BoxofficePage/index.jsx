@@ -1,13 +1,13 @@
 import React from 'react';
 import MovieSelect from './MovieSelect';
 import Nav from './Nav';
-import Header from '../@common/Header';
 import styled from 'styled-components';
+import GeneralNav from '../@common/GeneralNav';
 
 function Index() {
   return (
     <Wrapper>
-      <Header />
+      <GeneralNav />
       <Nav />
       <MovieSelect />
     </Wrapper>

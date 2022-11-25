@@ -24,44 +24,69 @@ const NavTitle = styled.p`
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 4.6rem;
+
+  margin-top: 3.6rem;
 `;
 
 const NavBtn = styled.button`
-  /* border: 1px solid #a7a7a7; */
   margin: 0%;
   width: 111rem;
-  /* height: 39px; */
+  height: 3.9rem;
   text-align: left;
   display: flex;
   justify-content: space-around;
+
+  border-bottom: solid 0.1rem ${({ theme }) => theme.colors.gray1};
 `;
 
-const BoxOfficeBtn = styled.button`
+const BoxOfficeBtn = styled.div`
   font-size: 1.5rem;
-  /* margin: 0.8rem 7.7rem 0.8rem 7.6rem; */
   width: 22rem;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 0.1rem ${({ theme }) => theme.colors.gray1};
+  border-bottom: none;
 `;
 
-const UpComingBtn = styled.button`
+const UpComingBtn = styled.div`
   font-size: 1.5rem;
   width: 22rem;
-  /* margin: 0.8rem 15.9rem 0.8rem 7.7rem; */
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const SpecialFilmBtn = styled.button`
+const SpecialFilmBtn = styled.div`
   font-size: 1.5rem;
   width: 22rem;
-  /* margin: 0.8rem 14.6rem 0.8rem 0; */
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const FilmSocietyBtn = styled.button`
+const FilmSocietyBtn = styled.div`
   font-size: 1.5rem;
   width: 22rem;
-  /* margin: 0.8rem 15.3rem 0.8rem 0; */
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ClassicSocietyBtn = styled.button`
   font-size: 15px;
   width: 22rem;
-  /* margin: 0.8rem 12rem 0.8rem 0; */
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

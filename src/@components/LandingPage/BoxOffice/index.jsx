@@ -6,6 +6,7 @@ import fastTicketing from '../../../assets/fastTicketingIcon.svg';
 import { movieInfos } from '../../../core/movieInfos';
 import api from '../../../core/api/api';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Root = styled.section`
   background-color: ${({ theme }) => theme.colors.gray1};
@@ -64,9 +65,17 @@ const SearchImage = styled.img`
 
 const SearchLink = styled.strong`
   color: ${({ theme }) => theme.colors.white};
+
+  cursor: pointer;
 `;
 
 export default function BoxOffice() {
+  const navigate = useNavigate();
+
+  function goBoxofficePage() {
+    navigate('/boxoffice');
+  }
+
   return (
     <Root>
       <MovieCategoryBox>
@@ -90,7 +99,7 @@ export default function BoxOffice() {
         <DivisionBar />
         <SearchBox>
           <SearchImage src={fastTicketing} alt="search-link" />
-          <SearchLink>영화전체보기</SearchLink>
+          <SearchLink onClick={goBoxofficePage}>영화전체보기</SearchLink>
         </SearchBox>
       </SearchWrapper>
     </Root>

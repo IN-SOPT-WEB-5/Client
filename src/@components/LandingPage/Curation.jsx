@@ -1,14 +1,10 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import classicIcon from '../../assets/landingPage/classicIcon.svg';
 import poster from '../../assets/wacandaImg.png';
-import left from '../../assets/landingPage/leftBtn.svg';
-import right from '../../assets/landingPage/rightBtn.svg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import React, { Component } from 'react';
 import Slider from 'react-slick';
-import api from '../../core/api/api';
 
 const Root = styled.section`
   height: 100rem;
@@ -169,25 +165,12 @@ const SliderContainer = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  /* align-items: center; */
 
   margin-top: 9.6rem;
 
   height: 22rem;
-  /* width: 100%; */
 
   overflow: hidden;
-`;
-
-const MoveBtn = styled.img`
-  height: 4.4rem;
-  width: 4.4rem;
-`;
-
-const PosterContainer = styled.div`
-  /* width: 100rem; */
-  display: flex;
-  /* overflow: hidden; */
 `;
 
 const PosterImage = styled.img`
@@ -205,26 +188,26 @@ const StyledSlider = styled(Slider)`
 
 export default function Curation() {
   const settings = {
-    rows: 1,
     infinite: true,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
-    arrow: true,
-    nextArrow: <MoveBtn src={left} alt="left-btn" />,
-    prevArrow: <MoveBtn src={right} alt="right-btn" />,
+    arrows: true,
   };
 
   const [curations, setCurations] = useState([]);
 
-  async function getdata() {
-    const response = await api.getData('/curation');
-    setCurations(response);
-    console.log(response);
-  }
-
   useEffect(() => {
-    getdata();
+    const fetchMovieData = async () => {
+      try {
+        const response = await axios.get('http://107.21.205.44:3000/curation');
+        setCurations(response.data.data);
+        console.log(response.data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchMovieData();
   }, []);
 
   return (
@@ -261,16 +244,9 @@ export default function Curation() {
         </MainDiscriptionBox>
       </MainSection>
       <SliderContainer>
-        {/* <MoveBtn src={left} alt="left-btn" /> */}
-        {/* <div> */}
         <StyledSlider {...settings}>
-          {/* <PosterContainer> */}
           {curations && curations.map((data) => <PosterImage src={data.image} alt="poster-img" key={data.id} />)}
-
-          {/* </PosterContainer> */}
         </StyledSlider>
-        {/* </div> */}
-        {/* <MoveBtn src={right} alt="right-btn" /> */}
       </SliderContainer>
     </Root>
   );

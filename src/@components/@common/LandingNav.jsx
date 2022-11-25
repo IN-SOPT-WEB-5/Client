@@ -4,12 +4,16 @@ import Hamburger from '../../assets/header/navhamburger.svg';
 import SearchIcon from '../../assets/header/navsearchicon.svg';
 import Logo from '../../assets/header/navlogo.svg';
 import MypageIcon from '../../assets/header/navmypage.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function LandingNav() {
+  const navigate = useNavigate();
+  function goMain() {
+    navigate('/');
+  }
   return (
     <WrapperWrapper>
       <Wrapper>
-        {/*로그인 회원가입 있는 nav*/}
         <VipMenu>VIP LOUNGE</VipMenu>
         <MembershipMenu>멤버십</MembershipMenu>
         <CustomerCenterMenu>고객센터</CustomerCenterMenu>
@@ -26,7 +30,7 @@ export default function LandingNav() {
         <Ticketing>예매</Ticketing>
         <Theater>극장</Theater>
         <LogoWrapper>
-          <img src={Logo} />
+          <img src={Logo} onClick={goMain} />
         </LogoWrapper>
         <Event>이벤트</Event>
         <Store>스토어</Store>
@@ -93,8 +97,6 @@ const TopMiniNavBlank = styled.div`
   width: 79.3rem;
   height: 2.4rem;
 `;
-
-////////////////// from here nav
 
 const LogoWrapper = styled.div`
   position: relative;

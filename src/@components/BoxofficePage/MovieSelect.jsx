@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import TopBtn from './TopBtn';
-import { movieData } from '../../constants/movieData';
+import { movieData } from '../../core/movieData';
 import styled from 'styled-components';
 import AddMovieBtn from '../../assets/AddMovieBtn.png';
 import MovieCard1st from './MovieCard1st';
@@ -36,9 +36,6 @@ function MovieSelect() {
 
   return (
     <ItemsRepeat>
-      {/* {movieData.map((movieData) => (
-        <MovieCard movieData={movieData} key={movieData.id} />
-      ))} */}
       {data.map((movie, index) =>
         index === 0 ? (
           <MovieCard1st movieData={movieData[index]} movie={movie} key={index} />
@@ -46,7 +43,6 @@ function MovieSelect() {
           <MovieCard movieData={movieData[index]} movie={movie} key={index} />
         ),
       )}
-
       <AddMovieBtnImg src={AddMovieBtn} />
       <TopBtn />
     </ItemsRepeat>

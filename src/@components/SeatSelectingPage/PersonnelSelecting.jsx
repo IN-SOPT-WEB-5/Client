@@ -349,7 +349,7 @@ const PaymentAmount = styled.p`
   color: ${({ theme }) => theme.colors.sub_mint};
   font: ${({ theme }) => theme.fonts.headline3};
   margin-left: 1.6rem;
-  margin-top: 0.2rem; // 높이 안맞아서 임의로 수정함
+  margin-top: 0.2rem;
   margin-right: 0.4rem;
   width: 8rem;
   text-align: right;

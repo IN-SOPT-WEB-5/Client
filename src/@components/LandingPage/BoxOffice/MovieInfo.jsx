@@ -7,6 +7,7 @@ import starIcon from '../../../assets/starIcon.svg';
 import { movieInfos } from '../../../core/movieInfos';
 import api from '../../../core/api/api';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const InfoContainer = styled.article`
   width: 24.5rem;
@@ -95,6 +96,19 @@ export default function MovieInfo() {
   }
   useEffect(() => {
     getdata();
+  }, []);
+
+  useEffect(() => {
+    const fetchMovieData = async () => {
+      try {
+        const response = await axios.get(`http://107.21.205.44:3000/rank`);
+        setMovieData(response.data.data);
+        console.log(response.data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchMovieData();
   }, []);
 
   return (

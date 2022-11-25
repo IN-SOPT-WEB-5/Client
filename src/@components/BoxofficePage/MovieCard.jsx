@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Hover from './Hover';
+import twelveAge from '../../assets/AgeLimit12.png';
+import fiftinAge from '../../assets/AgeLimit15.png';
 
 function MovieCard({ movieData, movie }) {
   const [isHover, setIsHover] = useState(false);
@@ -14,8 +16,8 @@ function MovieCard({ movieData, movie }) {
           <PosterImg src={movie.image} />
         </div>
         <ContentsHead>
-          {movie.ageLimit === 12 && <AgeImg src={movieData.ageImage} />}
-          {movie.ageLimit === 15 && <AgeImg src={movieData.ageImage} />}
+          {movie.ageLimit === 12 && <AgeImg src={twelveAge} />}
+          {movie.ageLimit === 15 && <AgeImg src={fiftinAge} />}
           <Title>{movie.movieTitle.slice(0, 10)}</Title>
         </ContentsHead>
         <ContentsBody>
@@ -98,7 +100,10 @@ const Title = styled.span`
   margin-left: 1.2rem;
 `;
 
-const AgeImg = styled.img``;
+const AgeImg = styled.img`
+  height: 2.4rem;
+  width: 2.4rem;
+`;
 
 const PosterImg = styled.img`
   width: 24.5rem;
