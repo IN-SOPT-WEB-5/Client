@@ -4,19 +4,18 @@ import React from 'react';
 import styled from 'styled-components';
 import OpacityBg from '../../assets/Opacity.png';
 
-function Hover() {
-  const HoverInfo = '“와칸다를 지켜라!”거대한 두 세계의 충돌, 운명을 건 최후의 전투가 시작된다!';
-  const Rating = '8.5';
+function Hover({ movie }) {
+  // const HoverInfo = '“와칸다를 지켜라!”거대한 두 세계의 충돌, 운명을 건 최후의 전투가 시작된다!';
   return (
     <div>
       <HoverText>
         <HoverTopItems>
           <HoverHeader>기본정보</HoverHeader>
-          <HoverBody>{HoverInfo}</HoverBody>
+          <HoverBody>{movie.description}</HoverBody>
         </HoverTopItems>
         <HoverFooter>
           <RatingTitle>관람평</RatingTitle>
-          <RatingCount>{Rating}</RatingCount>
+          <RatingCount>{movie.movieRating}</RatingCount>
         </HoverFooter>
       </HoverText>
 
