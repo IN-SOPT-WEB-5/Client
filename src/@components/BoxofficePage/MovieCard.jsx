@@ -12,6 +12,10 @@ function MovieCard(props) {
   const [isHover, setIsHover] = useState(false);
   const navigate = useNavigate();
 
+  function goBooking() {
+    navigate('/booking');
+  }
+
   return (
     movie && (
       <Wrapper onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
@@ -29,7 +33,12 @@ function MovieCard(props) {
           <Rate>예매율 {movie.advanceRate}%</Rate>
         </ContentsBody>
         <ContentsFooter>
-          <BtnImg src={movieData.ticketingBtn} />
+          <BtnImg
+            src={movieData.ticketingBtn}
+            onClick={() => {
+              goBooking();
+            }}
+          />
           <HeartBtnImg src={movieData.heartBtn} />
         </ContentsFooter>
         {isHover ? (
